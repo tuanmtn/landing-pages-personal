@@ -1,0 +1,56 @@
+{
+  "en": {
+    "header": {
+      "hotline": "Sales Hotline",
+      "ecosystem": "Ecosystem",
+      "chitosan_hub": "Chitosan Hub"
+    },
+    "hero": {
+      "title": "Vietnam Food",
+      "tagline": "Sustaining our Future"
+    },
+    "about": {
+      "title": "Vietnam Food JSC.",
+      "description": "Vietnam Food (VNF) specializes in upcycling shrimp co-products into high-value ingredients. We employ bio-technological solutions to extract maximum nutritional value, driving a zero-waste future."
+    },
+    "ecosystem": {
+      "title": "Our Ecosystem",
+      "list_view": "LIST VIEW",
+      "tree_view": "TREE VIEW"
+    },
+    "footer": {
+      "sustaining": "Sustaining Our Future",
+      "contact_sales": "Contact Sales",
+      "locations": "Locations",
+      "information": "Information",
+      "copyright": "© 2025 Vietnam Food JSC. All Rights Reserved."
+    }
+  },
+  "vi": {
+    "header": {
+      "hotline": "Hotline Kinh Doanh",
+      "ecosystem": "Hệ Sinh Thái",
+      "chitosan_hub": "Cổng Chitosan"
+    },
+    "hero": {
+      "title": "Vietnam Food",
+      "tagline": "Kiến Tạo Tương Lai Bền Vững"
+    },
+    "about": {
+      "title": "Công Ty CP Vietnam Food.",
+      "description": "Vietnam Food (VNF) chuyên về tái chế phụ phẩm tôm thành các nguyên liệu giá trị cao. Chúng tôi ứng dụng công nghệ sinh học để chiết xuất tối đa giá trị dinh dưỡng, hướng tới tương lai không rác thải."
+    },
+    "ecosystem": {
+      "title": "Hệ Sinh Thái Của Chúng Tôi",
+      "list_view": "DẠNG DANH SÁCH",
+      "tree_view": "DẠNG SƠ ĐỒ"
+    },
+    "footer": {
+      "sustaining": "Kiến Tạo Tương Lai Bền Vững",
+      "contact_sales": "Liên Hệ Kinh Doanh",
+      "locations": "Địa Điểm",
+      "information": "Thông Tin",
+      "copyright": "© 2025 Vietnam Food JSC. Bản Quyền Thuộc Về Công Ty."
+    }
+  }
+}

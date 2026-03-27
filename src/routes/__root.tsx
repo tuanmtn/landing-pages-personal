@@ -1,8 +1,7 @@
-import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
-import { TanStackDevtools } from "@tanstack/react-devtools"
+import { HeadContent, Scripts, createRootRoute, useLocation } from "@tanstack/react-router"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import { LanguageProvider } from "../context/LanguageContext"
 
 import appCss from "../styles.css?url"
 
@@ -36,28 +35,22 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const { pathname } = useLocation()
+  const isEcosystem = pathname.startsWith('/ecosystem')
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
       </head>
       <body className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
-        <TanStackDevtools
-          config={{
-            position: "bottom-right",
-          }}
-          plugins={[
-            {
-              name: "Tanstack Router",
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
+        <LanguageProvider>
+          {!isEcosystem && <Header />}
+          <main className="flex-grow">
+            {children}
+          </main>
+          {!isEcosystem && <Footer />}
+        </LanguageProvider>
         <Scripts />
       </body>
     </html>
