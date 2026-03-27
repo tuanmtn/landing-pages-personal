@@ -1,0 +1,15 @@
+{
+  "short_name": "VNF",
+  "name": "Vietnam Food - VNF",
+  "icons": [
+    {
+      "src": "logo_dark.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1f5da0",
+  "background_color": "#ffffff"
+}
