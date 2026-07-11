@@ -1,0 +1,204 @@
+{
+  "en": {
+    "badge": "Product Portfolio",
+    "heroTitle": "Biomaterial Products",
+    "heroSub": "The Shrimp Biorefinery Platform enables the development of a diverse portfolio of biomaterials, bioactive ingredients, and advanced materials derived from shrimp by-products.",
+    "introDesc": "By integrating multiple technology platforms, Chitosan Valley produces materials and ingredients that support a wide range of industries, from agriculture and food systems to healthcare, environmental technologies, and advanced materials. These products are organized according to the six core technology platforms that form the foundation of the shrimp biorefinery system.",
+    "categoriesTitle": "Product Categories",
+    "categories": [
+      {
+        "id": "chitosan",
+        "title": "Chitin / Chitosan Materials",
+        "desc": "Chitin and chitosan are natural biopolymers derived from shrimp shells that possess unique functional properties such as biodegradability, antimicrobial activity, film-forming capability, and biocompatibility. These properties enable a wide range of applications in agriculture, food systems, environmental technologies, and biomedical materials.",
+        "listTitle": "Products",
+        "items": [
+          "Chitosan biostimulants",
+          "Seed coating materials",
+          "Antimicrobial food coatings",
+          "Biodegradable packaging films",
+          "Water treatment flocculants",
+          "Heavy metal adsorption materials",
+          "Biomedical biomaterials and hydrogels"
+        ],
+        "image": ""
+      },
+      {
+        "id": "protein",
+        "title": "Marine Protein & Peptide Ingredients",
+        "desc": "Shrimp-derived proteins can be converted into bioactive peptides and functional protein ingredients through enzymatic hydrolysis and bioprocessing technologies. These marine peptides offer nutritional and functional benefits for animal nutrition, aquaculture, and human health products.",
+        "listTitle": "Products",
+        "items": [
+          "Aquaculture feed peptides",
+          "Shrimp immune stimulants",
+          "Animal nutrition hydrolysates",
+          "Pet nutrition protein ingredients",
+          "Functional bioactive peptides",
+          "Fermentation and microbial growth nutrients"
+        ],
+        "image": ""
+      },
+      {
+        "id": "mineral",
+        "title": "Mineral Biomaterials",
+        "desc": "Shrimp shells contain significant mineral fractions, primarily calcium carbonate, which can be processed into valuable mineral materials. These materials can support agricultural applications, industrial uses, and biomedical technologies.",
+        "listTitle": "Products",
+        "items": [
+          "Calcium carbonate fillers",
+          "Nano-calcium mineral additives",
+          "Soil mineral amendments",
+          "Hydroxyapatite biomaterials",
+          "Bone graft materials",
+          "Dental remineralization materials"
+        ],
+        "image": ""
+      },
+      {
+        "id": "carbon",
+        "title": "Carbon-Based Advanced Materials",
+        "desc": "Through thermal conversion and nanomaterial synthesis technologies, shrimp biomass can be transformed into advanced carbon-based materials with applications in sensing technologies, environmental remediation, and energy-related systems.",
+        "listTitle": "Products",
+        "items": [
+          "Carbon quantum dots (CQDs)",
+          "Fluorescent sensing materials",
+          "Carbon nano-adsorbents",
+          "Environmental monitoring materials",
+          "Energy-related carbon materials"
+        ],
+        "image": ""
+      },
+      {
+        "id": "astaxanthin",
+        "title": "Astaxanthin & Carotenoid Ingredients",
+        "desc": "Shrimp by-products contain natural carotenoids such as astaxanthin, a powerful antioxidant widely used in aquaculture, human nutrition, and cosmetic formulations.",
+        "listTitle": "Products",
+        "items": [
+          "Aquaculture pigmentation additives",
+          "Antioxidant nutraceutical ingredients",
+          "Functional health supplements",
+          "Cosmetic antioxidant actives"
+        ],
+        "image": ""
+      },
+      {
+        "id": "lipid",
+        "title": "Marine Lipid Bioactives",
+        "desc": "Marine lipid platforms enable the extraction, refinement, and functionalization of bioactive lipid fractions such as phospholipids, omega fatty acids, and sterols from shrimp by-products. These functional lipids possess high nutritional and biochemical value, supporting applications in aquaculture, human nutrition, cosmetics, and advanced delivery systems.",
+        "listTitle": "Products",
+        "items": [
+          "Marine phospholipids and omega-rich lipid fractions",
+          "Functional lipid feeds for aquaculture",
+          "Performance-enhancing animal nutrition",
+          "Marine omega human supplements",
+          "Cosmetic lipid actives and skin barrier enhancers",
+          "Microencapsulated lipid delivery systems"
+        ],
+        "image": ""
+      }
+    ],
+    "portfolioTitle": "Platform Portfolio Perspective",
+    "portfolioDesc1": "The products developed within the shrimp biorefinery platform represent more than a collection of individual materials. Together they form a biomaterial portfolio capable of supporting multiple industries and markets.",
+    "portfolioDesc2": "By leveraging six technology platforms, Chitosan Valley can generate a wide spectrum of biomaterials and ingredients from a single biological resource. This multi-platform approach increases the value of shrimp biomass while enabling continuous innovation across agriculture, nutrition, healthcare, environmental technologies, and advanced materials. The portfolio will continue to evolve as new technologies and applications are developed within the shrimp biorefinery ecosystem.",
+    "back": "Back to Home"
+  },
+  "vi": {
+    "badge": "Danh mục sản phẩm",
+    "heroTitle": "Sản Phẩm Vật Liệu Sinh Học",
+    "heroSub": "Nền tảng Biorefinery Tôm cho phép phát triển một danh mục đa dạng các vật liệu sinh học, thành phần hoạt tính sinh học và vật liệu tiên tiến có nguồn gốc từ phụ phẩm tôm.",
+    "introDesc": "Bằng cách tích hợp nhiều nền tảng công nghệ, Chitosan Valley sản xuất ra các vật liệu và thành phần hỗ trợ nhiều ngành công nghiệp, từ nông nghiệp, hệ thống thực phẩm đến chăm sóc sức khỏe, công nghệ môi trường và vật liệu tiên tiến. Các sản phẩm này được tổ chức theo sáu nền tảng công nghệ cốt lõi cấu thành cốt lõi của hệ thống tinh chế sinh học tôm.",
+    "categoriesTitle": "Các Dòng Sản Phẩm",
+    "categories": [
+      {
+        "id": "chitosan",
+        "title": "Vật Liệu Chitin / Chitosan",
+        "desc": "Chitin và chitosan là các biopolymer tự nhiên có nguồn gốc từ vỏ tôm, sở hữu các đặc tính chức năng độc đáo như khả năng phân hủy sinh học, kháng khuẩn, tạo màng và tương thích sinh học. Các đặc tính này cho phép ứng dụng rộng rãi trong nông nghiệp, thực phẩm, môi trường và vật liệu y sinh.",
+        "listTitle": "Sản Phẩm Tiêu Biểu",
+        "items": [
+          "Chất kích thích sinh học (biostimulants) Chitosan",
+          "Vật liệu bọc hạt giống",
+          "Màng bọc thực phẩm kháng khuẩn",
+          "Màng bao bì phân hủy sinh học",
+          "Chất keo tụ xử lý nước",
+          "Vật liệu hấp phụ kim loại nặng",
+          "Vật liệu sinh học y sinh và hydrogel"
+        ],
+        "image": ""
+      },
+      {
+        "id": "protein",
+        "title": "Thành phần Protein & Phân tử Peptide Biển",
+        "desc": "Protein từ tôm có thể được chuyển hóa thành các peptide hoạt tính sinh học và thành phần protein chức năng thông qua quá trình thủy phân bằng enzyme và công nghệ xử lý sinh học. Các peptide biển này mang lại lợi ích dinh dưỡng và chức năng cho dinh dưỡng động vật, nuôi trồng thủy sản và sức khỏe con người.",
+        "listTitle": "Sản Phẩm Tiêu Biểu",
+        "items": [
+          "Peptide cho thức ăn thủy sản",
+          "Chất kích thích hệ miễn dịch cho tôm",
+          "Dịch thủy phân dinh dưỡng động vật",
+          "Thành phần protein cho thức ăn thú cưng",
+          "Peptide hoạt tính sinh học đa năng",
+          "Dưỡng chất cho lên men và nuôi cấy vi sinh"
+        ],
+        "image": ""
+      },
+      {
+        "id": "mineral",
+        "title": "Vật liệu Sinh khoáng",
+        "desc": "Vỏ tôm chứa một tỷ lệ khoáng chất đáng kể, chủ yếu là canxi cacbonat, có thể được xử lý thành các vật liệu khoáng có giá trị. Các vật liệu này có thể hỗ trợ các ứng dụng công nghiệp, nông nghiệp và y sinh học.",
+        "listTitle": "Sản Phẩm Tiêu Biểu",
+        "items": [
+          "Chất độn Canxi Cacbonat",
+          "Phụ gia khoáng Nano-canxi",
+          "Chất cải tạo khoáng chất đất",
+          "Vật liệu sinh học Hydroxyapatite",
+          "Vật liệu ghép xương",
+          "Vật liệu tái tạo men răng"
+        ],
+        "image": ""
+      },
+      {
+        "id": "carbon",
+        "title": "Vật liệu Tiên tiến nền Carbon",
+        "desc": "Thông qua quá trình chuyển hóa nhiệt và công nghệ tổng hợp vật liệu nano, sinh khối tôm có thể chuyển đổi thành các vật liệu nền carbon tiên tiến với các ứng dụng trong công nghệ cảm biến, xử lý môi trường và hệ thống năng lượng.",
+        "listTitle": "Sản Phẩm Tiêu Biểu",
+        "items": [
+          "Chấm lượng tử Carbon (CQDs)",
+          "Vật liệu cảm biến huỳnh quang",
+          "Chất hấp phụ nano Carbon",
+          "Vật liệu giám sát môi trường",
+          "Vật liệu Carbon liên quan đến năng lượng"
+        ],
+        "image": ""
+      },
+      {
+        "id": "astaxanthin",
+        "title": "Astaxanthin & Carotenoids",
+        "desc": "Phụ phẩm tôm chứa các carotenoid tự nhiên như astaxanthin, một chất chống oxy hóa mạnh mẽ được sử dụng rộng rãi trong nuôi trồng thủy sản, dinh dưỡng con người và công thức mỹ phẩm.",
+        "listTitle": "Sản Phẩm Tiêu Biểu",
+        "items": [
+          "Phụ gia tạo màu trong nuôi trồng thủy sản",
+          "Thành phần hỗn hợp chống oxy hóa",
+          "Thực phẩm chức năng",
+          "Hoạt chất chống oxy hóa cho mỹ phẩm"
+        ],
+        "image": ""
+      },
+      {
+        "id": "lipid",
+        "title": "Hoạt Chất Lipid Biển",
+        "desc": "Nền tảng lipid biển tập trung vào việc chiết xuất, tinh chế và chức năng hoá các phần lipid như phospholipid, axit béo omega và sterol từ phụ phẩm tôm. Các lipid chức năng này sở hữu giá trị dinh dưỡng và sinh hóa cao, hỗ trợ ứng dụng trong nuôi trồng thủy sản, dinh dưỡng con người, mỹ phẩm và các hệ thống phân phối thuốc tiên tiến.",
+        "listTitle": "Sản Phẩm Tiêu Biểu",
+        "items": [
+          "Phospholipid biển và phần lipid giàu Omega",
+          "Thức ăn lipid chức năng cho thủy sản",
+          "Dinh dưỡng động vật tăng hiệu suất",
+          "Thực phẩm bổ sung Omega biển cho người",
+          "Hoạt chất lipid mỹ phẩm và bảo vệ da",
+          "Hệ thống phân phối lipid vi bao"
+        ],
+        "image": ""
+      }
+    ],
+    "portfolioTitle": "Góc Nhìn Tổng Quan Về Danh Mục",
+    "portfolioDesc1": "Các sản phẩm được phát triển trong nền tảng tinh chế sinh khối tôm không chỉ là sự tập hợp của những vật liệu riêng lẻ. Cùng với nhau, chúng tạo thành một danh mục vật liệu sinh học khổng lồ, hỗ trợ đắc lực cho nhiều ngành công nghiệp và thị trường khác nhau.",
+    "portfolioDesc2": "Bằng cách tận dụng sáu nền tảng công nghệ, Chitosan Valley có thể tạo ra một phổ rộng các vật liệu và thành phần sinh học chỉ từ một nguồn tài nguyên sinh học duy nhất. Cách tiếp cận đa nền tảng này làm tăng giá trị của sinh khối tôm, đồng thời cho phép liên tục đổi mới trong nông nghiệp, dinh dưỡng, chăm sóc sức khỏe, công nghệ môi trường và vật liệu tinh kĩ. Danh mục này sẽ tiếp tục phát triển cùng các công nghệ mới được thương mại hóa trong hệ sinh thái Chitosan Valley.",
+    "back": "Quay lại Trang chủ"
+  }
+}

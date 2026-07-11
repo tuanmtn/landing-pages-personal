@@ -1,0 +1,160 @@
+{
+  "en": {
+    "badge": "Collaborate With Us",
+    "heroTitle": "Partnerships",
+    "heroSub": "The Shrimp Biorefinery Platform is built on collaboration. Transforming shrimp biomass into biomaterials, ingredients, and advanced technologies requires the integration of scientific research, industrial capability, and market development.",
+    "introDesc": "Chitosan Valley therefore operates as an open innovation platform that welcomes partnerships with universities, research institutions, industry partners, startups, and investors. Through collaboration, the platform aims to accelerate the development, scaling, and global adoption of shrimp-derived biomaterials and bio-based technologies.",
+    "sections": [
+      {
+        "id": "research",
+        "title": "Research Collaboration",
+        "desc": "Chitosan Valley actively collaborates with universities and research institutes to advance the scientific foundations of biomaterials and marine biotechnology. These collaborations support joint research programs, technology development projects, and knowledge exchange across multiple disciplines.",
+        "listTitle": "Collaboration Opportunities",
+        "items": [
+          "Joint research projects",
+          "Graduate and doctoral research programs",
+          "Laboratory collaboration",
+          "Scientific publications and knowledge exchange",
+          "International research partnerships"
+        ],
+        "image": ""
+      },
+      {
+        "id": "technology",
+        "title": "Technology Partnerships",
+        "desc": "Technology partnerships focus on developing new biomaterials, improving production processes, and expanding applications of shrimp-derived materials. By working with technology developers and industrial innovators, Chitosan Valley seeks to accelerate the development of new technologies and bring them to market more efficiently.",
+        "listTitle": "Collaboration Areas",
+        "items": [
+          "Biomaterial engineering",
+          "Bioprocess technologies",
+          "Nanomaterial development",
+          "Product formulation and application technologies",
+          "Technology licensing and co-development"
+        ],
+        "image": ""
+      },
+      {
+        "id": "industrial",
+        "title": "Industrial Partnerships",
+        "desc": "Industrial partnerships enable the translation of biomaterial technologies into scalable products and solutions for global markets. By collaborating with companies across agriculture, aquaculture, food systems, healthcare, environmental technologies, and advanced materials, the platform supports the commercialization of shrimp-derived technologies.",
+        "listTitle": "Partnership Areas",
+        "items": [
+          "Product development collaboration",
+          "Manufacturing and production partnerships",
+          "Supply chain integration",
+          "Market development and distribution"
+        ],
+        "image": ""
+      },
+      {
+        "id": "startup",
+        "title": "Startup & Innovation Collaboration",
+        "desc": "Chitosan Valley welcomes collaboration with startups and emerging technology companies working in biomaterials, biotechnology, sustainability, and advanced materials. The platform provides access to research expertise, biomaterial resources, and industry networks that can help accelerate innovation and commercialization.",
+        "listTitle": "Innovation Areas",
+        "items": [
+          "Bio-based materials startups",
+          "Agri-tech innovation",
+          "Environmental technology solutions",
+          "Advanced material technologies"
+        ],
+        "image": ""
+      },
+      {
+        "id": "investment",
+        "title": "Investment & Venture Opportunities",
+        "desc": "As technologies mature and markets develop, the shrimp biorefinery platform creates opportunities for new ventures and investment partnerships. Potential venture areas include sustainable agricultural inputs, aquaculture nutrition technologies, biomaterials, environmental technologies, and advanced materials derived from marine resources.",
+        "listTitle": "Venture Areas",
+        "items": [
+          "Sustainable agricultural inputs",
+          "Aquaculture nutrition technologies",
+          "Biomaterials and environmental tech",
+          "Marine resources advanced materials"
+        ],
+        "image": ""
+      }
+    ],
+    "workWithUsTitle": "Work With Us",
+    "workWithUsDesc1": "Chitosan Valley is an open platform for collaboration across science, industry, and innovation. Whether through research partnerships, technology collaboration, industrial alliances, or venture development, we welcome partners who share the vision of building sustainable industries based on marine biomaterials.",
+    "workWithUsDesc2": "Together, we can transform shrimp biomass into the foundation of a new generation of materials, technologies, and solutions.",
+    "back": "Back to Home"
+  },
+  "vi": {
+    "badge": "Hợp Tác Cùng Chúng Tôi",
+    "heroTitle": "Quan Hệ Đối Tác",
+    "heroSub": "Nền tảng Biorefinery Tôm được xây dựng dựa trên sự hợp tác. Việc chuyển hóa sinh khối tôm thành vật liệu sinh học, thành phần và công nghệ tiên tiến đòi hỏi sự tích hợp giữa nghiên cứu khoa học, năng lực công nghiệp và phát triển thị trường.",
+    "introDesc": "Do đó, Chitosan Valley hoạt động như một nền tảng đổi mới mở, chào đón quan hệ đối tác với các trường đại học, viện nghiên cứu, đối tác công nghiệp, công ty khởi nghiệp và nhà đầu tư. Thông qua hợp tác, nền tảng hướng tới mục tiêu đẩy nhanh sự phát triển, mở rộng quy mô và ứng dụng toàn cầu các vật liệu sinh học và công nghệ nguồn gốc sinh học từ tôm.",
+    "sections": [
+      {
+        "id": "research",
+        "title": "Hợp Tác Nghiên Cứu",
+        "desc": "Chitosan Valley tích cực hợp tác với các trường đại học và viện nghiên cứu để thúc đẩy nền tảng khoa học của vật liệu sinh học và công nghệ sinh học biển. Các hợp tác này hỗ trợ các chương trình nghiên cứu chung, dự án phát triển công nghệ và trao đổi kiến thức trên nhiều lĩnh vực.",
+        "listTitle": "Cơ Hội Hợp Tác",
+        "items": [
+          "Các dự án nghiên cứu chung",
+          "Chương trình nghiên cứu thạc sĩ và tiến sĩ",
+          "Hợp tác phòng thí nghiệm",
+          "Công bố khoa học và trao đổi kiến thức",
+          "Quan hệ đối tác nghiên cứu quốc tế"
+        ],
+        "image": ""
+      },
+      {
+        "id": "technology",
+        "title": "Hợp Tác Công Nghệ",
+        "desc": "Hợp tác công nghệ tập trung vào phát triển vật liệu sinh học mới, cải thiện quy trình sản xuất và mở rộng ứng dụng của vật liệu có nguồn gốc từ tôm. Bằng cách làm việc với các nhà phát triển công nghệ và đổi mới công nghiệp, Chitosan Valley tìm cách đẩy nhanh sự phát triển của công nghệ mới và đưa chúng ra thị trường hiệu quả hơn.",
+        "listTitle": "Lĩnh Vực Hợp Tác",
+        "items": [
+          "Kỹ thuật vật liệu sinh học",
+          "Công nghệ quy trình sinh học",
+          "Phát triển vật liệu nano",
+          "Công thức sản phẩm và công nghệ ứng dụng",
+          "Chuyển giao và đồng phát triển công nghệ"
+        ],
+        "image": ""
+      },
+      {
+        "id": "industrial",
+        "title": "Hợp Tác Công Nghiệp",
+        "desc": "Hợp tác công nghiệp cho phép chuyển giao công nghệ vật liệu sinh học thành các sản phẩm và giải pháp quy mô lớn cho thị trường toàn cầu. Bằng cách hợp tác với doanh nghiệp trong lĩnh vực nông nghiệp, nuôi trồng thủy sản, hệ thống thực phẩm, y tế, công nghệ môi trường và vật liệu tiên tiến, nền tảng hỗ trợ thương mại hóa các công nghệ bắt nguồn từ tôm.",
+        "listTitle": "Nhóm Hợp Tác",
+        "items": [
+          "Hợp tác phát triển sản phẩm",
+          "Hợp tác sản xuất và gia công",
+          "Tích hợp chuỗi cung ứng",
+          "Phát triển thị trường và phân phối"
+        ],
+        "image": ""
+      },
+      {
+        "id": "startup",
+        "title": "Hợp Tác Khởi Nghiệp & Đổi Mới",
+        "desc": "Chitosan Valley hoan nghênh sự hợp tác với các startup và công ty công nghệ mới nổi hoạt động trong lĩnh vực vật liệu sinh học, công nghệ sinh học, bền vững và vật liệu tiên tiến. Nền tảng cung cấp quyền truy cập vào chuyên môn nghiên cứu, tài nguyên vật liệu sinh học và mạng lưới ngành giúp đẩy nhanh quá trình đổi mới và thương mại hóa.",
+        "listTitle": "Lĩnh Vực Đổi Mới",
+        "items": [
+          "Startup vật liệu gốc sinh học",
+          "Đổi mới trong công nghệ nông nghiệp (Agri-tech)",
+          "Giải pháp công nghệ môi trường",
+          "Công nghệ vật liệu cực kì tiên tiến"
+        ],
+        "image": ""
+      },
+      {
+        "id": "investment",
+        "title": "Cơ Hội Đầu Tư & Liên Doanh",
+        "desc": "Khi công nghệ trưởng thành và thị trường phát triển, nền tảng biorefinery tôm tạo ra các cơ hội cho những liên doanh và quan hệ đầu tư mới. Các lĩnh vực phát triển tiềm năng bao gồm đầu vào nông nghiệp bền vững, công nghệ dinh dưỡng thủy sản, vật liệu sinh học, công nghệ môi trường và vật liệu từ biển tiên tiến.",
+        "listTitle": "Các Mảng Đầu Tư Liên Doanh",
+        "items": [
+          "Đầu vào nông nghiệp bền vững",
+          "Công nghệ dinh dưỡng nuôi trồng thủy sản",
+          "Vật liệu sinh học và công nghệ sinh học",
+          "Vật liệu tiên tiến từ biển"
+        ],
+        "image": ""
+      }
+    ],
+    "workWithUsTitle": "Hợp Tác Cùng Chúng Tôi",
+    "workWithUsDesc1": "Chitosan Valley là một nền tảng mở đón nhận hợp tác trên cả ba trục khoa học, công nghiệp và đổi mới. Cho dù thông qua quan hệ đối tác nghiên cứu, hợp tác công nghệ, liên minh công nghiệp hay phát triển liên doanh, chúng tôi chào đón các đối tác chia sẻ tầm nhìn xây dựng những ngành công nghiệp bền vững dựa trên vật liệu sinh học biển.",
+    "workWithUsDesc2": "Cùng nhau, chúng ta có thể chuyển hóa sinh khối tôm thành nền tảng của một thế hệ vật liệu, công nghệ, và giải pháp hoàn toàn mới.",
+    "back": "Quay lại Trang chủ"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "en": {
+    "badge": "Research & Innovation",
+    "heroTitle": "Scientific Research",
+    "heroSub": "Scientific research and technological innovation are at the foundation of the Shrimp Biorefinery Platform. The development of new biomaterials, bioactive compounds, and advanced materials derived from shrimp biomass requires continuous research across biotechnology, materials science, and industrial processing.",
+    "introDesc": "At Chitosan Valley, research and innovation drive the expansion of the platform’s technology capabilities and support the discovery of new applications across multiple industries. Through collaboration with universities, research institutes, and industrial partners, the platform connects scientific discovery with industrial implementation and market development.",
+    "coreAreasTitle": "Core Research Areas",
+    "coreAreasDesc": "Research within the platform focuses on advancing the scientific understanding and technological capabilities required to unlock the full potential of shrimp biomass.",
+    "coreAreas": [
+      {
+        "id": "biopolymer",
+        "title": "Biopolymer Science",
+        "desc": "Research on chitin and chitosan chemistry, polymer modification, and functional biomaterials that support applications in agriculture, food systems, environmental technologies, and biomedical materials.",
+        "image": ""
+      },
+      {
+        "id": "bioactive",
+        "title": "Marine Bioactive Compounds",
+        "desc": "Discovery and characterization of bioactive peptides and natural compounds derived from marine resources that can support nutrition, health, and industrial biotechnology.",
+        "image": ""
+      },
+      {
+        "id": "biomineral",
+        "title": "Biomineral Materials",
+        "desc": "Development of calcium carbonate and hydroxyapatite-based materials for agricultural inputs, industrial applications, and biomedical technologies.",
+        "image": ""
+      },
+      {
+        "id": "carbon",
+        "title": "Carbon-Based Nanomaterials",
+        "desc": "Exploration of shrimp-derived carbon materials, including carbon quantum dots and other nanostructured materials for sensing technologies, environmental applications, and advanced materials research.",
+        "image": ""
+      },
+      {
+        "id": "antioxidant",
+        "title": "Natural Antioxidant Compounds",
+        "desc": "Research on carotenoids such as astaxanthin and their potential applications in nutrition, health, and cosmetic formulations.",
+        "image": ""
+      }
+    ],
+    "techDevTitle": "Technology Development",
+    "techDevDesc1": "Research activities within the ecosystem focus not only on discovery but also on the translation of scientific knowledge into practical technologies.",
+    "techDevDesc2": "These capabilities help bridge the gap between laboratory research and industrial-scale production.",
+    "techDevItems": [
+      "Biomass fractionation and processing technologies",
+      "Biomaterial engineering and formulation",
+      "Bioprocess optimization",
+      "Nanomaterial synthesis and functionalization",
+      "Bioactive compound stabilization and delivery systems"
+    ],
+    "labToIndustryTitle": "From Laboratory to Industry",
+    "labToIndustryDesc1": "A key objective of the research platform is to translate scientific discoveries into scalable industrial solutions.",
+    "labToIndustryDesc2": "By integrating research, pilot-scale development, and industrial production, Chitosan Valley supports the progression of technologies from laboratory experiments to real-world applications. This science-to-industry pathway enables new biomaterials and bio-based technologies to move efficiently from discovery to commercialization.",
+    "collabTitle": "Collaboration and Knowledge Exchange",
+    "collabDesc": "Innovation within the shrimp biorefinery ecosystem is driven by collaboration. Partnerships with universities, research institutions, and industry partners create opportunities for joint research, technology development, and knowledge exchange. Through these collaborations, Chitosan Valley aims to accelerate scientific discovery while ensuring that research outcomes can be translated into practical industrial applications.",
+    "futureTitle": "Advancing the Future of Biomaterials",
+    "futureDesc1": "As research continues to expand the possibilities of shrimp-derived materials, the platform will continue to evolve into new scientific and technological areas. Future research directions include advanced biomaterials, sustainable bio-based materials, marine biotechnology, and next-generation nanomaterials derived from biological resources.",
+    "futureDesc2": "Through ongoing research and innovation, Chitosan Valley aims to contribute to the development of new materials, technologies, and industries that support the global transition toward a more sustainable bioeconomy.",
+    "back": "Back to Home"
+  },
+  "vi": {
+    "badge": "Nghiên cứu & Đổi mới",
+    "heroTitle": "Nghiên Cứu Khoa Học",
+    "heroSub": "Nghiên cứu khoa học và đổi mới công nghệ là nền tảng của Nền tảng Biorefinery Tôm. Sự phát triển của các vật liệu sinh học mới, hợp chất có hoạt tính sinh học và các vật liệu tiên tiến từ sinh khối tôm đòi hỏi nghiên cứu liên tục trên các lĩnh vực công nghệ sinh học, khoa học vật liệu và xử lý công nghiệp.",
+    "introDesc": "Tại Chitosan Valley, nghiên cứu và đổi mới thúc đẩy sự mở rộng các khả năng công nghệ của nền tảng và hỗ trợ khám phá các ứng dụng mới trên nhiều ngành công nghiệp. Thông qua hợp tác với các trường đại học, viện nghiên cứu và đối tác công nghiệp, nền tảng kết nối khám phá khoa học với triển khai công nghiệp và phát triển thị trường.",
+    "coreAreasTitle": "Các Lĩnh Vực Nghiên Cứu Cốt Lõi",
+    "coreAreasDesc": "Các nghiên cứu trong nền tảng tập trung vào việc nâng cao hiểu biết khoa học và năng lực công nghệ cần thiết để khai thác toàn bộ tiềm năng của sinh khối tôm.",
+    "coreAreas": [
+      {
+        "id": "biopolymer",
+        "title": "Khoa học Polyme Sinh học",
+        "desc": "Nghiên cứu về hóa học kitin và chitosan, biến tính polyme và vật liệu sinh học chức năng hỗ trợ các ứng dụng nông nghiệp, hệ thống thực phẩm, công nghệ môi trường và vật liệu y sinh.",
+        "image": ""
+      },
+      {
+        "id": "bioactive",
+        "title": "Các Hợp chất Hoạt tính Sinh học Biển",
+        "desc": "Khám phá và đặc tính hóa các peptide có hoạt tính sinh học và các hợp chất tự nhiên có nguồn gốc từ tài nguyên biển có thể hỗ trợ dinh dưỡng, sức khỏe và công nghệ sinh học công nghiệp.",
+        "image": ""
+      },
+      {
+        "id": "biomineral",
+        "title": "Vật liệu Sinh khoáng",
+        "desc": "Phát triển vật liệu dựa trên canxi cacbonat và hydroxyapatite cho các đầu vào nông nghiệp, ứng dụng công nghiệp và công nghệ y sinh.",
+        "image": ""
+      },
+      {
+        "id": "carbon",
+        "title": "Vật liệu Nanomet Dựa trên Carbon",
+        "desc": "Khám phá vật liệu carbon nguồn gốc từ tôm, bao gồm các chấm lượng tử carbon và vật liệu cấu trúc nano khác cho công nghệ cảm biến, ứng dụng môi trường và nghiên cứu vật liệu tiên tiến.",
+        "image": ""
+      },
+      {
+        "id": "antioxidant",
+        "title": "Các Hợp chất Chống Oxy hóa Tự nhiên",
+        "desc": "Nghiên cứu về carotenoid như astaxanthin và các ứng dụng tiềm năng của chúng trong công thức dinh dưỡng, y tế và mỹ phẩm.",
+        "image": ""
+      }
+    ],
+    "techDevTitle": "Phát triển Công nghệ",
+    "techDevDesc1": "Các hoạt động nghiên cứu trong hệ sinh thái không chỉ tập trung vào khám phá mà còn vào việc chuyển giao kiến thức khoa học thành các công nghệ thực tiễn.",
+    "techDevDesc2": "Những năng lực này giúp thu hẹp khoảng cách giữa nghiên cứu phòng thí nghiệm và sản xuất quy mô công nghiệp.",
+    "techDevItems": [
+      "Công nghệ phân tách và xử lý sinh khối",
+      "Kỹ thuật và công thức vật liệu sinh học",
+      "Tối ưu hóa quá trình sinh học",
+      "Tổng hợp và chức năng hóa vật liệu nano",
+      "Hệ thống ổn định và phân phối hợp chất có hoạt tính sinh học"
+    ],
+    "labToIndustryTitle": "Từ Phòng Thí Nghiệm Đến Công Nghiệp",
+    "labToIndustryDesc1": "Mục tiêu chính của nền tảng nghiên cứu là chuyển giao những khám phá khoa học thành các giải pháp công nghiệp có thể mở rộng.",
+    "labToIndustryDesc2": "Bằng cách tích hợp nghiên cứu, phát triển quy mô thí điểm và sản xuất công nghiệp, Chitosan Valley hỗ trợ sự tiến bộ của công nghệ từ phòng thí nghiệm đến các ứng dụng thực tế. Con đường này cho phép các vật liệu sinh học mới và công nghệ dựa trên sinh học chuyển đổi một cách hiệu quả từ lúc khám phá đến khi thương mại hóa.",
+    "collabTitle": "Hợp tác và Trao đổi Kiến thức",
+    "collabDesc": "Sự đổi mới trong hệ sinh thái biorefinery tôm được thúc đẩy bởi sự hợp tác. Quan hệ đối tác với các trường đại học, viện nghiên cứu và đối tác công nghiệp tạo ra cơ hội trao đổi kiến thức, nghiên cứu chung và phát triển công nghệ. Thông qua những sự hợp tác này, Chitosan Valley hướng tới việc đẩy nhanh sự đổi mới đồng thời đảm bảo kết quả nghiên cứu có thể được chuyển giao thành hiện thực công nghiệp.",
+    "futureTitle": "Thúc đẩy Tương lai của Vật liệu Sinh học",
+    "futureDesc1": "Khi nghiên cứu tiếp tục mở rộng các khả năng của vật liệu có nguồn gốc từ tôm, nền tảng sẽ phân nhánh sang các lĩnh vực khoa học và công nghệ mới. Các hướng nghiên cứu trong tương lai bao gồm vật liệu sinh học tiên tiến, vật liệu có nguồn gốc sinh học bền vững, công nghệ sinh học biển và vật liệu nano nguồn gốc tự nhiên.",
+    "futureDesc2": "Thông qua nghiên cứu liên tục, Chitosan Valley đóng góp vào sự phát triển của các công nghệ hỗ trợ quá trình chuyển đổi toàn cầu sang nền kinh tế sinh học bền vững hơn.",
+    "back": "Quay lại Trang chủ"
+  }
+}
