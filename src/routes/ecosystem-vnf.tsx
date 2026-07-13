@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export const Route = createFileRoute("/ecosystem-vnf")({ component: EcosystemVnfPage })
 
@@ -15,7 +15,6 @@ type Lang = "vi" | "en"
 /* ── Static copy ─────────────────────────────────────────────────────────── */
 const T = {
   vi: {
-    phone: "Liên hệ Sales: (+84) 909.802.863",
     navHome: "Trang chủ",
     navEcosystem: "Hệ sinh thái",
     brandId: "VIETNAM FOOD JSC",
@@ -33,7 +32,8 @@ const T = {
     socialCaMau: "Nhà Máy Cà Mau",
     socialHauGiang: "Nhà Máy Hậu Giang",
     ecoEyebrow: "HỆ SINH THÁI VNF",
-    ecoTitle: "Chào mừng bạn đến với Hệ sinh thái VNF – nơi kiến tạo các giải pháp hoạt tính sinh học",
+    ecoTitlePrefix: "Chào mừng bạn đến với",
+    ecoTitleRest: "hệ sinh thái VNF – nơi kiến tạo các giải pháp hoạt tính sinh học",
     fbLink: "Xem Facebook",
     liLink: "Xem LinkedIn",
     followEyebrow: "KẾT NỐI CÙNG VNF",
@@ -47,7 +47,6 @@ const T = {
     footCopyright: "Copyright © 2026 Vietnam Food JSC. - Bảo lưu mọi quyền.",
   },
   en: {
-    phone: "Sales: (+84) 909.802.863",
     navHome: "Home",
     navEcosystem: "Ecosystem",
     brandId: "VIETNAM FOOD JSC",
@@ -65,7 +64,8 @@ const T = {
     socialCaMau: "Ca Mau Factory",
     socialHauGiang: "Hau Giang Factory",
     ecoEyebrow: "VNF ECOSYSTEM",
-    ecoTitle: "Welcome to the VNF Ecosystem, where bioactive innovation begins",
+    ecoTitlePrefix: "Welcome to the",
+    ecoTitleRest: "VNF Ecosystem, where bioactive innovation begins",
     fbLink: "Visit Facebook",
     liLink: "Visit LinkedIn",
     followEyebrow: "STAY CONNECTED",
@@ -206,9 +206,6 @@ function IconSprite() {
         <symbol id="eco2-i-mail" viewBox="0 0 24 24">
           <path d="M3 5.5h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1Zm.7 1.9v.1l8.3 5.98L20.3 7.5v-.1H3.7ZM4 8.9v8.1h16V8.9l-8 5.77L4 8.9Z" />
         </symbol>
-        <symbol id="eco2-i-phone" viewBox="0 0 24 24">
-          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.39 2.33.6 3.57.6a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.06 21 3 13.94 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.21 2.45.6 3.57a1 1 0 0 1-.25 1.02l-2.23 2.2Z" />
-        </symbol>
         <symbol id="eco2-i-globe" viewBox="0 0 24 24">
           <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm7.93 9h-3.13a15.9 15.9 0 0 0-1.14-5.4A8 8 0 0 1 19.93 11ZM12 4.05c.86 1.15 1.9 3.2 2.06 6.95H9.94C10.1 7.25 11.14 5.2 12 4.05ZM9.94 13h4.12c-.16 3.75-1.2 5.8-2.06 6.95-.86-1.15-1.9-3.2-2.06-6.95ZM8.34 5.6A15.9 15.9 0 0 0 7.2 11H4.07a8 8 0 0 1 4.27-5.4ZM4.07 13H7.2a15.9 15.9 0 0 0 1.14 5.4A8 8 0 0 1 4.07 13Zm11.32 5.4A15.9 15.9 0 0 0 16.8 13h3.13a8 8 0 0 1-4.54 5.4Z" />
         </symbol>
@@ -243,9 +240,6 @@ function IconSprite() {
         <symbol id="eco2-i-recycle" viewBox="0 0 24 24">
           <path d="M10.5 3.3 13 7.6l-1.7 1-1.6-2.8-1.8 3.1-1.7-1L8.8 3a1 1 0 0 1 1.7.3ZM4.2 15.9 6 12.7l1.7 1-1 1.8h3.6v2H6.7l1 1.8-1.7 1-1.8-3.1a1 1 0 0 1 0-1.3Zm15.6-1.1-1.8 3.1-1.7-1 1-1.8h-3.5v-2h3.5l-1-1.8 1.7-1 1.8 3.1a1 1 0 0 1 0 1.4Z" />
         </symbol>
-        <symbol id="eco2-i-factory" viewBox="0 0 24 24">
-          <path d="M3 21V10l5 3V10l5 3V7l7 4v10H3Zm3-2h2v-3H6v3Zm5 0h2v-3h-2v3Zm5 0h2v-3h-2v3Z" />
-        </symbol>
       </defs>
     </svg>
   )
@@ -256,8 +250,45 @@ function EcosystemVnfPage() {
   const [lang, setLang] = useState<Lang>("vi")
   const [appIndex, setAppIndex] = useState(0)
   const [activeSection, setActiveSection] = useState<"home" | "ecosystem">("home")
+  const [typedLen, setTypedLen] = useState(0)
+  const ecoTitleRef = useRef<HTMLHeadingElement>(null)
+  const appInfoRef = useRef<HTMLDivElement>(null)
   const t = T[lang]
   const active = ECOSYSTEM[appIndex]
+  const ecoTitleFull = `${t.ecoTitlePrefix}\n${t.ecoTitleRest}`
+
+  useEffect(() => {
+    const el = appInfoRef.current
+    if (!el) return
+    el.classList.remove("app-fade-in")
+    void el.offsetWidth
+    el.classList.add("app-fade-in")
+  }, [appIndex])
+
+  useEffect(() => {
+    setTypedLen(0)
+    const el = ecoTitleRef.current
+    if (!el) return
+    let timer: ReturnType<typeof setInterval>
+    const obs = new IntersectionObserver(
+      entries => {
+        if (!entries[0].isIntersecting) return
+        let i = 0
+        timer = setInterval(() => {
+          i++
+          setTypedLen(i)
+          if (i >= ecoTitleFull.length) clearInterval(timer)
+        }, 32)
+        obs.disconnect()
+      },
+      { threshold: 0.4 }
+    )
+    obs.observe(el)
+    return () => {
+      obs.disconnect()
+      clearInterval(timer)
+    }
+  }, [lang])
 
   useEffect(() => {
     const spy = new IntersectionObserver(
@@ -294,24 +325,16 @@ function EcosystemVnfPage() {
 
       {/* ============ HEADER / NAV ============ */}
       <header>
-        <div className="header-utility">
-          <div className="wrap header-utility-row">
-            <a href="tel:+84909802863" className="header-phone">
-              <svg><use href="#eco2-i-phone" /></svg>
-              <span>{t.phone}</span>
-            </a>
-            <div className="langtoggle">
-              <button className={lang === "vi" ? "active" : ""} onClick={() => setLang("vi")}>VN</button>
-              <button className={lang === "en" ? "active" : ""} onClick={() => setLang("en")}>EN</button>
-            </div>
-          </div>
-        </div>
         <div className="header-main">
           <nav>
             <a href="#home" className="logo"><img src={`${LOGO_BASE}/vnf.png`} alt="Vietnam Food" /></a>
             <div className="nav-links">
               <a href="#home" className={activeSection === "home" ? "active" : ""}>{t.navHome}</a>
               <a href="#ecosystem" className={activeSection === "ecosystem" ? "active" : ""}>{t.navEcosystem}</a>
+              <div className="langtoggle">
+                <button className={lang === "vi" ? "active" : ""} onClick={() => setLang("vi")}>VN</button>
+                <button className={lang === "en" ? "active" : ""} onClick={() => setLang("en")}>EN</button>
+              </div>
             </div>
           </nav>
         </div>
@@ -353,32 +376,32 @@ function EcosystemVnfPage() {
 
       <div className="social-bar" id="social">
         <div className="wrap">
-          <div className="social-bar-head">{t.socialHead}</div>
+          <div className="social-bar-head reveal">{t.socialHead}</div>
         </div>
         <div className="wrap social-row">
-          <a className="social-pill" href="https://www.vnfoods.vn" target="_blank" rel="noopener noreferrer">
+          <a className="social-pill social-pill--website reveal" href="https://www.vnfoods.vn" target="_blank" rel="noopener noreferrer">
             <svg><use href="#eco2-i-globe" /></svg><span>{t.socialWebsite}</span>
           </a>
-          <a className="social-pill" href="https://www.linkedin.com/company/vnf/" target="_blank" rel="noopener noreferrer">
+          <a className="social-pill social-pill--linkedin reveal" href="https://www.linkedin.com/company/vnf/" target="_blank" rel="noopener noreferrer">
             <svg><use href="#eco2-i-linkedin" /></svg><span>LinkedIn</span>
           </a>
-          <a className="social-pill" href="https://www.facebook.com/vnfoods.vn" target="_blank" rel="noopener noreferrer">
+          <a className="social-pill social-pill--facebook reveal" href="https://www.facebook.com/vnfoods.vn" target="_blank" rel="noopener noreferrer">
             <svg><use href="#eco2-i-facebook" /></svg><span>Facebook</span>
           </a>
-          <a className="social-pill" href="https://youtube.com/@vietnamfood.offical" target="_blank" rel="noopener noreferrer">
+          <a className="social-pill social-pill--youtube reveal" href="https://youtube.com/@vietnamfood.offical" target="_blank" rel="noopener noreferrer">
             <svg><use href="#eco2-i-youtube" /></svg><span>YouTube</span>
           </a>
-          <a className="social-pill" href="https://www.tiktok.com/@vietnamfood.mediachannel" target="_blank" rel="noopener noreferrer">
+          <a className="social-pill social-pill--tiktok reveal" href="https://www.tiktok.com/@vietnamfood.mediachannel" target="_blank" rel="noopener noreferrer">
             <svg><use href="#eco2-i-tiktok" /></svg><span>TikTok</span>
           </a>
-          <a className="social-pill" href="mailto:sales@vnfoods.vn">
+          <a className="social-pill social-pill--email reveal" href="mailto:sales@vnfoods.vn">
             <svg><use href="#eco2-i-mail" /></svg><span>{t.socialEmail}</span>
           </a>
-          <a className="social-pill" href="https://www.facebook.com/profile.php?id=100063618936458" target="_blank" rel="noopener noreferrer">
-            <svg><use href="#eco2-i-factory" /></svg><span>{t.socialCaMau}</span>
+          <a className="social-pill social-pill--factory reveal" href="https://www.facebook.com/profile.php?id=100063618936458" target="_blank" rel="noopener noreferrer">
+            <img src={`${LOGO_BASE}/ca-mau.png`} alt="" /><span>{t.socialCaMau}</span>
           </a>
-          <a className="social-pill" href="https://www.facebook.com/vnf.haugiang" target="_blank" rel="noopener noreferrer">
-            <svg><use href="#eco2-i-factory" /></svg><span>{t.socialHauGiang}</span>
+          <a className="social-pill social-pill--factory reveal" href="https://www.facebook.com/vnf.haugiang" target="_blank" rel="noopener noreferrer">
+            <img src={`${LOGO_BASE}/hau-giang.png`} alt="" /><span>{t.socialHauGiang}</span>
           </a>
         </div>
       </div>
@@ -388,10 +411,15 @@ function EcosystemVnfPage() {
         <div className="wrap">
           <div className="section-head reveal">
             <div className="eyebrow">{t.ecoEyebrow}</div>
-            <h2>{t.ecoTitle}</h2>
+            <h2 ref={ecoTitleRef} className="typewriter">
+              {ecoTitleFull.slice(0, typedLen).split("\n").map((line, i, arr) => (
+                <span key={i}>{line}{i < arr.length - 1 ? <br /> : null}</span>
+              ))}
+              {typedLen > 0 && typedLen < ecoTitleFull.length && <span className="typewriter-caret" aria-hidden="true" />}
+            </h2>
           </div>
           <div className="app-layout">
-            <div className="app-list">
+            <div className="app-list reveal">
               {ECOSYSTEM.map((e, i) => (
                 <div key={e.fb} className={`app-item ${i === appIndex ? "active" : ""}`} onClick={() => showApp(i)}>
                   <div className="mini"><img src={e.logo[lang]} alt="" /></div>
@@ -399,8 +427,8 @@ function EcosystemVnfPage() {
                 </div>
               ))}
             </div>
-            <div className="app-panel">
-              <div>
+            <div className="app-panel reveal">
+              <div ref={appInfoRef} className="app-fade-in">
                 <div className="app-head">
                   <img className="app-logo" src={active.logo[lang]} alt="" />
                   <div className="cat">{active[lang].cat}</div>
@@ -428,6 +456,7 @@ function EcosystemVnfPage() {
                     rel="noopener noreferrer"
                     style={{ borderColor: "rgba(255,255,255,.5)", color: "var(--eco2-white)" }}
                   >
+                    <svg style={{ width: 16, height: 16, fill: "currentColor" }}><use href="#eco2-i-facebook" /></svg>
                     {t.fbLink}
                   </a>
                   {"linkedin" in active && active.linkedin && (
@@ -568,7 +597,13 @@ const ECO2_CSS = `
 .vnf-eco2-page h4, .vnf-eco2-page h5{color:var(--eco2-primary); font-weight:800; line-height:1.3;}
 .vnf-eco2-page .section-head{max-width:760px; margin:0 auto 44px; text-align:center;}
 .vnf-eco2-page .section-head h2{font-size:clamp(26px,5.5vw,42px); font-weight:700; text-wrap:balance;}
+.vnf-eco2-page .section-head h2.typewriter{text-wrap:pretty;}
 .vnf-eco2-page .section-head p{margin-top:18px; font-size:17px; line-height:1.7; color:var(--eco2-text-soft); text-wrap:pretty;}
+.vnf-eco2-page .typewriter-caret{
+  display:inline-block; width:3px; height:.9em; margin-left:3px; background:currentColor;
+  vertical-align:-.1em; animation:eco2-caret-blink 1s steps(1) infinite;
+}
+@keyframes eco2-caret-blink{0%,49%{opacity:1;} 50%,100%{opacity:0;}}
 @media(min-width:720px){
   .vnf-eco2-page .section-head{margin:0 auto 60px;}
   .vnf-eco2-page .section-head p{font-size:18px;}
@@ -592,15 +627,6 @@ const ECO2_CSS = `
 
 /* ===== HEADER — white logo area + thin utility bar, matches vnfoods.vn ===== */
 .vnf-eco2-page header{position:sticky; top:0; z-index:200; background:var(--eco2-white);}
-.vnf-eco2-page .header-utility{background:var(--eco2-primary-light); border-bottom:1px solid var(--eco2-border);}
-.vnf-eco2-page .header-utility-row{
-  display:flex; align-items:center; justify-content:space-between; gap:10px;
-  padding:8px var(--eco2-gutter);
-}
-.vnf-eco2-page .header-phone{display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--eco2-primary);}
-.vnf-eco2-page .header-phone svg{width:13px; height:13px; fill:var(--eco2-primary); flex:0 0 auto;}
-.vnf-eco2-page .header-phone span{display:none;}
-@media(min-width:480px){ .vnf-eco2-page .header-phone span{display:inline;} }
 .vnf-eco2-page .header-main{background:var(--eco2-white); border-bottom:1px solid var(--eco2-border); box-shadow:0 2px 14px rgba(23,73,127,.06);}
 .vnf-eco2-page nav{
   max-width:var(--eco2-maxw); margin:0 auto; padding:16px var(--eco2-gutter);
@@ -628,7 +654,7 @@ const ECO2_CSS = `
 .vnf-eco2-page .nav-links a.active{background:var(--eco2-primary); color:var(--eco2-white);}
 .vnf-eco2-page .langtoggle{
   display:flex; align-items:center; background:var(--eco2-white); border:1px solid var(--eco2-border); border-radius:999px; padding:3px;
-  flex:0 0 auto;
+  flex:0 0 auto; margin-left:8px;
 }
 .vnf-eco2-page .langtoggle button{
   border:none; background:transparent; color:var(--eco2-text-soft); font-weight:700; font-size:13px;
@@ -645,7 +671,7 @@ const ECO2_CSS = `
 
 /* ===== HERO (mobile-first: single column, video under text) ===== */
 .vnf-eco2-page .hero{
-  background:var(--eco2-primary);
+  background:linear-gradient(135deg, rgba(30,92,166,.90), rgba(23,73,127,.94)), url('/ecosystem-vnf/logos/hero-bg.jpg') center/cover no-repeat;
   position:relative; overflow:hidden; padding:64px 0 56px;
 }
 .vnf-eco2-page .hero-grid{
@@ -706,19 +732,52 @@ const ECO2_CSS = `
   transition:transform .22s cubic-bezier(.2,.8,.2,1), background .22s ease, color .22s ease, box-shadow .22s ease, border-color .22s ease;
   min-height:48px;
 }
-.vnf-eco2-page .social-pill svg{width:19px; height:19px; fill:var(--eco2-primary); flex:0 0 auto; transition:fill .22s ease;}
+.vnf-eco2-page .social-pill svg{width:19px; height:19px; fill:var(--eco2-primary); flex:0 0 auto; transition:fill .22s ease, transform .32s cubic-bezier(.34,1.56,.64,1);}
+.vnf-eco2-page .social-pill img{width:19px; height:19px; border-radius:50%; object-fit:cover; flex:0 0 auto; transition:transform .32s cubic-bezier(.34,1.56,.64,1);}
+.vnf-eco2-page .social-pill:hover svg, .vnf-eco2-page .social-pill:focus-visible svg,
+.vnf-eco2-page .social-pill:hover img, .vnf-eco2-page .social-pill:focus-visible img{
+  animation:eco2-icon-wiggle .5s cubic-bezier(.34,1.56,.64,1);
+}
+.vnf-eco2-page .social-pill--website svg{fill:#2563eb;}
+.vnf-eco2-page .social-pill--linkedin svg{fill:#0A66C2;}
+.vnf-eco2-page .social-pill--facebook svg{fill:#1877F2;}
+.vnf-eco2-page .social-pill--youtube svg{fill:#FF0000;}
+.vnf-eco2-page .social-pill--tiktok svg{fill:#010101;}
+.vnf-eco2-page .social-pill--email svg{fill:#64748b;}
 .vnf-eco2-page .social-pill:hover, .vnf-eco2-page .social-pill:focus-visible{
   border-color:var(--eco2-primary); background:var(--eco2-primary); color:var(--eco2-white);
   transform:translateY(-2px); box-shadow:var(--eco2-shadow-md);
 }
 .vnf-eco2-page .social-pill:hover svg, .vnf-eco2-page .social-pill:focus-visible svg{fill:var(--eco2-white);}
 .vnf-eco2-page .social-pill:active{transform:translateY(0);}
+/* entrance uses its own animation (not the shared reveal transition) so hover timing stays untouched */
+.vnf-eco2-page .social-pill.reveal{
+  transform:translateY(16px);
+  transition:transform .22s cubic-bezier(.2,.8,.2,1), background .22s ease, color .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.vnf-eco2-page .social-pill.reveal.in{animation:eco2-pill-in .5s cubic-bezier(.2,.8,.2,1) both;}
+.vnf-eco2-page .social-row .social-pill:nth-child(1){animation-delay:0s;}
+.vnf-eco2-page .social-row .social-pill:nth-child(2){animation-delay:.06s;}
+.vnf-eco2-page .social-row .social-pill:nth-child(3){animation-delay:.12s;}
+.vnf-eco2-page .social-row .social-pill:nth-child(4){animation-delay:.18s;}
+.vnf-eco2-page .social-row .social-pill:nth-child(5){animation-delay:.24s;}
+.vnf-eco2-page .social-row .social-pill:nth-child(6){animation-delay:.30s;}
+.vnf-eco2-page .social-row .social-pill:nth-child(7){animation-delay:.36s;}
+.vnf-eco2-page .social-row .social-pill:nth-child(8){animation-delay:.42s;}
+@keyframes eco2-pill-in{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+@keyframes eco2-icon-wiggle{
+  0%{transform:scale(1) rotate(0);}
+  35%{transform:scale(1.22) rotate(-10deg);}
+  65%{transform:scale(1.1) rotate(8deg);}
+  100%{transform:scale(1.12) rotate(0);}
+}
 @media(min-width:640px){
   .vnf-eco2-page .social-bar{padding:56px 0 50px;}
   .vnf-eco2-page .social-bar-head{font-size:14px; margin-bottom:28px;}
   .vnf-eco2-page .social-row{gap:14px;}
   .vnf-eco2-page .social-pill{padding:15px 26px; font-size:16px;}
   .vnf-eco2-page .social-pill svg{width:21px; height:21px;}
+  .vnf-eco2-page .social-pill img{width:21px; height:21px;}
 }
 
 /* ===== ECOSYSTEM (team spotlight) — mobile-first stacked ===== */
@@ -730,11 +789,12 @@ const ECO2_CSS = `
 }
 .vnf-eco2-page .app-item{
   display:flex; align-items:center; gap:12px; padding:13px 16px; border-radius:8px; cursor:pointer;
-  border:1.5px solid transparent; transition:border-color .2s ease, box-shadow .2s ease, background .2s ease; background:var(--eco2-white);
+  border:1.5px solid transparent; transition:border-color .2s ease, box-shadow .2s ease, background .2s ease, transform .15s ease; background:var(--eco2-white);
   flex:0 0 auto; scroll-snap-align:start; box-shadow:var(--eco2-shadow-sm);
 }
 .vnf-eco2-page .app-item:hover{border-color:var(--eco2-primary); box-shadow:var(--eco2-shadow-md);}
-.vnf-eco2-page .app-item.active{background:var(--eco2-primary); border-color:var(--eco2-primary); box-shadow:var(--eco2-shadow-md);}
+.vnf-eco2-page .app-item:active{transform:scale(.96);}
+.vnf-eco2-page .app-item.active{background:var(--eco2-primary); border-color:var(--eco2-primary); box-shadow:var(--eco2-shadow-md); animation:eco2-item-pop .3s cubic-bezier(.34,1.56,.64,1);}
 .vnf-eco2-page .app-item .mini{width:36px; height:36px; border-radius:8px; background:var(--eco2-primary-light); display:flex; align-items:center; justify-content:center; flex:0 0 auto;}
 .vnf-eco2-page .app-item.active .mini{background:rgba(255,255,255,.16);}
 .vnf-eco2-page .app-item .mini svg{width:17px; height:17px; fill:var(--eco2-primary);}
@@ -746,6 +806,9 @@ const ECO2_CSS = `
   position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; gap:24px;
   box-shadow:var(--eco2-shadow-lg);
 }
+.vnf-eco2-page .app-fade-in{animation:eco2-app-fade-in .45s cubic-bezier(.2,.8,.2,1) both;}
+@keyframes eco2-app-fade-in{ from{opacity:.5; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+@keyframes eco2-item-pop{ 0%{transform:scale(1);} 45%{transform:scale(1.04);} 100%{transform:scale(1);} }
 .vnf-eco2-page .app-head{display:flex; align-items:center; gap:14px; margin-bottom:16px;}
 /* Category acts as the primary section header inside each panel — bigger & bolder than the product name */
 .vnf-eco2-page .app-panel .cat{
@@ -830,6 +893,7 @@ const ECO2_CSS = `
 
 .vnf-eco2-page .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
 .vnf-eco2-page .reveal.in{opacity:1; transform:translateY(0);}
+.vnf-eco2-page .app-panel.reveal{transition-delay:.12s;}
 
 /* Safety net: nothing is ever allowed to force horizontal scroll */
 .vnf-eco2-page{max-width:100%; overflow-x:hidden;}
