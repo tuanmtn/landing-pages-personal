@@ -1,11 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { useEffect, useRef, useState } from "react"
+import type { ReactNode } from "react"
 
 export const Route = createFileRoute("/ecosystem-vnf")({ component: EcosystemVnfPage })
 
 /* ── Media (uploaded to MinIO) ──────────────────────────────────────────── */
 const MEDIA_BASE = "https://minio-tuan.ls01.vnfoods.vn/video-management/ecosystem-vnf"
 const LOGO_BASE = "/ecosystem-vnf/logos"
+const BG_URL = "https://minio-tuan.ls01.vnfoods.vn/eco-media/bg_01.png"
 
 const HERO_VIDEO = { vi: `${MEDIA_BASE}/vi_vnf.mp4`, en: `${MEDIA_BASE}/en_vnf.mp4` }
 const HERO_POSTER = { vi: `${MEDIA_BASE}/vi_vnf.jpg`, en: `${MEDIA_BASE}/en_vnf.jpg` }
@@ -26,9 +28,12 @@ const T = {
     heroLead2: "Từ các nguyên liệu này, chúng tôi phát triển nhiều ứng dụng khác nhau tạo nên Hệ sinh thái VNF.",
     ctaExplore: "Khám phá hệ sinh thái",
     ctaContact: "Liên hệ hợp tác",
-    socialHead: "Kết nối & theo dõi VNF",
-    socialWebsite: "Website",
+    socialHead: "Kết nối & theo dõi VNF tại đây",
+    socialWebsite: "Trang chủ VNF",
+    socialWebsiteGroup: "Nhà máy",
+    socialSocialGroup: "Mạng xã hội",
     socialEmail: "Email",
+    socialEmailGroup: "Email",
     socialCaMau: "Nhà Máy Cà Mau",
     socialHauGiang: "Nhà Máy Hậu Giang",
     ecoEyebrow: "HỆ SINH THÁI VNF",
@@ -38,7 +43,7 @@ const T = {
     liLink: "Xem LinkedIn",
     followEyebrow: "KẾT NỐI CÙNG VNF",
     followText:
-      "Theo dõi các kênh của Hệ sinh thái VNF để không bỏ lỡ những câu chuyện, giải pháp, và sáng kiến mới nhất của chúng tôi.",
+      "Theo dõi các kênh của Hệ sinh thái VNF để không bỏ lỡ những câu chuyện,\ngiải pháp, và sáng kiến mới nhất của chúng tôi.",
     footSalesTitle: "LIÊN HỆ KINH DOANH",
     footSalesNote1: "(Bộ phận Kinh doanh: ext.204; Bộ phận FI&BP: ext.301)",
     footSalesNote2: "(Mobile, Viber, Zalo, WhatsApp, Facebook Messenger)",
@@ -59,8 +64,11 @@ const T = {
     ctaExplore: "Explore the Ecosystem",
     ctaContact: "Get in touch",
     socialHead: "Connect & follow VNF",
-    socialWebsite: "Website",
+    socialWebsite: "VNF Homepage",
+    socialWebsiteGroup: "Website",
+    socialSocialGroup: "Social Media",
     socialEmail: "Email",
+    socialEmailGroup: "Email",
     socialCaMau: "Ca Mau Factory",
     socialHauGiang: "Hau Giang Factory",
     ecoEyebrow: "VNF ECOSYSTEM",
@@ -69,7 +77,7 @@ const T = {
     fbLink: "Visit Facebook",
     liLink: "Visit LinkedIn",
     followEyebrow: "STAY CONNECTED",
-    followText: "Follow the VNF Ecosystem channels to keep up with our latest stories, solutions, and initiatives.",
+    followText: "Follow the VNF Ecosystem channels to keep up with our latest stories,\nsolutions, and initiatives.",
     footSalesTitle: "SALES CONTACT",
     footSalesNote1: "(Business Dept.: ext.204; FI & BP Dept.: ext.301)",
     footSalesNote2: "(Mobile, Viber, Zalo, WhatsApp, Facebook Messenger)",
@@ -191,20 +199,63 @@ function IconSprite() {
   return (
     <svg width="0" height="0" style={{ position: "absolute" }}>
       <defs>
-        <symbol id="eco2-i-facebook" viewBox="0 0 24 24">
-          <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H16.7V3.7C16.4 3.66 15.4 3.57 14.24 3.57c-2.4 0-4.05 1.47-4.05 4.17V9.9H7.5V13h2.69v8h3.31Z" />
+        <symbol id="eco2-i-facebook" viewBox="0 0 48 48">
+          <path fill="#4460A0" d="M25.638355,48 L2.649232,48 C1.185673,48 0,46.813592 0,45.350603 L0,2.649211 C0,1.18585 1.185859,0 2.649232,0 L45.350955,0 C46.813955,0 48,1.18585 48,2.649211 L48,45.350603 C48,46.813778 46.813769,48 45.350955,48 L33.119305,48 L33.119305,29.411755 L39.358521,29.411755 L40.292755,22.167586 L33.119305,22.167586 L33.119305,17.542641 C33.119305,15.445287 33.701712,14.01601 36.70929,14.01601 L40.545311,14.014333 L40.545311,7.535091 C39.881886,7.446808 37.604784,7.24957 34.955552,7.24957 C29.424834,7.24957 25.638355,10.625526 25.638355,16.825209 L25.638355,22.167586 L19.383122,22.167586 L19.383122,29.411755 L25.638355,29.411755 L25.638355,48 L25.638355,48 Z" />
         </symbol>
-        <symbol id="eco2-i-linkedin" viewBox="0 0 24 24">
-          <path d="M6.94 8.5H4V20h2.94V8.5Zm-1.47-4.7A1.71 1.71 0 1 0 5.5 7.2a1.71 1.71 0 0 0-.03-3.4ZM20 20h-2.94v-6.02c0-1.44-.03-3.28-2-3.28-2 0-2.31 1.56-2.31 3.17V20H9.8V8.5h2.82v1.57h.04c.4-.74 1.35-1.53 2.79-1.53 2.98 0 3.53 1.96 3.53 4.52V20Z" />
+        <symbol id="eco2-i-facebook-btn" viewBox="0 0 48 48">
+          <g transform="translate(-200, -160)">
+            <path fill="currentColor" d="M225.638355,208 L202.649232,208 C201.185673,208 200,206.813592 200,205.350603 L200,162.649211 C200,161.18585 201.185859,160 202.649232,160 L245.350955,160 C246.813955,160 248,161.18585 248,162.649211 L248,205.350603 C248,206.813778 246.813769,208 245.350955,208 L233.119305,208 L233.119305,189.411755 L239.358521,189.411755 L240.292755,182.167586 L233.119305,182.167586 L233.119305,177.542641 C233.119305,175.445287 233.701712,174.01601 236.70929,174.01601 L240.545311,174.014333 L240.545311,167.535091 C239.881886,167.446808 237.604784,167.24957 234.955552,167.24957 C229.424834,167.24957 225.638355,170.625526 225.638355,176.825209 L225.638355,182.167586 L219.383122,182.167586 L219.383122,189.411755 L225.638355,189.411755 L225.638355,208 L225.638355,208 Z" />
+          </g>
         </symbol>
-        <symbol id="eco2-i-youtube" viewBox="0 0 24 24">
-          <path d="M21.6 7.2s-.21-1.5-.86-2.16c-.82-.87-1.74-.87-2.16-.92C15.6 4 12 4 12 4h0s-3.6 0-6.58.12c-.42.05-1.34.05-2.16.92C2.61 5.7 2.4 7.2 2.4 7.2S2.2 8.94 2.2 10.68v1.63c0 1.74.2 3.48.2 3.48s.21 1.5.86 2.16c.82.87 1.9.84 2.38.93 1.73.17 7.36.22 7.36.22s3.6-.01 6.58-.13c.42-.05 1.34-.05 2.16-.92.65-.66.86-2.16.86-2.16s.2-1.74.2-3.48v-1.63c0-1.74-.2-3.48-.2-3.48ZM9.98 14.6V8.9l5.2 2.86-5.2 2.84Z" />
+        <symbol id="eco2-i-linkedin" viewBox="0 0 382 382">
+          <path style={{ fill: "#0077B7" }} d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889 C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056 H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806 c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1 s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73 c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079 c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426 c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472 L341.91,330.654L341.91,330.654z" />
         </symbol>
-        <symbol id="eco2-i-tiktok" viewBox="0 0 24 24">
-          <path d="M16.6 3h-3v12.2a2.6 2.6 0 1 1-2-2.53v-3.05a5.6 5.6 0 1 0 5 5.57V9.3a7.3 7.3 0 0 0 4.4 1.47V7.7a4.3 4.3 0 0 1-4.4-4.7Z" />
+        <symbol id="eco2-i-linkedin-btn" viewBox="0 0 16 16">
+          <path fill="currentColor" d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78v5.727zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"></path>
         </symbol>
-        <symbol id="eco2-i-mail" viewBox="0 0 24 24">
-          <path d="M3 5.5h18a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-11a1 1 0 0 1 1-1Zm.7 1.9v.1l8.3 5.98L20.3 7.5v-.1H3.7ZM4 8.9v8.1h16V8.9l-8 5.77L4 8.9Z" />
+        <symbol id="eco2-i-youtube" viewBox="0 0 461.001 461.001">
+          <path style={{ fill: "#F61C0D" }} d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728 c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137 C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607 c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z" />
+        </symbol>
+        <symbol id="eco2-i-tiktok" viewBox="0 0 38.51 38.51">
+          <defs>
+            <linearGradient id="tiktok-grad-a" x1="3.65" x2="34.85" y1=".66" y2="37.84" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stopColor="#323232"></stop>
+              <stop offset="1"></stop>
+            </linearGradient>
+            <linearGradient id="tiktok-grad-b" x1="3.85" x2="35.05" y1=".5" y2="37.68" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stopColor="#646464"></stop>
+              <stop offset=".43" stopColor="#1d1d1d"></stop>
+              <stop offset=".6"></stop>
+            </linearGradient>
+          </defs>
+          <g style={{ isolation: 'isolate' }}>
+            <g>
+              <g>
+                <g>
+                  <rect width="38.51" height="38.51" fill="url(#tiktok-grad-a)" rx="6.97" ry="6.97"></rect>
+                  <g>
+                    <path fill="url(#tiktok-grad-b)" d="M38.51,31.54v-11.64c-2.31-2.35-4.72-4.62-6.98-7.03-.45,0-.9-.05-1.33-.14v3.59c-2.37,0-4.56-.75-6.35-2.03v9.3c0,4.65-3.77,8.42-8.43,8.42-1.74,0-3.35-.52-4.69-1.42,2.69,2.67,5.27,5.27,7.92,7.92h12.9c3.83,0,6.97-3.14,6.97-6.97Z"></path>
+                    <path fill="#ff1753" d="M38.51,31.54v-11.64c-2.31-2.35-4.72-4.62-6.98-7.03-.45,0-.9-.05-1.33-.14v3.59c-2.37,0-4.56-.75-6.35-2.03v9.3c0,4.65-3.77,8.42-8.43,8.42-1.74,0-3.35-.52-4.69-1.42,2.69,2.67,5.27,5.27,7.92,7.92h12.9c3.83,0,6.97-3.14,6.97-6.97Z" style={{ mixBlendMode: 'multiply' }}></path>
+                  </g>
+                  <g>
+                    <g>
+                      <path fill="#ff1753" fillRule="evenodd" d="M26.82,10.8c-.92-1-1.52-2.29-1.65-3.72v-.59h-1.26c.32,1.81,1.4,3.37,2.91,4.31h0ZM13.66,27.02c-.51-.67-.79-1.49-.79-2.33,0-2.13,1.73-3.85,3.86-3.85.4,0,.79.06,1.17.18v-4.66c-.44-.06-.89-.09-1.33-.08v3.63c-.38-.12-.77-.18-1.17-.18-2.13,0-3.86,1.73-3.86,3.85,0,1.5.86,2.81,2.12,3.44Z" opacity=".8"></path>
+                      <path fill="#fff" fillRule="evenodd" d="M23.84,14.29c1.79,1.28,3.99,2.03,6.35,2.03v-3.59c-1.32-.28-2.49-.97-3.37-1.93-1.51-.94-2.59-2.49-2.91-4.31h-3.32v18.2c0,2.12-1.73,3.84-3.86,3.84-1.25,0-2.36-.6-3.07-1.52-1.26-.63-2.12-1.94-2.12-3.44,0-2.13,1.73-3.85,3.86-3.85.41,0,.8.06,1.17.18v-3.63c-4.57.09-8.25,3.83-8.25,8.42,0,2.29.92,4.37,2.4,5.89,1.34.9,2.96,1.42,4.69,1.42,4.65,0,8.43-3.77,8.43-8.42v-9.3Z"></path>
+                      <path fill="#00c9d0" fillRule="evenodd" d="M30.19,12.73v-.97c-1.19,0-2.36-.33-3.37-.96.9.98,2.08,1.66,3.37,1.93ZM23.91,6.49c-.03-.17-.05-.35-.07-.52v-.59h-4.59v18.2c0,2.12-1.73,3.84-3.86,3.84-.62,0-1.21-.15-1.73-.41.7.92,1.82,1.52,3.07,1.52,2.12,0,3.85-1.72,3.86-3.84V6.49h3.32ZM16.57,16.28v-1.03c-.38-.05-.77-.08-1.16-.08-4.66,0-8.43,3.77-8.43,8.42,0,2.92,1.48,5.49,3.74,7-1.49-1.52-2.4-3.6-2.4-5.89,0-4.59,3.68-8.33,8.25-8.42h0Z"></path>
+                    </g>
+                    <path fill="#ff1753" fillRule="evenodd" d="M25.17,15.4c1.79,1.28,3.99,2.03,6.35,2.03v-4.56c-.45,0-.9-.05-1.33-.14v3.59c-2.37,0-4.56-.75-6.35-2.03v9.3c0,4.65-3.77,8.42-8.43,8.42-1.74,0-3.35-.52-4.69-1.42,1.53,1.56,3.66,2.53,6.03,2.53,4.66,0,8.43-3.77,8.43-8.42v-9.3h0Z" opacity=".8"></path>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </symbol>
+        <symbol id="eco2-i-mail" viewBox="0 0 1024 1024">
+          <path fill="#FFFFFF" d="M262.8 139.5l497.4-2.5v219.2s59.7 25.8 66.9 30.5c21.6 14.3 53.6 20 53.6 92.3v323.7c0 41.2-33.4 74.5-74.5 74.5H216.4c-41.2 0-74.5-33.4-74.5-74.5V497c0-5.4 0.6-15.2 0-27-1.3-25.8 3.7-51.1 29.7-70.2 15.1-11.1 34.5-18.5 51-25.9 22.4-10.1 40.2-17.9 40.2-17.9V139.5z" />
+          <path fill="#E6E6E6" d="M262.8 399.8l-38.7 17.3-0.4 0.2c-16.2 6.4-26.4 12.4-32.6 18.5l71.8 38.8v-74.8zM797.8 416.7L760.2 400v74.4l70.6-38.2c-6.5-5.6-16.9-11.5-33-19.5z" />
+          <path fill="#4e78c6" d="M252.6 753.6V560.7c0-5.5-4.5-10-10-10s-10 4.5-10 10v192.9c0 19.5 15.9 35.4 35.4 35.4h298.8c5.5 0 10-4.5 10-10s-4.5-10-10-10H267.9c-8.4-0.1-15.3-7-15.3-15.4z" />
+          <path fill="#4e78c6" d="M302.8 368.6zM878 437.7c0 0.2 0.1 0.3 0.1 0.4 0-0.1-0.1-0.3-0.1-0.4zM607.2 475.5c15.4-8.5 27.6-20.2 35.1-33.4 2.4-2.2 3.8-5.1 4-8.3 0.3-0.8 0.7-1.7 1-2.5h-1c-0.2-6.8-5.9-12.2-12.8-12.2-6.6 0-12.1 5-12.7 11.6h-0.2c-9.9 12.4-23 21.1-39.2 27.3-16.2 6.2-35.6 10.2-58.2 10.2-23.4 0-42.8-4.6-61-12-17.9-7.2-33-19.9-43.2-36.2-10-16.1-15-33.3-15-53 0-20.2 5.1-39.6 14.1-58.3 8.7-18.3 22.8-33.4 40.4-43.4 17.8-10.3 38.2-15.6 63.7-15.6 30.1 0 53.6 7.9 70.4 23.3 16.8 15.4 21.8 34.6 21.8 57.5 0 12.8-1.6 25.1-7.5 37-5.9 11.9-11.7 18.4-21.3 25.5-7.1 5.4-23.1 11.7-27.7 11.7-1.5 0-2.8-0.6-3.9-1.8-1.1-1.1-1.6-2.9-1.6-5.2 0.3-4.3 1-8.6 2-12.9l21-80.3c1-1.8 1.8-3.7 1.8-5.9l-0.1-0.6 0.1-0.4h-0.1v-0.1c0-6.7-5.6-12.2-12.4-12.2-3.3 0-6.4 1.2-8.8 3.5-2.3 2.3-3.7 5.4-3.7 8.7l0.1 1.1c0 0.8 0.3 1.5 0.5 2.2l-1.3 4.7c-8-12.7-26.8-20.5-43.7-20.5-14.3 0-35.7 9.9-50.3 32.2-10.8 17.1-17 36.7-17.8 56.8-0.6 17.7 4.7 33.4 15 44 10.3 10.6 23 13.7 30.9 13.7 14.5 0 27.4-5.3 38.5-15.9 1.1 4.8 3.9 9 7.9 11.8 3.9 2.7 9.8 4.1 17.7 4.1 29.1 0 55.9-15.2 70.7-35.6 12.7-17.3 19.8-40.6 19.8-64.3 0-19.9-3.2-38.3-13-55.1-9.8-16.8-22.4-29.8-40.9-38.9-18.5-9.1-39.6-13.7-63.4-13.7-28 0-53 5.7-74.8 17-21.8 11.3-39 28.3-51.5 50.8-12.6 22.6-18.9 46.9-18.9 73.1-0.2 23.1 5.5 45.8 16.6 66.1 11.2 20.9 29 37.4 50.6 47.2 22.7 10.4 49.5 15.6 80.7 15.6 32 0 59.3-6.1 81.6-18.4zM530 368.6c-3.7 10.9-8 19.2-13 24.9-3.5 4-7.1 6.9-10.6 8.8-4.7 2.6-8.2 4.6-13.6 4.6-7.2 0-16.3-2.8-21.1-8.4-4.9-5.6-7.3-14.3-7.3-26.1 0-8.8 4.6-19 8.1-30.4 3.5-11.4 8.7-17.2 15.6-23.4 6.9-6.2 13.2-7.9 21.3-7.9 7.6 0 15.6 2.2 20.5 7.8 5 5.6 8.1 10 8.1 20.5 0.1 9.3-4.4 18.7-8 29.6z" />
+          <path fill="#4e78c6" d="M878.1 438.1c0-0.2-0.1-0.3-0.1-0.4-8.7-30.2-37.2-44.3-62.8-57l-0.4-0.2-54.6-24.4V137l-497.4 2.5V356l-54.2 24.2c-31.1 12.3-66.7 32.3-66.7 77.5v345.1c0 41 33.4 74.4 74.4 74.4h590c41 0 74.4-33.4 74.4-74.4V457.7c0-7.2-0.9-13.7-2.6-19.6zM760.2 400l37.6 16.8c16.2 8 26.5 13.9 33 19.4l-70.6 38.2V400z m-457.4-31.4V179.3l417.4-2.1V496l-199 107.7c-6.1 3.3-13.5 3.3-19.6 0L302.8 496.2V368.6z m-40 31.2v74.8L191 435.7c6.2-6.1 71.8-35.9 71.8-35.9z m577.9 403c0 19-15.4 34.4-34.4 34.4h-590c-19 0-34.4-15.4-34.4-34.4V476.3L482.4 639c9 4.9 18.9 7.3 28.9 7.3 9.9 0 19.8-2.4 28.9-7.3l300.5-162.7v326.5z" />
         </symbol>
         <symbol id="eco2-i-globe" viewBox="0 0 24 24">
           <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm7.93 9h-3.13a15.9 15.9 0 0 0-1.14-5.4A8 8 0 0 1 19.93 11ZM12 4.05c.86 1.15 1.9 3.2 2.06 6.95H9.94C10.1 7.25 11.14 5.2 12 4.05ZM9.94 13h4.12c-.16 3.75-1.2 5.8-2.06 6.95-.86-1.15-1.9-3.2-2.06-6.95ZM8.34 5.6A15.9 15.9 0 0 0 7.2 11H4.07a8 8 0 0 1 4.27-5.4ZM4.07 13H7.2a15.9 15.9 0 0 0 1.14 5.4A8 8 0 0 1 4.07 13Zm11.32 5.4A15.9 15.9 0 0 0 16.8 13h3.13a8 8 0 0 1-4.54 5.4Z" />
@@ -240,8 +291,106 @@ function IconSprite() {
         <symbol id="eco2-i-recycle" viewBox="0 0 24 24">
           <path d="M10.5 3.3 13 7.6l-1.7 1-1.6-2.8-1.8 3.1-1.7-1L8.8 3a1 1 0 0 1 1.7.3ZM4.2 15.9 6 12.7l1.7 1-1 1.8h3.6v2H6.7l1 1.8-1.7 1-1.8-3.1a1 1 0 0 1 0-1.3Zm15.6-1.1-1.8 3.1-1.7-1 1-1.8h-3.5v-2h3.5l-1-1.8 1.7-1 1.8 3.1a1 1 0 0 1 0 1.4Z" />
         </symbol>
+        <symbol id="eco2-i-shrimp" viewBox="0 0 463 463">
+          <path fill="currentColor" d="M371.5,16h-244c-4.687,0-8.5-3.813-8.5-8.5c0-4.143-3.358-7.5-7.5-7.5S104,3.357,104,7.5c0,12.958,10.542,23.5,23.5,23.5 h244c42.182,0,76.5,34.317,76.5,76.5c0,37.646-27.341,69.005-63.204,75.319C403.573,161.704,415,133.913,415,103.5v-16 c0-12.958-10.542-23.5-23.5-23.5h-216c-52.84,0-97.635,20.386-129.543,58.954C16.321,158.776,0,208.689,0,263.5 C0,373.505,89.495,463,199.5,463h96c2.599,0,5.013-1.346,6.38-3.557c1.367-2.212,1.491-4.973,0.328-7.298l-14.494-28.987 l14.749-36.873c1.122-2.804,0.452-6.006-1.698-8.126c-2.151-2.121-5.363-2.744-8.15-1.582l-94.57,39.404 C145.503,415.2,103,372.223,103,319.5c0-52.052,41.429-94.605,93.044-96.431l33.986,40.783c1.271,1.524,1.97,3.457,1.97,5.441 V311.5c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-42.207c0-5.487-1.935-10.83-5.447-15.045L215.513,223h20.474l34.043,40.852 c1.271,1.524,1.97,3.457,1.97,5.441V311.5c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-42.207c0-5.487-1.935-10.83-5.447-15.045 L255.513,223h20.474l34.043,40.852c1.271,1.524,1.97,3.457,1.97,5.441V311.5c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-42.207 c0-5.487-1.935-10.83-5.447-15.045L295.513,223c26.905-0.003,51.759-8.947,71.754-24.011c0.078,0.002,0.155,0.012,0.233,0.012h4 c50.453,0,91.5-41.047,91.5-91.5S421.953,16,371.5,16z M400,87.5v16c0,57.621-46.878,104.5-104.5,104.5h-96 c-0.01,0-0.021,0-0.031,0c-0.007,0-0.015,0-0.022,0c-5.587,0.003-11.078,0.422-16.447,1.222V79h208.5 C396.187,79,400,82.813,400,87.5z M168,79.163v133.375c-12.171,3.59-23.481,9.203-33.541,16.453l-78.303-94.788 c0.452-0.562,0.899-1.131,1.358-1.686C84.964,99.337,123.047,80.993,168,79.163z M97.682,364.918l-37.231,19.711 c-27.797-31.867-44.835-73.342-45.421-118.713l76.55,25.516C89.245,300.403,88,309.809,88,319.5 C88,335.667,91.466,351.038,97.682,364.918z M272.792,426.854L283.365,448H207v-19.5l74.907-31.211l-9.37,23.426 C271.741,422.704,271.834,424.938,272.792,426.854z M192,430.751v17.099c-46.859-1.885-89.267-21.339-120.824-51.927l33.545-17.759 C123.167,407.854,155.161,428.291,192,430.751z M96.339,277.207l-80.991-26.997c2.027-39.193,13.03-75.024,31.701-103.48 l75.852,91.821C111.515,249.333,102.397,262.485,96.339,277.207z"/>
+          <path fill="currentColor" d="M303.5,143c12.958,0,23.5-10.542,23.5-23.5S316.458,96,303.5,96S280,106.542,280,119.5S290.542,143,303.5,143z M303.5,111 c4.687,0,8.5,3.813,8.5,8.5s-3.813,8.5-8.5,8.5s-8.5-3.813-8.5-8.5S298.813,111,303.5,111z"/>
+        </symbol>
       </defs>
     </svg>
+  )
+}
+
+type SocialTreeNodeData = {
+  id: string
+  name: string
+  color: string
+  href?: string
+  logo?: string
+  icon?: string
+  children?: Array<SocialTreeNodeData>
+}
+
+function SocialTreeNode({
+  node,
+  level = 0,
+  mobileIndex,
+}: {
+  node: SocialTreeNodeData
+  level?: number
+  mobileIndex?: number
+}) {
+  const isRoot = level === 0
+  const isGroup = level === 1
+  const hasChildren = Boolean(node.children?.length)
+  const isLeaf = !hasChildren
+
+  // Deterministic mobile side based on node ID (no mutable state)
+  const mobileSideMap: Record<string, "left" | "right"> = {
+    "vnf": "left",
+    "youtube": "right",
+    "facebook": "left",
+    "tiktok": "right",
+    "linkedin": "left",
+    "ca-mau": "right",
+    "email": "left",
+    "hau-giang": "right",
+  }
+  const mobileSide = !isGroup ? mobileSideMap[node.id] : undefined
+
+  const content: ReactNode = (
+    <>
+      <div className={`social-tree-logo ${isRoot ? "social-tree-logo--root" : ""}`}>
+        {node.logo ? <img src={node.logo} alt="" /> : <svg><use href={`#eco2-${node.icon}`} /></svg>}
+      </div>
+      <div className="social-tree-name">{node.name}</div>
+    </>
+  )
+
+  return (
+    <div className="social-tree-node">
+      {node.href ? (
+        <a
+          className={`social-tree-card ${isRoot ? "social-tree-card--root" : ""} ${isGroup ? "social-tree-card--group" : ""} ${isLeaf ? "social-tree-card--leaf" : ""}`}
+          href={node.href}
+          target={node.href.startsWith("mailto:") ? undefined : "_blank"}
+          rel={node.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+          style={{ borderColor: node.color, color: node.color }}
+          data-id={node.id}
+          data-group={isGroup ? node.id : undefined}
+          data-mobile-side={mobileSide}
+        >
+          {content}
+        </a>
+      ) : (
+        <div
+          className={`social-tree-card ${isGroup ? "social-tree-card--group" : ""} ${isLeaf ? "social-tree-card--leaf" : ""}`}
+          style={{ borderColor: node.color, color: node.color }}
+          data-group={isGroup ? node.id : undefined}
+          data-mobile-side={mobileSide}
+        >
+          {content}
+        </div>
+      )}
+
+      {hasChildren && (
+        <div className="social-tree-children">
+          <div className="social-tree-stem" />
+          <div className="social-tree-child-list">
+            {node.children?.map((child, index) => (
+              <div key={child.id} className="social-tree-child">
+                {node.children && node.children.length > 1 && (
+                  <div
+                    className={`social-tree-branch ${index === 0 ? "social-tree-branch--first" : ""} ${index === node.children.length - 1 ? "social-tree-branch--last" : ""}`}
+                  />
+                )}
+                <div className="social-tree-stem" />
+                <SocialTreeNode node={child} level={level + 1} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -250,12 +399,98 @@ function EcosystemVnfPage() {
   const [lang, setLang] = useState<Lang>("vi")
   const [appIndex, setAppIndex] = useState(0)
   const [activeSection, setActiveSection] = useState<"home" | "ecosystem">("home")
-  const [typedLen, setTypedLen] = useState(0)
+  const [showBackToTop, setShowBackToTop] = useState(false)
+  const [isHiding, setIsHiding] = useState(false)
   const ecoTitleRef = useRef<HTMLHeadingElement>(null)
   const appInfoRef = useRef<HTMLDivElement>(null)
+  const appListRef = useRef<HTMLDivElement>(null)
   const t = T[lang]
   const active = ECOSYSTEM[appIndex]
   const ecoTitleFull = `${t.ecoTitlePrefix}\n${t.ecoTitleRest}`
+
+  // Auto-scroll app-list on phone - REMOVED (now manual scroll only)
+  // useEffect(() => {
+  //   ... previous auto-scroll code removed ...
+  // }, [])
+
+  // socialTree — thứ tự children được xen kẽ để mobileIndexRef (DFS) ra đúng cột:
+  // DFS visit: root(L=0) → YouTube(R=1) → Facebook(L=2) → TikTok(R=3) → LinkedIn(L=4) → CàMau(R=5) → Email(L=6) → HậuGiang(R=7)
+  // → Phone cột trái:  Website · Facebook · LinkedIn · Email
+  // → Phone cột phải:  YouTube · TikTok   · Cà Mau   · Hậu Giang
+  // Desktop/Tablet (flat grid 4 cột, group bị ẩn): Website · LinkedIn · Facebook · Email / YouTube · TikTok · Cà Mau · Hậu Giang
+  const socialTree: SocialTreeNodeData = {
+    id: "vnf",
+    name: t.socialWebsite,
+    color: "#1f5da0",
+    href: "https://www.vnfoods.vn",
+    logo: `${LOGO_BASE}/vnf.png`,
+    children: [
+      // interleaved so DFS index alternates L/R correctly on phone
+      {
+        id: "youtube-group",
+        name: "YouTube",
+        color: "#FF0000",
+        icon: "i-youtube",
+        children: [
+          { id: "youtube", name: "YouTube", color: "#FF0000", href: "https://youtube.com/@vietnamfood.offical", icon: "i-youtube" },
+        ],
+      },
+      {
+        id: "facebook-group",
+        name: "Facebook",
+        color: "#1877F2",
+        icon: "i-facebook",
+        children: [
+          { id: "facebook", name: "Facebook", color: "#1877F2", href: "https://www.facebook.com/vnfoods.vn", icon: "i-facebook" },
+        ],
+      },
+      {
+        id: "tiktok-group",
+        name: "TikTok",
+        color: "#010101",
+        icon: "i-tiktok",
+        children: [
+          { id: "tiktok", name: "TikTok", color: "#010101", href: "https://www.tiktok.com/@vietnamfood.mediachannel", icon: "i-tiktok" },
+        ],
+      },
+      {
+        id: "linkedin-group",
+        name: "LinkedIn",
+        color: "#0A66C2",
+        icon: "i-linkedin",
+        children: [
+          { id: "linkedin", name: "LinkedIn", color: "#0A66C2", href: "https://www.linkedin.com/company/vnf/", icon: "i-linkedin" },
+        ],
+      },
+      {
+        id: "websites",
+        name: t.socialWebsiteGroup,
+        color: "#0e7490",
+        logo: `${LOGO_BASE}/vnf.png`,
+        children: [
+          { id: "ca-mau",    name: t.socialCaMau,    color: "#0e7490", href: "https://www.facebook.com/profile.php?id=100063618936458", logo: `${LOGO_BASE}/ca-mau.png` },
+        ],
+      },
+      {
+        id: "email-group",
+        name: t.socialEmailGroup,
+        color: "#4e78c6",
+        logo: `${LOGO_BASE}/vnf.png`,
+        children: [
+          { id: "email", name: t.socialEmail, color: "#4e78c6", href: "mailto:sales@vnfoods.vn", icon: "i-mail" },
+        ],
+      },
+      {
+        id: "hau-giang-group",
+        name: t.socialHauGiang,
+        color: "#0e7490",
+        logo: `${LOGO_BASE}/hau-giang.png`,
+        children: [
+          { id: "hau-giang", name: t.socialHauGiang, color: "#0e7490", href: "https://www.facebook.com/vnf.haugiang", logo: `${LOGO_BASE}/hau-giang.png` },
+        ],
+      },
+    ],
+  }
 
   useEffect(() => {
     const el = appInfoRef.current
@@ -264,31 +499,6 @@ function EcosystemVnfPage() {
     void el.offsetWidth
     el.classList.add("app-fade-in")
   }, [appIndex])
-
-  useEffect(() => {
-    setTypedLen(0)
-    const el = ecoTitleRef.current
-    if (!el) return
-    let timer: ReturnType<typeof setInterval>
-    const obs = new IntersectionObserver(
-      entries => {
-        if (!entries[0].isIntersecting) return
-        let i = 0
-        timer = setInterval(() => {
-          i++
-          setTypedLen(i)
-          if (i >= ecoTitleFull.length) clearInterval(timer)
-        }, 32)
-        obs.disconnect()
-      },
-      { threshold: 0.4 }
-    )
-    obs.observe(el)
-    return () => {
-      obs.disconnect()
-      clearInterval(timer)
-    }
-  }, [lang])
 
   useEffect(() => {
     const spy = new IntersectionObserver(
@@ -307,16 +517,43 @@ function EcosystemVnfPage() {
     )
     document.querySelectorAll(".vnf-eco2-page .reveal").forEach(el => reveal.observe(el))
 
+    // Show/hide back to top button based on scroll position
+    const handleScroll = () => {
+      const shouldShow = window.scrollY > 400
+      
+      if (!shouldShow && showBackToTop) {
+        // Scrolled back to top - trigger hide animation first
+        setIsHiding(true)
+        setTimeout(() => {
+          setShowBackToTop(false)
+          setIsHiding(false)
+        }, 300) // Match animation duration
+      } else if (shouldShow && !showBackToTop) {
+        // Scrolled down - show button
+        setShowBackToTop(true)
+        setIsHiding(false)
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+
     return () => {
       spy.disconnect()
       reveal.disconnect()
+      window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [showBackToTop])
 
   const showApp = (i: number) => setAppIndex((i + ECOSYSTEM.length) % ECOSYSTEM.length)
   const lockRatio = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const v = e.currentTarget
     if (v.videoWidth && v.videoHeight) v.style.aspectRatio = `${v.videoWidth} / ${v.videoHeight}`
+  }
+  const scrollToTop = () => {
+    // Trigger hide animation before scrolling
+    setIsHiding(true)
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 150)
   }
 
   return (
@@ -331,10 +568,10 @@ function EcosystemVnfPage() {
             <div className="nav-links">
               <a href="#home" className={activeSection === "home" ? "active" : ""}>{t.navHome}</a>
               <a href="#ecosystem" className={activeSection === "ecosystem" ? "active" : ""}>{t.navEcosystem}</a>
-              <div className="langtoggle">
-                <button className={lang === "vi" ? "active" : ""} onClick={() => setLang("vi")}>VN</button>
-                <button className={lang === "en" ? "active" : ""} onClick={() => setLang("en")}>EN</button>
-              </div>
+            </div>
+            <div className="langtoggle">
+              <button className={lang === "vi" ? "active" : ""} onClick={() => setLang("vi")}>VN</button>
+              <button className={lang === "en" ? "active" : ""} onClick={() => setLang("en")}>EN</button>
             </div>
           </nav>
         </div>
@@ -356,7 +593,7 @@ function EcosystemVnfPage() {
               {t.heroLead2}
             </p>
             <div className="hero-ctas">
-              <a href="#ecosystem" className="btn btn-primary">{t.ctaExplore}</a>
+              <a href="#ecosystem" className="btn btn-ghost">{t.ctaExplore}</a>
               <a href="mailto:sales@vnfoods.vn" className="btn btn-ghost">{t.ctaContact}</a>
             </div>
           </div>
@@ -374,35 +611,19 @@ function EcosystemVnfPage() {
         </div>
       </section>
 
+      {/* ============ SECTION 2: SOCIAL / CONNECT TREE ============ */}
       <div className="social-bar" id="social">
         <div className="wrap">
           <div className="social-bar-head reveal">{t.socialHead}</div>
         </div>
-        <div className="wrap social-row">
-          <a className="social-pill social-pill--website reveal" href="https://www.vnfoods.vn" target="_blank" rel="noopener noreferrer">
-            <svg><use href="#eco2-i-globe" /></svg><span>{t.socialWebsite}</span>
-          </a>
-          <a className="social-pill social-pill--linkedin reveal" href="https://www.linkedin.com/company/vnf/" target="_blank" rel="noopener noreferrer">
-            <svg><use href="#eco2-i-linkedin" /></svg><span>LinkedIn</span>
-          </a>
-          <a className="social-pill social-pill--facebook reveal" href="https://www.facebook.com/vnfoods.vn" target="_blank" rel="noopener noreferrer">
-            <svg><use href="#eco2-i-facebook" /></svg><span>Facebook</span>
-          </a>
-          <a className="social-pill social-pill--youtube reveal" href="https://youtube.com/@vietnamfood.offical" target="_blank" rel="noopener noreferrer">
-            <svg><use href="#eco2-i-youtube" /></svg><span>YouTube</span>
-          </a>
-          <a className="social-pill social-pill--tiktok reveal" href="https://www.tiktok.com/@vietnamfood.mediachannel" target="_blank" rel="noopener noreferrer">
-            <svg><use href="#eco2-i-tiktok" /></svg><span>TikTok</span>
-          </a>
-          <a className="social-pill social-pill--email reveal" href="mailto:sales@vnfoods.vn">
-            <svg><use href="#eco2-i-mail" /></svg><span>{t.socialEmail}</span>
-          </a>
-          <a className="social-pill social-pill--factory reveal" href="https://www.facebook.com/profile.php?id=100063618936458" target="_blank" rel="noopener noreferrer">
-            <img src={`${LOGO_BASE}/ca-mau.png`} alt="" /><span>{t.socialCaMau}</span>
-          </a>
-          <a className="social-pill social-pill--factory reveal" href="https://www.facebook.com/vnf.haugiang" target="_blank" rel="noopener noreferrer">
-            <img src={`${LOGO_BASE}/hau-giang.png`} alt="" /><span>{t.socialHauGiang}</span>
-          </a>
+        <div className="social-tree-wrap reveal">
+          {/* Decorative center timeline spine — mobile only (hidden on tablet/desktop) */}
+          <span className="mobile-spine" aria-hidden="true">
+            <span className="mobile-spine-line" />
+            <span className="mobile-spine-arrow" />
+            <span className="mobile-spine-dot" />
+          </span>
+          <SocialTreeNode node={socialTree} />
         </div>
       </div>
 
@@ -411,15 +632,15 @@ function EcosystemVnfPage() {
         <div className="wrap">
           <div className="section-head reveal">
             <div className="eyebrow">{t.ecoEyebrow}</div>
-            <h2 ref={ecoTitleRef} className="typewriter">
-              {ecoTitleFull.slice(0, typedLen).split("\n").map((line, i, arr) => (
+            <h2 ref={ecoTitleRef}>
+              {ecoTitleFull.split("\n").map((line, i, arr) => (
                 <span key={i}>{line}{i < arr.length - 1 ? <br /> : null}</span>
               ))}
-              {typedLen > 0 && typedLen < ecoTitleFull.length && <span className="typewriter-caret" aria-hidden="true" />}
             </h2>
           </div>
           <div className="app-layout">
-            <div className="app-list reveal">
+            {/* Single scrollable list for all devices */}
+            <div ref={appListRef} className="app-list reveal">
               {ECOSYSTEM.map((e, i) => (
                 <div key={e.fb} className={`app-item ${i === appIndex ? "active" : ""}`} onClick={() => showApp(i)}>
                   <div className="mini"><img src={e.logo[lang]} alt="" /></div>
@@ -427,8 +648,8 @@ function EcosystemVnfPage() {
                 </div>
               ))}
             </div>
-            <div className="app-panel reveal">
-              <div ref={appInfoRef} className="app-fade-in">
+            <div className="app-panel reveal" data-app-index={appIndex}>
+              <div ref={appInfoRef} className="app-fade-in app-content">
                 <div className="app-head">
                   <img className="app-logo" src={active.logo[lang]} alt="" />
                   <div className="cat">{active[lang].cat}</div>
@@ -447,7 +668,7 @@ function EcosystemVnfPage() {
                   onLoadedMetadata={lockRatio}
                 />
               </div>
-              <div className="app-nav">
+              <div className="app-nav-section">
                 <div className="app-links">
                   <a
                     className="btn btn-outline-navy"
@@ -456,7 +677,7 @@ function EcosystemVnfPage() {
                     rel="noopener noreferrer"
                     style={{ borderColor: "rgba(255,255,255,.5)", color: "var(--eco2-white)" }}
                   >
-                    <svg style={{ width: 16, height: 16, fill: "currentColor" }}><use href="#eco2-i-facebook" /></svg>
+                    <svg style={{ width: 16, height: 16, fill: "currentColor" }}><use href="#eco2-i-facebook-btn" /></svg>
                     {t.fbLink}
                   </a>
                   {"linkedin" in active && active.linkedin && (
@@ -467,14 +688,14 @@ function EcosystemVnfPage() {
                       rel="noopener noreferrer"
                       style={{ borderColor: "rgba(255,255,255,.5)", color: "var(--eco2-white)" }}
                     >
-                      <svg style={{ width: 16, height: 16, fill: "currentColor" }}><use href="#eco2-i-linkedin" /></svg>
+                      <svg style={{ width: 16, height: 16, fill: "currentColor" }}><use href="#eco2-i-linkedin-btn" /></svg>
                       {t.liLink}
                     </a>
                   )}
                 </div>
-                <div className="app-arrows">
-                  <div className="arrow-btn" onClick={() => showApp(appIndex - 1)}><svg><use href="#eco2-i-arrow-l" /></svg></div>
-                  <div className="arrow-btn" onClick={() => showApp(appIndex + 1)}><svg><use href="#eco2-i-arrow-r" /></svg></div>
+                <div className="app-nav-arrows">
+                  <div className="arrow-btn arrow-btn-prev" onClick={() => showApp(appIndex - 1)}><svg><use href="#eco2-i-arrow-l" /></svg></div>
+                  <div className="arrow-btn arrow-btn-next" onClick={() => showApp(appIndex + 1)}><svg><use href="#eco2-i-arrow-r" /></svg></div>
                 </div>
               </div>
             </div>
@@ -483,11 +704,18 @@ function EcosystemVnfPage() {
       </section>
 
       {/* ============ FOLLOW CTA ============ */}
-      <section className="follow-cta">
+      <section className="follow-cta follow-cta-glow">
+        <svg className="follow-shrimp follow-shrimp-1" aria-hidden="true"><use href="#eco2-i-shrimp" /></svg>
+        <svg className="follow-shrimp follow-shrimp-2" aria-hidden="true"><use href="#eco2-i-shrimp" /></svg>
+        <svg className="follow-shrimp follow-shrimp-3" aria-hidden="true"><use href="#eco2-i-shrimp" /></svg>
         <div className="wrap">
           <div className="follow-cta-inner reveal">
             <div className="eyebrow">{t.followEyebrow}</div>
-            <p>{t.followText}</p>
+            <p>
+              {t.followText.split('\n').map((line, i, arr) => (
+                <span key={i}>{line}{i < arr.length - 1 ? <br /> : null}</span>
+              ))}
+            </p>
           </div>
         </div>
       </section>
@@ -526,6 +754,19 @@ function EcosystemVnfPage() {
         </div>
       </footer>
 
+      {/* ============ BACK TO TOP BUTTON (Desktop only) ============ */}
+      {showBackToTop && (
+        <button 
+          className={`back-to-top ${isHiding ? 'hiding' : 'show'}`}
+          onClick={scrollToTop}
+          aria-label="Back to top"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+          </svg>
+        </button>
+      )}
+
       <style>{ECO2_CSS}</style>
     </div>
   )
@@ -556,6 +797,10 @@ const ECO2_CSS = `
   --eco2-shadow-lg: 0 18px 46px rgba(23,73,127,.16);
   --eco2-radius-card: 8px;
 }
+/* Smooth scroll behavior for anchor links */
+html{
+  scroll-behavior: smooth;
+}
 .vnf-eco2-page *, .vnf-eco2-page *::before, .vnf-eco2-page *::after{box-sizing:border-box;}
 .vnf-eco2-page *{margin:0; padding:0;}
 .vnf-eco2-page{
@@ -584,11 +829,23 @@ const ECO2_CSS = `
   border-bottom:2px solid var(--eco2-primary); padding-bottom:6px;
 }
 @media(min-width:720px){ .vnf-eco2-page .eyebrow{letter-spacing:.16em; font-size:13.5px;} }
+
+/* Eyebrow in ecosystem section - larger size */
+.vnf-eco2-page #ecosystem .eyebrow{
+  font-size:15px; letter-spacing:.15em; padding-bottom:8px; margin-bottom:16px; border-bottom-width:3px;
+}
+@media(min-width:720px){ 
+  .vnf-eco2-page #ecosystem .eyebrow{font-size:17px; letter-spacing:.18em;} 
+}
+@media(min-width:960px){ 
+  .vnf-eco2-page #ecosystem .eyebrow{font-size:19px; letter-spacing:.20em;} 
+}
+
 /* on dark (primary-colored) sections, swap the eyebrow to a light flat tone for legibility */
 .vnf-eco2-page .hero .eyebrow{color:var(--eco2-white); border-bottom-color:rgba(255,255,255,.55);}
 /* company identity line in the hero acts as a Subheading — bigger & bolder than a standard eyebrow tag */
 .vnf-eco2-page .brand-id{
-  display:flex; align-items:center; gap:10px; font-size:clamp(15px,2.2vw,18px); font-weight:800;
+  display:flex; align-items:center; gap:10px; font-size:clamp(20px,3.4vw,30px); font-weight:800;
   letter-spacing:.06em; color:var(--eco2-white); text-transform:uppercase; margin-bottom:18px; opacity:.92;
 }
 .vnf-eco2-page .brand-id::before{content:''; width:8px; height:8px; border-radius:50%; background:var(--eco2-white); flex:0 0 auto;}
@@ -597,13 +854,7 @@ const ECO2_CSS = `
 .vnf-eco2-page h4, .vnf-eco2-page h5{color:var(--eco2-primary); font-weight:800; line-height:1.3;}
 .vnf-eco2-page .section-head{max-width:760px; margin:0 auto 44px; text-align:center;}
 .vnf-eco2-page .section-head h2{font-size:clamp(26px,5.5vw,42px); font-weight:700; text-wrap:balance;}
-.vnf-eco2-page .section-head h2.typewriter{text-wrap:pretty;}
 .vnf-eco2-page .section-head p{margin-top:18px; font-size:17px; line-height:1.7; color:var(--eco2-text-soft); text-wrap:pretty;}
-.vnf-eco2-page .typewriter-caret{
-  display:inline-block; width:3px; height:.9em; margin-left:3px; background:currentColor;
-  vertical-align:-.1em; animation:eco2-caret-blink 1s steps(1) infinite;
-}
-@keyframes eco2-caret-blink{0%,49%{opacity:1;} 50%,100%{opacity:0;}}
 @media(min-width:720px){
   .vnf-eco2-page .section-head{margin:0 auto 60px;}
   .vnf-eco2-page .section-head p{font-size:18px;}
@@ -625,16 +876,18 @@ const ECO2_CSS = `
 .vnf-eco2-page .btn-outline-navy:hover{background:var(--eco2-primary); color:var(--eco2-white); transform:translateY(-2px);}
 
 
-/* ===== HEADER — white logo area + thin utility bar, matches vnfoods.vn ===== */
+/* ===== HEADER — logo left, nav links centered, language toggle right (single row at every breakpoint) ===== */
 .vnf-eco2-page header{position:sticky; top:0; z-index:200; background:var(--eco2-white);}
 .vnf-eco2-page .header-main{background:var(--eco2-white); border-bottom:1px solid var(--eco2-border); box-shadow:0 2px 14px rgba(23,73,127,.06);}
 .vnf-eco2-page nav{
-  max-width:var(--eco2-maxw); margin:0 auto; padding:16px var(--eco2-gutter);
-  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 18px;
+  max-width:var(--eco2-maxw); margin:0 auto; padding:10px var(--eco2-gutter);
+  display:flex; align-items:center; flex-wrap:nowrap; gap:8px;
 }
-.vnf-eco2-page .logo{display:flex; align-items:center;}
-.vnf-eco2-page .logo img{height:101px; width:auto; display:block;}
-@media(min-width:640px){ .vnf-eco2-page .logo img{height:117px;} }
+.vnf-eco2-page .logo{display:flex; align-items:center; flex:0 0 auto; min-width:0;}
+.vnf-eco2-page .logo img{height:52px; width:auto; display:block;}
+@media(min-width:400px){ .vnf-eco2-page .logo img{height:60px;} }
+@media(min-width:640px){ .vnf-eco2-page .logo img{height:68px;} }
+@media(min-width:960px){ .vnf-eco2-page .logo img{height:80px;} }
 .vnf-eco2-page .foot-logo{height:46px; width:auto; margin-bottom:20px; display:block;}
 @media(min-width:640px){ .vnf-eco2-page .foot-logo{height:56px; margin-bottom:24px;} }
 .vnf-eco2-page .app-item .mini{overflow:hidden;}
@@ -643,36 +896,51 @@ const ECO2_CSS = `
 .vnf-eco2-page .app-logo{width:48px; height:48px; border-radius:8px; object-fit:cover; background:var(--eco2-white); flex:0 0 auto;}
 @media(min-width:640px){ .vnf-eco2-page .app-logo{width:56px; height:56px;} }
 .vnf-eco2-page .nav-links{
-  display:flex; gap:4px; flex-wrap:wrap; order:3; width:100%; justify-content:center;
+  display:flex; align-items:center; gap:2px; flex:1 1 auto; justify-content:center; min-width:0;
 }
 .vnf-eco2-page .nav-links a{
-  display:inline-flex; align-items:center; min-height:44px;
-  color:var(--eco2-primary); font-weight:700; font-size:15px; padding:10px 16px;
+  display:inline-flex; align-items:center; justify-content:center; min-height:36px;
+  color:var(--eco2-primary); font-weight:700; font-size:12px; padding:7px 9px;
   border-radius:8px; transition:background .2s ease, color .2s ease; position:relative;
+  white-space:nowrap;
 }
 .vnf-eco2-page .nav-links a:hover{background:var(--eco2-primary-light);}
 .vnf-eco2-page .nav-links a.active{background:var(--eco2-primary); color:var(--eco2-white);}
 .vnf-eco2-page .langtoggle{
   display:flex; align-items:center; background:var(--eco2-white); border:1px solid var(--eco2-border); border-radius:999px; padding:3px;
-  flex:0 0 auto; margin-left:8px;
+  flex:0 0 auto;
 }
 .vnf-eco2-page .langtoggle button{
-  border:none; background:transparent; color:var(--eco2-text-soft); font-weight:700; font-size:13px;
-  padding:8px 14px; min-height:40px; border-radius:999px; cursor:pointer; transition:all .2s ease; font-family:var(--eco2-font);
+  border:none; background:transparent; color:var(--eco2-text-soft); font-weight:700; font-size:11px;
+  padding:6px 9px; min-height:30px; border-radius:999px; cursor:pointer; transition:all .2s ease; font-family:var(--eco2-font);
 }
 .vnf-eco2-page .langtoggle button.active{background:var(--eco2-primary); color:var(--eco2-white);}
+@media(min-width:400px){
+  .vnf-eco2-page .nav-links a{font-size:13px; padding:8px 12px;}
+  .vnf-eco2-page .langtoggle button{font-size:12px; padding:7px 11px; min-height:32px;}
+}
 @media(min-width:640px){
-  .vnf-eco2-page .nav-links a{font-size:15.5px; padding:11px 18px;}
+  .vnf-eco2-page nav{padding:12px var(--eco2-gutter); gap:16px;}
+  .vnf-eco2-page .nav-links{gap:4px;}
+  .vnf-eco2-page .nav-links a{font-size:15.5px; padding:9px 16px; min-height:40px;}
+  .vnf-eco2-page .langtoggle button{font-size:13px; padding:8px 14px; min-height:36px;}
 }
 @media(min-width:960px){
-  .vnf-eco2-page nav{flex-wrap:nowrap; gap:24px; padding:20px var(--eco2-gutter);}
-  .vnf-eco2-page .nav-links{order:0; width:auto; margin-left:auto; justify-content:flex-start;}
+  .vnf-eco2-page nav{padding:14px var(--eco2-gutter); gap:24px;}
 }
 
 /* ===== HERO (mobile-first: single column, video under text) ===== */
 .vnf-eco2-page .hero{
-  background:linear-gradient(135deg, rgba(30,92,166,.90), rgba(23,73,127,.94)), url('/ecosystem-vnf/logos/hero-bg.jpg') center/cover no-repeat;
   position:relative; overflow:hidden; padding:64px 0 56px;
+}
+.vnf-eco2-page .hero::before{
+  content:''; position:absolute; inset:0; z-index:0;
+  background:url('${BG_URL}') center/cover no-repeat;
+  opacity:.75;
+}
+.vnf-eco2-page .hero::after{
+  content:''; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(135deg, rgba(30,92,166,.78), rgba(23,73,127,.85));
 }
 .vnf-eco2-page .hero-grid{
   position:relative; z-index:2; display:flex; flex-direction:column; gap:36px;
@@ -716,77 +984,269 @@ const ECO2_CSS = `
   .vnf-eco2-page .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;}
 }
 
-/* ===== social bar — enlarged, high-contrast primary CTAs ===== */
+/* ===== Reveal animation (scroll-triggered) ===== */
+.vnf-eco2-page .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+.vnf-eco2-page .reveal.in{opacity:1; transform:translateY(0);}
+.vnf-eco2-page .app-panel.reveal{transition-delay:.12s;}
+
+/* ===== SECTION 2 — SOCIAL TREE ===== */
 .vnf-eco2-page .social-bar{
-  padding:44px 0 40px; background:var(--eco2-white); border-bottom:1px solid var(--eco2-border);
+  padding:36px 0 42px; background:#f9fafb; border-bottom:1px solid var(--eco2-border); overflow-x:auto;
 }
 .vnf-eco2-page .social-bar-head{
-  text-align:center; font-weight:800; letter-spacing:.1em; font-size:13px; text-transform:uppercase;
-  color:var(--eco2-primary); margin-bottom:24px;
+  text-align:center; font-weight:800; letter-spacing:.1em; font-size:clamp(20px,2.6vw,30px); text-transform:uppercase; color:var(--eco2-primary); margin-bottom:28px;
 }
-.vnf-eco2-page .social-row{display:flex; justify-content:center; flex-wrap:wrap; gap:12px;}
-.vnf-eco2-page .social-pill{
-  display:flex; align-items:center; gap:10px; padding:13px 20px; border-radius:999px;
-  border:1.5px solid var(--eco2-border); background:var(--eco2-primary-light);
-  font-size:14.5px; font-weight:800; color:var(--eco2-primary);
-  transition:transform .22s cubic-bezier(.2,.8,.2,1), background .22s ease, color .22s ease, box-shadow .22s ease, border-color .22s ease;
-  min-height:48px;
+.vnf-eco2-page .social-tree-wrap{display:flex; justify-content:center; min-width:max-content; padding:0 28px 8px;}
+.vnf-eco2-page .social-tree-node{display:flex; flex-direction:column; align-items:center;}
+.vnf-eco2-page .social-tree-card{
+  position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:9px;
+  width:160px; height:92px; padding:10px; border:2px solid; border-radius:16px; background:var(--eco2-white);
+  color:var(--eco2-primary); text-align:center; box-shadow:var(--eco2-shadow-sm); transition:transform .22s ease, box-shadow .22s ease;
 }
-.vnf-eco2-page .social-pill svg{width:19px; height:19px; fill:var(--eco2-primary); flex:0 0 auto; transition:fill .22s ease, transform .32s cubic-bezier(.34,1.56,.64,1);}
-.vnf-eco2-page .social-pill img{width:19px; height:19px; border-radius:50%; object-fit:cover; flex:0 0 auto; transition:transform .32s cubic-bezier(.34,1.56,.64,1);}
-.vnf-eco2-page .social-pill:hover svg, .vnf-eco2-page .social-pill:focus-visible svg,
-.vnf-eco2-page .social-pill:hover img, .vnf-eco2-page .social-pill:focus-visible img{
-  animation:eco2-icon-wiggle .5s cubic-bezier(.34,1.56,.64,1);
+.vnf-eco2-page a.social-tree-card:hover, .vnf-eco2-page a.social-tree-card:focus-visible{
+  animation:eco2-node-pop .5s cubic-bezier(.34,1.56,.64,1) forwards;
+  box-shadow:var(--eco2-shadow-md);
+  z-index:5;
 }
-.vnf-eco2-page .social-pill--website svg{fill:#2563eb;}
-.vnf-eco2-page .social-pill--linkedin svg{fill:#0A66C2;}
-.vnf-eco2-page .social-pill--facebook svg{fill:#1877F2;}
-.vnf-eco2-page .social-pill--youtube svg{fill:#FF0000;}
-.vnf-eco2-page .social-pill--tiktok svg{fill:#010101;}
-.vnf-eco2-page .social-pill--email svg{fill:#64748b;}
-.vnf-eco2-page .social-pill:hover, .vnf-eco2-page .social-pill:focus-visible{
-  border-color:var(--eco2-primary); background:var(--eco2-primary); color:var(--eco2-white);
-  transform:translateY(-2px); box-shadow:var(--eco2-shadow-md);
+.vnf-eco2-page a.social-tree-card:active{
+  animation:none;
+  transform:scale(.93) translateY(-2px);
+  transition:transform .12s ease;
+  box-shadow:var(--eco2-shadow-sm);
 }
-.vnf-eco2-page .social-pill:hover svg, .vnf-eco2-page .social-pill:focus-visible svg{fill:var(--eco2-white);}
-.vnf-eco2-page .social-pill:active{transform:translateY(0);}
-/* entrance uses its own animation (not the shared reveal transition) so hover timing stays untouched */
-.vnf-eco2-page .social-pill.reveal{
-  transform:translateY(16px);
-  transition:transform .22s cubic-bezier(.2,.8,.2,1), background .22s ease, color .22s ease, box-shadow .22s ease, border-color .22s ease;
+@keyframes eco2-node-pop{
+  0%{ transform:scale(1) translateY(0); }
+  45%{ transform:scale(1.14) translateY(-8px); }
+  70%{ transform:scale(.96) translateY(-2px); }
+  100%{ transform:scale(1.06) translateY(-5px); }
 }
-.vnf-eco2-page .social-pill.reveal.in{animation:eco2-pill-in .5s cubic-bezier(.2,.8,.2,1) both;}
-.vnf-eco2-page .social-row .social-pill:nth-child(1){animation-delay:0s;}
-.vnf-eco2-page .social-row .social-pill:nth-child(2){animation-delay:.06s;}
-.vnf-eco2-page .social-row .social-pill:nth-child(3){animation-delay:.12s;}
-.vnf-eco2-page .social-row .social-pill:nth-child(4){animation-delay:.18s;}
-.vnf-eco2-page .social-row .social-pill:nth-child(5){animation-delay:.24s;}
-.vnf-eco2-page .social-row .social-pill:nth-child(6){animation-delay:.30s;}
-.vnf-eco2-page .social-row .social-pill:nth-child(7){animation-delay:.36s;}
-.vnf-eco2-page .social-row .social-pill:nth-child(8){animation-delay:.42s;}
-@keyframes eco2-pill-in{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
-@keyframes eco2-icon-wiggle{
-  0%{transform:scale(1) rotate(0);}
-  35%{transform:scale(1.22) rotate(-10deg);}
-  65%{transform:scale(1.1) rotate(8deg);}
-  100%{transform:scale(1.12) rotate(0);}
+@media (prefers-reduced-motion: reduce){
+  .vnf-eco2-page a.social-tree-card:hover, .vnf-eco2-page a.social-tree-card:focus-visible, .vnf-eco2-page a.social-tree-card:active{
+    animation:none; transform:translateY(-3px);
+  }
 }
+.vnf-eco2-page .social-tree-card--root{width:156px; height:108px; padding:12px 16px;}
+.vnf-eco2-page .social-tree-logo{display:flex; align-items:center; justify-content:center; width:34px; height:34px;}
+.vnf-eco2-page .social-tree-logo--root{width:46px; height:46px;}
+.vnf-eco2-page .social-tree-card--leaf .social-tree-logo{width:46px; height:46px;}
+.vnf-eco2-page .social-tree-logo img{width:100%; height:100%; object-fit:contain;}
+.vnf-eco2-page .social-tree-logo:not(.social-tree-logo--root) img{border-radius:50%;}
+.vnf-eco2-page .social-tree-logo svg{width:31px; height:31px; fill:currentColor;}
+.vnf-eco2-page .social-tree-name{font-size:12px; font-weight:800; line-height:1.2; text-wrap:balance;}
+.vnf-eco2-page .social-tree-card--root .social-tree-name{font-size:16px;}
+.vnf-eco2-page .social-tree-children{display:flex; flex-direction:column; align-items:center; width:100%;}
+.vnf-eco2-page .social-tree-stem{width:2px; height:20px; background:#d1d5db;}
+.vnf-eco2-page .social-tree-child-list{display:flex; padding:0 12px;}
+.vnf-eco2-page .social-tree-child{position:relative; display:flex; flex-direction:column; align-items:center; padding:0 10px;}
+.vnf-eco2-page .social-tree-branch{position:absolute; top:0; height:2px; background:#d1d5db;}
+.vnf-eco2-page .social-tree-branch--first{left:50%; right:0;}
+.vnf-eco2-page .social-tree-branch--last{left:0; right:50%;}
+.vnf-eco2-page .social-tree-child-list > .social-tree-child:not(:first-child):not(:last-child) > .social-tree-branch{left:0; right:0;}
+.vnf-eco2-page .social-tree-child > .social-tree-stem{height:20px;}
+.vnf-eco2-page .social-tree-child-list > .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list{padding:0;}
+.vnf-eco2-page .social-tree-child-list > .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list > .social-tree-child{padding:0 6px;}
+.vnf-eco2-page .social-tree-child-list > .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card{width:160px; height:108px;}
+
+/* ── Flat card layout for tablet/desktop (replaces branching tree at ≥640px) ── */
+.vnf-eco2-page .social-tree-wrap{display:flex; justify-content:center; min-width:0; padding:0 12px 8px;}
+.vnf-eco2-page .social-tree-node{flex-direction:row; align-items:flex-start;}
+.vnf-eco2-page .social-tree-card--root{align-self:center; flex-shrink:0;}
+.vnf-eco2-page .social-tree-children{flex-direction:row; align-items:flex-start; width:auto;}
+.vnf-eco2-page .social-tree-child-list{flex-direction:column; padding:0; gap:10px;}
+.vnf-eco2-page .social-tree-child{flex-direction:row; align-items:flex-start; padding:0;}
+.vnf-eco2-page .social-tree-branch{display:none;}
+.vnf-eco2-page .social-tree-stem{display:none;}
+.vnf-eco2-page .social-tree-child > .social-tree-node{flex-direction:column; align-items:flex-start;}
+.vnf-eco2-page .social-tree-card--group{width:84px; height:58px; padding:5px; font-size:9px; border-radius:8px; margin-bottom:3px; flex-shrink:0;}
+.vnf-eco2-page .social-tree-card--group .social-tree-logo{width:22px; height:22px;}
+.vnf-eco2-page .social-tree-card--group .social-tree-logo img,
+.vnf-eco2-page .social-tree-card--group .social-tree-logo svg{width:20px; height:20px;}
+.vnf-eco2-page .social-tree-card--group .social-tree-name{font-size:9px;}
+.vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children{flex-direction:column; margin-left:0;}
+.vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list{flex-direction:column; padding:0; gap:4px;}
+.vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list > .social-tree-child{padding:0;}
+.vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card{width:170px; height:40px; flex-direction:row; gap:8px; border-radius:8px; justify-content:flex-start; padding:6px 10px;}
+.vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo{width:22px; height:22px;}
+.vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo svg,
+.vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo img{width:20px; height:20px;}
+.vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-name{font-size:11px;}
+
+/* Decorative mobile timeline spine — hidden on tablet/desktop */
+.vnf-eco2-page .mobile-spine{display:none;}
+
+/* ── Phone (≤639px): 2-column timeline grid ── */
+@media(max-width:639px){
+  .vnf-eco2-page .social-bar{padding:24px 0 28px;}
+  .vnf-eco2-page .social-bar-head{font-size:18px; margin-bottom:18px;}
+
+  .vnf-eco2-page .social-tree-wrap{
+    position:relative; display:grid; grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(4,auto);
+    column-gap:32px; row-gap:16px; width:100%; max-width:480px; margin:0 auto; padding:10px 14px 16px;
+    min-width:0;
+  }
+  .vnf-eco2-page .social-tree-node{display:contents;}
+  .vnf-eco2-page .social-tree-children{display:contents;}
+  .vnf-eco2-page .social-tree-child-list{display:contents;}
+  .vnf-eco2-page .social-tree-child{display:contents;}
+  .vnf-eco2-page .social-tree-stem{display:none;}
+  .vnf-eco2-page .social-tree-branch{display:none;}
+  .vnf-eco2-page .social-tree-card,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card{
+    width:100% !important; height:62px !important; min-height:62px !important; padding:6px 10px !important; border:1.5px solid !important; border-radius:4px !important;
+    background:var(--eco2-white) !important; box-shadow:0 1px 3px rgba(23,73,127,.04) !important; gap:8px !important; margin:0 !important;
+    display:flex !important; flex-direction:row !important; align-items:center !important; justify-content:flex-start !important; text-align:left !important;
+    overflow:visible !important;
+  }
+  /* Tắt hover và animation trên phone */
+  .vnf-eco2-page a.social-tree-card:hover,
+  .vnf-eco2-page a.social-tree-card:focus-visible,
+  .vnf-eco2-page a.social-tree-card:active {
+    animation: none !important;
+    transform: none !important;
+    box-shadow: 0 1px 3px rgba(23,73,127,.04) !important;
+    z-index: 1 !important;
+  }
+  .vnf-eco2-page .social-tree-card .social-tree-logo,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo{display:flex !important; width:30px !important; height:30px !important; flex-shrink:0 !important;}
+  .vnf-eco2-page .social-tree-card .social-tree-logo img,
+  .vnf-eco2-page .social-tree-card .social-tree-logo svg,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo img,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo svg{width:100% !important; height:100% !important;}
+  .vnf-eco2-page .social-tree-card .social-tree-name,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-name{font-size:14px !important; font-weight:700 !important; line-height:1.25 !important; overflow:hidden !important; text-overflow:ellipsis !important; display:-webkit-box !important; -webkit-line-clamp:2 !important; -webkit-box-orient:vertical !important; text-align:center !important;}
+  .vnf-eco2-page .social-tree-card--group{display:none !important;}
+
+  /* central dashed spine */
+  .vnf-eco2-page .mobile-spine{
+    display:block; position:absolute; left:50%; top:0; bottom:0; width:2px;
+    transform:translateX(-50%); z-index:0; pointer-events:none;
+  }
+  .vnf-eco2-page .mobile-spine-line{
+    position:absolute; top:10px; bottom:10px; left:0; right:0; border-left:2px dashed var(--eco2-primary); opacity:.55;
+  }
+  /* top dot (bold, no outline) */
+  .vnf-eco2-page .mobile-spine-arrow{
+    position:absolute; top:0; left:50%; transform:translateX(-50%);
+    width:10px; height:10px; border-radius:50%;
+    background:var(--eco2-primary); opacity:1;
+  }
+  /* bottom dot (bold, no outline) */
+  .vnf-eco2-page .mobile-spine-dot{
+    position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+    width:10px; height:10px; border-radius:50%;
+    background:var(--eco2-primary); opacity:1;
+  }
+
+  /* dotted connectors from each card to the center spine */
+  .vnf-eco2-page .social-tree-card[data-mobile-side="left"]::after{
+    content:''; position:absolute; top:50%; right:-23px; width:23px; height:0;
+    border-top:2px dotted var(--eco2-primary); opacity:.65; transform:translateY(-50%); z-index:0;
+  }
+  .vnf-eco2-page .social-tree-card[data-mobile-side="right"]::before{
+    content:''; position:absolute; top:50%; left:-23px; width:23px; height:0;
+    border-top:2px dotted var(--eco2-primary); opacity:.65; transform:translateY(-50%); z-index:0;
+  }
+
+  /* Phone: col-left = Website(row1) · Facebook(row2) · LinkedIn(row3) · Email(row4)
+            col-right = YouTube(row1) · TikTok(row2)  · Cà Mau(row3)  · Hậu Giang(row4) */
+  .vnf-eco2-page [data-id="vnf"]       { grid-column:1; grid-row:1; }
+  .vnf-eco2-page [data-id="youtube"]   { grid-column:2; grid-row:1; }
+  .vnf-eco2-page [data-id="facebook"]  { grid-column:1; grid-row:2; }
+  .vnf-eco2-page [data-id="tiktok"]    { grid-column:2; grid-row:2; }
+  .vnf-eco2-page [data-id="linkedin"]  { grid-column:1; grid-row:3; }
+  .vnf-eco2-page [data-id="ca-mau"]    { grid-column:2; grid-row:3; }
+  .vnf-eco2-page [data-id="email"]     { grid-column:1; grid-row:4; }
+  .vnf-eco2-page [data-id="hau-giang"] { grid-column:2; grid-row:4; }
+}
+
+/* ── Tablet (640px–1199px): flat grid 4 columns ── */
 @media(min-width:640px){
-  .vnf-eco2-page .social-bar{padding:56px 0 50px;}
-  .vnf-eco2-page .social-bar-head{font-size:14px; margin-bottom:28px;}
-  .vnf-eco2-page .social-row{gap:14px;}
-  .vnf-eco2-page .social-pill{padding:15px 26px; font-size:16px;}
-  .vnf-eco2-page .social-pill svg{width:21px; height:21px;}
-  .vnf-eco2-page .social-pill img{width:21px; height:21px;}
+  .vnf-eco2-page .social-bar{padding:40px 0 46px;}
+  .vnf-eco2-page .social-bar-head{font-size:22px; margin-bottom:28px;}
+  .vnf-eco2-page .social-tree-wrap{display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(2,auto); gap:16px; width:100%; max-width:760px; margin:0 auto; padding:0 24px 12px;}
+  .vnf-eco2-page .social-tree-node{display:contents;}
+  .vnf-eco2-page .social-tree-children{display:contents;}
+  .vnf-eco2-page .social-tree-child-list{display:contents;}
+  .vnf-eco2-page .social-tree-child{display:contents;}
+  .vnf-eco2-page .social-tree-stem{display:none;}
+  .vnf-eco2-page .social-tree-branch{display:none;}
+  .vnf-eco2-page .social-tree-card,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card{
+    width:100% !important; height:130px !important; padding:16px !important; border:1.5px solid !important; border-radius:14px !important;
+    background:var(--eco2-white) !important; box-shadow:0 2px 8px rgba(23,73,127,.08) !important; gap:10px !important; margin:0 !important;
+    display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; text-align:center !important;
+    overflow:hidden !important;
+  }
+  .vnf-eco2-page .social-tree-card .social-tree-logo,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo{display:flex !important; width:46px !important; height:46px !important; flex-shrink:0 !important;}
+  .vnf-eco2-page .social-tree-card .social-tree-logo img,
+  .vnf-eco2-page .social-tree-card .social-tree-logo svg,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo img,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo svg{width:100% !important; height:100% !important;}
+  .vnf-eco2-page .social-tree-card .social-tree-name,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-name{font-size:14.5px !important; font-weight:700 !important; line-height:1.25 !important; overflow:hidden !important; text-overflow:ellipsis !important; display:-webkit-box !important; -webkit-line-clamp:2 !important; -webkit-box-orient:vertical !important;}
+  .vnf-eco2-page .social-tree-card--group{display:none !important;}
+
+  /* Desktop/Tablet row layout (DOM order: Website,YouTube,Facebook,TikTok,LinkedIn,CàMau,Email,HậuGiang)
+     Hàng 1: Website(col1) · LinkedIn(col2) · Facebook(col3) · Email(col4)
+     Hàng 2: YouTube(col1) · TikTok(col2)   · Cà Mau(col3)  · Hậu Giang(col4) */
+  .vnf-eco2-page [data-id="vnf"]       { grid-column:1; grid-row:1; }
+  .vnf-eco2-page [data-id="linkedin"]  { grid-column:2; grid-row:1; }
+  .vnf-eco2-page [data-id="facebook"]  { grid-column:3; grid-row:1; }
+  .vnf-eco2-page [data-id="email"]     { grid-column:4; grid-row:1; }
+  .vnf-eco2-page [data-id="youtube"]   { grid-column:1; grid-row:2; }
+  .vnf-eco2-page [data-id="tiktok"]    { grid-column:2; grid-row:2; }
+  .vnf-eco2-page [data-id="ca-mau"]    { grid-column:3; grid-row:2; }
+  .vnf-eco2-page [data-id="hau-giang"] { grid-column:4; grid-row:2; }
 }
+
+/* ── Desktop (≥1200px): same 4-column grid, sized up ── */
+@media(min-width:1024px) and (max-width:1199px){
+  .vnf-eco2-page .social-bar{padding:48px 0 56px;}
+  .vnf-eco2-page .social-bar-head{font-size:26px; margin-bottom:32px;}
+  .vnf-eco2-page .social-tree-wrap{grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(2,auto); max-width:820px; gap:18px; padding:0 24px 12px;}
+  .vnf-eco2-page .social-tree-card,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card{
+    height:140px !important; padding:12px 8px !important; border-radius:14px !important; gap:10px !important;
+  }
+  .vnf-eco2-page .social-tree-card .social-tree-logo,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo{width:50px !important; height:50px !important;}
+  .vnf-eco2-page .social-tree-card .social-tree-name,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-name{
+    font-size:12px !important; line-height:1.3 !important; 
+    padding:0 !important; text-align:center !important;
+  }
+}
+
+@media(min-width:1200px){
+  .vnf-eco2-page .social-bar{padding:56px 0 64px;}
+  .vnf-eco2-page .social-bar-head{font-size:30px; margin-bottom:36px;}
+  .vnf-eco2-page .social-tree-wrap{grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(2,auto); max-width:900px; gap:22px; padding:0 24px 12px;}
+  .vnf-eco2-page .social-tree-card,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card{
+    height:158px !important; padding:16px 10px !important; border-radius:16px !important; gap:12px !important;
+  }
+  .vnf-eco2-page .social-tree-card .social-tree-logo,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo{width:56px !important; height:56px !important;}
+  .vnf-eco2-page .social-tree-card .social-tree-name,
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-name{
+    font-size:14.5px !important; line-height:1.3 !important;
+    padding:0 !important; text-align:center !important;
+  }
+}
+
 
 /* ===== ECOSYSTEM (team spotlight) — mobile-first stacked ===== */
 .vnf-eco2-page #ecosystem{padding:68px 0; background:var(--eco2-primary-light);}
 .vnf-eco2-page .app-layout{display:flex; flex-direction:column; gap:18px;}
+
+/* ── Single app-list for all devices (manual scroll only) ── */
 .vnf-eco2-page .app-list{
   display:flex; flex-direction:row; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
-  padding:2px 2px 10px; scroll-snap-type:x proximity;
+  padding:2px 2px 10px; scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
 }
+
 .vnf-eco2-page .app-item{
   display:flex; align-items:center; gap:12px; padding:13px 16px; border-radius:8px; cursor:pointer;
   border:1.5px solid transparent; transition:border-color .2s ease, box-shadow .2s ease, background .2s ease, transform .15s ease; background:var(--eco2-white);
@@ -814,13 +1274,34 @@ const ECO2_CSS = `
 .vnf-eco2-page .app-panel .cat{
   color:var(--eco2-white); opacity:1; font-weight:800; font-size:clamp(16px,2.8vw,20px);
   letter-spacing:.05em; text-transform:uppercase; line-height:1.25;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
-.vnf-eco2-page .app-panel h3{color:rgba(255,255,255,.82); font-weight:600; font-size:clamp(18px,3vw,23px); margin:0 0 18px; font-style:normal; text-wrap:balance;}
+.vnf-eco2-page .app-panel h3{
+  color:rgba(255,255,255,.82); font-weight:600; font-size:clamp(18px,3vw,23px); margin:0 0 18px; font-style:normal; text-wrap:balance;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
 .vnf-eco2-page .app-desc-card{
   background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); border-radius:8px;
   padding:20px 22px;
 }
-.vnf-eco2-page .app-panel p{color:rgba(255,255,255,.92); font-size:16px; line-height:1.8; max-width:640px; text-wrap:pretty;}
+/* Extra padding for first item (Nông nghiệp bền vững) to balance with video height */
+.vnf-eco2-page .app-panel[data-app-index="0"] .app-desc-card{
+  padding:40px 22px;
+}
+@media(min-width:640px){
+  .vnf-eco2-page .app-panel[data-app-index="0"] .app-desc-card{
+    padding:52px 22px;
+  }
+}
+@media(min-width:900px){
+  .vnf-eco2-page .app-panel[data-app-index="0"] .app-desc-card{
+    padding:60px 22px;
+  }
+}
+.vnf-eco2-page .app-panel p{
+  color:rgba(255,255,255,.92); font-size:16px; line-height:1.8; max-width:640px; text-wrap:pretty;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
 .vnf-eco2-page .app-video{
   border-radius:8px; background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center; position:relative;
@@ -831,38 +1312,96 @@ const ECO2_CSS = `
 .vnf-eco2-page .app-video{overflow:hidden;}
 .vnf-eco2-page .app-video video{width:100%; height:auto; max-height:100%; display:block; background:#000;}
 .vnf-eco2-page .app-nav{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
-.vnf-eco2-page .app-links{display:flex; flex-wrap:wrap; gap:10px;}
+.vnf-eco2-page .app-nav-section{display:flex; flex-direction:column; width:100%; gap:14px;}
+.vnf-eco2-page .app-links{display:flex; flex-wrap:wrap; gap:10px; width:100%; justify-content:center;}
+.vnf-eco2-page .app-nav-arrows{display:flex; justify-content:space-between; width:100%; gap:14px;}
 .vnf-eco2-page .app-arrows{display:flex; gap:10px;}
 .vnf-eco2-page .arrow-btn{
   width:44px; height:44px; border-radius:50%; border:1.5px solid rgba(255,255,255,.35); display:flex;
   align-items:center; justify-content:center; cursor:pointer; transition:all .22s ease; background:transparent; flex:0 0 auto;
 }
+.vnf-eco2-page .arrow-btn-prev{flex:0 0 auto;}
+.vnf-eco2-page .arrow-btn-next{flex:0 0 auto;}
 .vnf-eco2-page .arrow-btn:hover, .vnf-eco2-page .arrow-btn:focus-visible{background:rgba(255,255,255,.16); border-color:var(--eco2-white); transform:translateY(-2px);}
 .vnf-eco2-page .arrow-btn svg{width:17px; height:17px; fill:var(--eco2-white);}
 @media(min-width:640px){
   .vnf-eco2-page #ecosystem{padding:96px 0;}
   .vnf-eco2-page .app-item span{white-space:normal;}
   .vnf-eco2-page .app-panel{padding:38px;}
+  
+  /* Tablet/Desktop: tabs on top, content below in 2x2 grid */
+  .vnf-eco2-page .app-list{
+    flex-direction:row; overflow-x:auto; padding:2px 2px 10px; justify-content:center;
+  }
+  .vnf-eco2-page .app-panel{
+    display:grid; 
+    grid-template-columns:1fr 1fr; 
+    grid-template-rows:1fr auto;
+    gap:24px 32px; 
+    align-items:end;
+  }
+  .vnf-eco2-page .app-content{
+    /* Row 1, Column 1: title + content */
+    grid-column:1; 
+    grid-row:1;
+    display:flex; 
+    flex-direction:column; 
+    gap:0;
+    align-self:end;
+  }
+  .vnf-eco2-page .app-video{
+    /* Row 1, Column 2: video */
+    grid-column:2; 
+    grid-row:1;
+    align-self:end;
+  }
+  .vnf-eco2-page .app-nav-section{
+    /* Row 2, spans both columns */
+    grid-column:1 / -1;
+    grid-row:2;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+  }
+  .vnf-eco2-page .app-nav-arrows{
+    width:auto;
+    justify-content:flex-end;
+  }
+  .vnf-eco2-page .app-links{
+    flex:0 0 auto;
+    width:auto;
+    justify-content:flex-start;
+  }
 }
 @media(min-width:900px){
   .vnf-eco2-page #ecosystem{padding:124px 0;}
-  .vnf-eco2-page .app-layout{display:grid; grid-template-columns:280px 1fr; gap:32px;}
-  .vnf-eco2-page .app-list{flex-direction:column; overflow-x:visible; max-height:600px; overflow-y:auto; padding:0 6px 0 0;}
-  .vnf-eco2-page .app-item{scroll-snap-align:none;}
-  .vnf-eco2-page .app-panel{padding:44px; min-height:480px;}
+  .vnf-eco2-page .app-panel{padding:44px; gap:32px 40px; min-height:480px;}
 }
 
 /* ===== FOLLOW CTA (between Ecosystem and Footer) ===== */
-.vnf-eco2-page .follow-cta{background:var(--eco2-primary-dark); padding:72px 0; text-align:center;}
-.vnf-eco2-page .follow-cta-inner{max-width:620px; margin:0 auto;}
-.vnf-eco2-page .follow-cta .eyebrow{color:var(--eco2-white); border-bottom-color:rgba(255,255,255,.4); display:inline-block;}
+.vnf-eco2-page .follow-cta{
+  background:linear-gradient(180deg, var(--eco2-primary-dark) 0%, #0f3456 100%);
+  padding:72px 0; text-align:center; border:none;
+}
+.vnf-eco2-page .follow-cta-inner{max-width:720px; margin:0 auto;}
+.vnf-eco2-page .follow-cta .eyebrow{
+  color:var(--eco2-white); border-bottom:none; display:inline-block;
+  font-size:clamp(18px,3vw,24px); letter-spacing:.18em; padding-bottom:0; margin-bottom:20px;
+}
 .vnf-eco2-page .follow-cta-inner p{color:rgba(255,255,255,.92); font-size:clamp(17px,3.2vw,21px); line-height:1.7; font-weight:400; margin-top:10px; text-wrap:pretty;}
 @media(min-width:640px){
   .vnf-eco2-page .follow-cta{padding:92px 0;}
+  .vnf-eco2-page .follow-cta .eyebrow{font-size:clamp(22px,3.5vw,28px);}
 }
 
-/* ===== FOOTER (mobile-first stacked, corporate — flat blue + dot-map texture) ===== */
-.vnf-eco2-page footer{background:var(--eco2-primary); padding:64px 0 32px; color:rgba(255,255,255,.72); position:relative; overflow:hidden;}
+/* ===== FOOTER (mobile-first stacked, corporate — gradient blue + dot-map texture) ===== */
+.vnf-eco2-page footer{
+  background:linear-gradient(180deg, #0f3456 0%, var(--eco2-primary) 100%);
+  padding:48px 0 28px; color:rgba(255,255,255,.72); position:relative; overflow:hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
 /* decorative low-opacity dotted texture — purely visual, never above text, never blocks interaction */
 .vnf-eco2-page .foot-pattern{
   position:absolute; inset:0; z-index:0; pointer-events:none;
@@ -872,30 +1411,137 @@ const ECO2_CSS = `
   mask-image:radial-gradient(ellipse 85% 80% at 50% 40%, rgba(0,0,0,.9), transparent 75%);
 }
 .vnf-eco2-page footer .wrap{position:relative; z-index:1;}
-.vnf-eco2-page .foot-top{display:flex; flex-direction:column; align-items:flex-start; text-align:left; gap:40px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.14);}
+.vnf-eco2-page .foot-top{display:flex; flex-direction:column; align-items:flex-start; text-align:left; gap:32px; padding-bottom:28px;}
 .vnf-eco2-page .foot-brand{display:flex; flex-direction:column; align-items:flex-start; margin-bottom:8px;}
-.vnf-eco2-page .foot-contact-grid{display:grid; grid-template-columns:1fr; gap:30px; text-align:left; width:100%;}
+.vnf-eco2-page .foot-contact-grid{display:grid; grid-template-columns:1fr; gap:24px; text-align:left; width:100%;}
 .vnf-eco2-page .foot-contact-block{padding:0; text-align:left;}
-.vnf-eco2-page .foot-contact-block h5{color:var(--eco2-white); font-size:14px; letter-spacing:.08em; margin-bottom:14px; font-weight:800; text-transform:uppercase;}
-.vnf-eco2-page .foot-contact-block p{font-size:14.5px; line-height:2; color:rgba(255,255,255,.75); word-break:break-word; text-wrap:pretty;}
+.vnf-eco2-page .foot-contact-block h5{color:var(--eco2-white); font-size:17px; letter-spacing:.08em; margin-bottom:12px; font-weight:800; text-transform:uppercase;}
+.vnf-eco2-page .foot-contact-block p{font-size:17.5px; line-height:1.85; color:rgba(255,255,255,.75); word-break:break-word; text-wrap:pretty;}
 .vnf-eco2-page .foot-contact-block a{color:rgba(255,255,255,.95); font-weight:700; transition:color .2s ease; white-space:nowrap;}
 .vnf-eco2-page .foot-contact-block a:hover{color:var(--eco2-white); text-decoration:underline;}
 .vnf-eco2-page .foot-contact-block .foot-note{color:rgba(255,255,255,.6); font-weight:400;}
-.vnf-eco2-page .foot-bottom{display:flex; flex-direction:column; gap:10px; padding-top:22px; font-size:13px; text-align:left;}
+.vnf-eco2-page .foot-bottom{display:flex; flex-direction:column; gap:10px; padding-top:20px; font-size:16px; text-align:left;}
 .vnf-eco2-page .foot-bottom a:hover{color:var(--eco2-white); text-decoration:underline;}
 @media(min-width:640px){
-  .vnf-eco2-page footer{padding:80px 0 36px;}
-  .vnf-eco2-page .foot-top{flex-direction:row; align-items:flex-start; justify-content:space-between; gap:56px; padding-bottom:40px;}
+  .vnf-eco2-page footer{padding:64px 0 32px;}
+  .vnf-eco2-page .foot-top{flex-direction:row; align-items:flex-start; justify-content:space-between; gap:48px; padding-bottom:32px;}
   .vnf-eco2-page .foot-brand{margin-bottom:0; flex:0 0 auto;}
-  .vnf-eco2-page .foot-contact-grid{grid-template-columns:repeat(2,1fr); gap:20px 56px; flex:1 1 auto; max-width:640px;}
-  .vnf-eco2-page .foot-bottom{flex-direction:row; justify-content:space-between; text-align:left; font-size:13.5px;}
+  .vnf-eco2-page .foot-contact-grid{grid-template-columns:repeat(2,1fr); gap:20px 48px; flex:1 1 auto; max-width:640px;}
+  .vnf-eco2-page .foot-contact-block h5{font-size:18px;}
+  .vnf-eco2-page .foot-contact-block p{font-size:18px;}
+  .vnf-eco2-page .foot-bottom{flex-direction:row; justify-content:space-between; text-align:left; font-size:16.5px;}
 }
-
-.vnf-eco2-page .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
-.vnf-eco2-page .reveal.in{opacity:1; transform:translateY(0);}
-.vnf-eco2-page .app-panel.reveal{transition-delay:.12s;}
 
 /* Safety net: nothing is ever allowed to force horizontal scroll */
 .vnf-eco2-page{max-width:100%; overflow-x:hidden;}
 .vnf-eco2-page *{min-width:0;}
+
+/* ===== BACK TO TOP BUTTON (Desktop only) ===== */
+.vnf-eco2-page .back-to-top{
+  position:fixed; bottom:32px; right:32px; z-index:100;
+  width:56px; height:56px; border-radius:50%;
+  background:var(--eco2-primary); color:var(--eco2-white);
+  border:none; box-shadow:var(--eco2-shadow-lg);
+  display:none; align-items:center; justify-content:center;
+  cursor:pointer; 
+  transition:opacity .3s ease, transform .3s ease, background .3s ease, box-shadow .3s ease;
+  opacity:0;
+  pointer-events:none;
+}
+.vnf-eco2-page .back-to-top.show{
+  opacity:1;
+  pointer-events:auto;
+  animation:eco2-fade-in-up .3s ease;
+}
+.vnf-eco2-page .back-to-top.hiding{
+  animation:eco2-fade-out-down .3s ease forwards;
+}
+.vnf-eco2-page .back-to-top:hover{
+  background:var(--eco2-primary-dark); transform:translateY(-4px);
+  box-shadow:0 12px 28px rgba(23,73,127,.25);
+}
+.vnf-eco2-page .back-to-top svg{
+  width:24px; height:24px;
+}
+@keyframes eco2-fade-in-up{
+  from{ opacity:0; transform:translateY(20px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+@keyframes eco2-fade-out-down{
+  from{ opacity:1; transform:translateY(0); }
+  to{ opacity:0; transform:translateY(20px); }
+}
+/* Show only on desktop (≥1200px, matching section 2 breakpoints) */
+@media(min-width:1200px){
+  .vnf-eco2-page .back-to-top{
+    display:flex;
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .vnf-eco2-page .back-to-top{
+    animation:none;
+    transition:opacity .3s ease;
+  }
+}
+
+/* ===== FOLLOW CTA — enhanced background (isolated, doesn't touch .follow-cta) ===== */
+.vnf-eco2-page .follow-cta-glow{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(180deg, var(--eco2-primary-dark) 0%, #0f3456 100%);
+}
+.vnf-eco2-page .follow-cta-glow::before{
+  content:'';
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:radial-gradient(circle, rgba(255,255,255,.16) 1.4px, transparent 1.4px);
+  background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(ellipse 85% 80% at 50% 40%, rgba(0,0,0,.9), transparent 75%);
+  mask-image:radial-gradient(ellipse 85% 80% at 50% 40%, rgba(0,0,0,.9), transparent 75%);
+}
+.vnf-eco2-page .follow-cta-glow .wrap{position:relative; z-index:1;}
+
+/* ===== FOLLOW CTA — multi-blob background + bouncing shrimp ===== */
+.vnf-eco2-page .follow-cta-glow{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(180deg, var(--eco2-primary-dark) 0%, #0f3456 100%);
+}
+.vnf-eco2-page .follow-cta-glow .wrap{position:relative; z-index:3;}
+
+/* three bouncing shrimp, alternating left/right sides, bigger size */
+.vnf-eco2-page .follow-shrimp{
+  position:absolute; z-index:2; pointer-events:none;
+  color:rgba(255,255,255,.20);
+}
+.vnf-eco2-page .follow-shrimp-1{ width:110px; height:110px; top:10%; left:6%; transform:rotate(-14deg); animation:eco2-shrimp-bounce-a 4.2s ease-in-out infinite; }
+.vnf-eco2-page .follow-shrimp-2{ width:130px; height:130px; bottom:8%; right:7%; color:rgba(255,255,255,.16); transform:rotate(18deg) scaleX(-1); animation:eco2-shrimp-bounce-b 3.6s ease-in-out infinite; }
+.vnf-eco2-page .follow-shrimp-3{ width:80px; height:80px; top:52%; left:80%; color:rgba(255,255,255,.13); transform:rotate(-22deg); animation:eco2-shrimp-bounce-c 5s ease-in-out infinite; }
+
+/* Phone: ẩn con tôm thứ 3 */
+@media(max-width:639px){
+  .vnf-eco2-page .follow-shrimp-3{ display:none; }
+}
+
+/* Tablet: đẩy con tôm thứ 3 vào center */
+@media(min-width:640px) and (max-width:959px){
+  .vnf-eco2-page .follow-shrimp-3{ 
+    top:50%; left:50%; transform:rotate(-22deg) translateX(-50%) translateY(-50%);
+  }
+}
+
+@keyframes eco2-shrimp-bounce-a{
+  0%,100%{ transform:rotate(-14deg) translateY(0); }
+  50%{ transform:rotate(-14deg) translateY(-18px); }
+}
+@keyframes eco2-shrimp-bounce-b{
+  0%,100%{ transform:rotate(18deg) scaleX(-1) translateY(0); }
+  50%{ transform:rotate(18deg) scaleX(-1) translateY(-14px); }
+}
+@keyframes eco2-shrimp-bounce-c{
+  0%,100%{ transform:rotate(-22deg) translateY(0); }
+  50%{ transform:rotate(-22deg) translateY(-20px); }
+}
+@media (prefers-reduced-motion: reduce){
+  .vnf-eco2-page .follow-shrimp-1, .vnf-eco2-page .follow-shrimp-2, .vnf-eco2-page .follow-shrimp-3{ animation:none; }
+}
 `
