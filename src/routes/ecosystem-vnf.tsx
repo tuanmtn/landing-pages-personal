@@ -9,10 +9,46 @@ const MEDIA_BASE = "https://minio-tuan.ls01.vnfoods.vn/video-management/ecosyste
 const LOGO_BASE = "/ecosystem-vnf/logos"
 const BG_URL = "https://minio-tuan.ls01.vnfoods.vn/eco-media/bg_01.png"
 
-const HERO_VIDEO = { vi: `${MEDIA_BASE}/vi_vnf.mp4`, en: `${MEDIA_BASE}/en_vnf.mp4` }
+const MINIO_BASE_URL = "https://minio-tuan.ls01.vnfoods.vn/eco-media/"
+const VI_ORG = `${MINIO_BASE_URL}vi.mp4`
+const EN_ORG = `${MINIO_BASE_URL}en.mp4`
+
+const VI_ZH = `${MINIO_BASE_URL}vi_zh.mp4`
+const EN_ZH = `${MINIO_BASE_URL}en_zh.mp4`
+
+const VI_FR = `${MINIO_BASE_URL}vi_fr.mp4`
+const EN_FR = `${MINIO_BASE_URL}en_fr.mp4`
+
+const VI_THAI = `${MINIO_BASE_URL}vi_thai.mp4`
+const EN_THAI = `${MINIO_BASE_URL}en_thai.mp4`
+
+const VI_KR = `${MINIO_BASE_URL}vi_kr.mp4`
+const EN_KR = `${MINIO_BASE_URL}en_kr.mp4`
+
+const VI_JA = `${MINIO_BASE_URL}vi_ja.mp4`
+const EN_JA = `${MINIO_BASE_URL}en_ja.mp4`
+
+
 const HERO_POSTER = { vi: `${MEDIA_BASE}/vi_vnf.jpg`, en: `${MEDIA_BASE}/en_vnf.jpg` }
 
 type Lang = "vi" | "en"
+
+/* ── Hero video variants: (page language × subtitle language) ────────────── */
+type SubLang = "org" | "thai" | "zh" | "kr" | "ja" | "fr"
+
+const HERO_VIDEOS: Record<Lang, Record<SubLang, string>> = {
+  vi: { org: VI_ORG, thai: VI_THAI, zh: VI_ZH, kr: VI_KR, ja: VI_JA, fr: VI_FR },
+  en: { org: EN_ORG, thai: EN_THAI, zh: EN_ZH, kr: EN_KR, ja: EN_JA, fr: EN_FR },
+}
+
+const SUB_LANGS: ReadonlyArray<{ id: SubLang; label: Record<Lang, string> }> = [
+  { id: "org", label: { vi: "Việt", en: "English" } },
+  { id: "thai", label: { vi: "Thái", en: "Thai" } },
+  { id: "zh", label: { vi: "Trung", en: "Chinese" } },
+  { id: "kr", label: { vi: "Hàn", en: "Korean" } },
+  { id: "ja", label: { vi: "Nhật", en: "Japanese" } },
+  { id: "fr", label: { vi: "Pháp", en: "French" } },
+]
 
 /* ── Static copy ─────────────────────────────────────────────────────────── */
 const T = {
@@ -24,8 +60,10 @@ const T = {
     heroTitleAccent: "Hệ sinh thái VNF",
     heroTitleSuffix: "",
     heroLead1:
-      "Vietnam Food (VNF) tiên phong chuyển hóa phụ phẩm tôm thành các nguyên liệu hoạt tính sinh học có giá trị. Với mô hình sản xuất độc quyền ứng dụng công nghệ sinh học theo định hướng sản xuất không chất thải (zero-waste), chúng tôi tối ưu hóa việc thu hồi dinh dưỡng và giảm thiểu các tác động môi trường.",
-    heroLead2: "Từ các nguyên liệu này, chúng tôi phát triển nhiều ứng dụng khác nhau tạo nên Hệ sinh thái VNF.",
+      "Vietnam Food (VNF) tiên phong chuyển hóa\nphụ phẩm tôm thành các nguyên liệu hoạt tính sinh học có giá trị.",
+    heroLead1b:
+      "Với mô hình sản xuất độc quyền ứng dụng công nghệ sinh học theo định hướng sản xuất không chất thải (zero-waste), chúng tôi tối ưu hóa việc thu hồi dinh dưỡng và giảm thiểu\ncác tác động môi trường.",
+    heroLead2: "Từ các nguyên liệu này, chúng tôi phát triển nhiều\nứng dụng khác nhau tạo nên Hệ sinh thái VNF.",
     ctaExplore: "Khám phá hệ sinh thái",
     ctaContact: "Liên hệ hợp tác",
     socialHead: "Kết nối & theo dõi VNF tại đây",
@@ -37,13 +75,14 @@ const T = {
     socialCaMau: "Nhà Máy Cà Mau",
     socialHauGiang: "Nhà Máy Hậu Giang",
     ecoEyebrow: "HỆ SINH THÁI VNF",
-    ecoTitlePrefix: "Chào mừng bạn đến với",
-    ecoTitleRest: "hệ sinh thái VNF – nơi kiến tạo các giải pháp hoạt tính sinh học",
+    ecoTitlePrefix: "Chào mừng bạn đến với hệ sinh thái VNF,",
+    ecoTitleRest: "nơi kiến tạo các giải pháp hoạt tính sinh học",
+    swipeMore: "Lướt để xem thêm >>>",
     fbLink: "Xem Facebook",
     liLink: "Xem LinkedIn",
     followEyebrow: "KẾT NỐI CÙNG VNF",
     followText:
-      "Theo dõi các kênh của Hệ sinh thái VNF để không bỏ lỡ những câu chuyện,\ngiải pháp, và sáng kiến mới nhất của chúng tôi.",
+      "Theo dõi các kênh của Hệ sinh thái VNF [br-m]để không bỏ lỡ những câu chuyện, [br-d]giải pháp, [br-m]và sáng kiến mới nhất của chúng tôi.",
     footSalesTitle: "LIÊN HỆ KINH DOANH",
     footSalesNote1: "(Bộ phận Kinh doanh: ext.204; Bộ phận FI&BP: ext.301)",
     footSalesNote2: "(Mobile, Viber, Zalo, WhatsApp, Facebook Messenger)",
@@ -59,7 +98,9 @@ const T = {
     heroTitleAccent: "VNF Ecosystem",
     heroTitleSuffix: "!",
     heroLead1:
-      "Vietnam Food (VNF) is a pioneer in valorizing shrimp-byproducts into valuable bioactive ingredients. By applying proprietary biotechnological zero-waste production model, we maximize nutrient recovery and minimize environmental impacts.",
+      "Vietnam Food (VNF) is a pioneer in valorizing\nshrimp-byproducts into valuable bioactive ingredients.",
+    heroLead1b:
+      "By applying proprietary biotechnological\nzero-waste production model, we maximize\nnutrient recovery & minimize environmental impacts.",
     heroLead2: "From these ingredients, we develop various applications that together form the VNF Ecosystem.",
     ctaExplore: "Explore the Ecosystem",
     ctaContact: "Get in touch",
@@ -72,12 +113,14 @@ const T = {
     socialCaMau: "Ca Mau Factory",
     socialHauGiang: "Hau Giang Factory",
     ecoEyebrow: "VNF ECOSYSTEM",
-    ecoTitlePrefix: "Welcome to the",
-    ecoTitleRest: "VNF Ecosystem, where bioactive innovation begins",
+    ecoTitlePrefix: "Welcome to the VNF Ecosystem,",
+    ecoTitleRest: "where bioactive innovation begins",
+    swipeMore: "Swipe for more >>>",
     fbLink: "Visit Facebook",
     liLink: "Visit LinkedIn",
     followEyebrow: "STAY CONNECTED",
-    followText: "Follow the VNF Ecosystem channels to keep up with our latest stories,\nsolutions, and initiatives.",
+    followText:
+      "Follow the VNF Ecosystem channels [br-m]to keep up with our latest stories, [br-d]solutions, [br-m]and initiatives.",
     footSalesTitle: "SALES CONTACT",
     footSalesNote1: "(Business Dept.: ext.204; FI & BP Dept.: ext.301)",
     footSalesNote2: "(Mobile, Viber, Zalo, WhatsApp, Facebook Messenger)",
@@ -101,7 +144,7 @@ const ECOSYSTEM = [
       long: "VƯƠN XANH VIỆT NAM giới thiệu giải pháp nông nghiệp từ phụ phẩm tôm. Các chế phẩm sinh học giúp tái tạo đất, tăng năng suất cây trồng, bảo quản sau thu hoạch...hướng đến mô hình canh tác xanh, tự nhiên, và bền vững.",
     },
     en: {
-      name: "Vươn Xanh Việt Nam (EcoBlossom)",
+      name: "VUON XANH VIETNAM (EcoBlossom)",
       cat: "Sustainable Agriculture",
       long: "VUON XANH VIETNAM (ECOBLOSSOM) introduces agricultural solutions derived from shrimp by-products. Its bio-solutions help regenerate soils, increase crop yields and support post-harvest preservation, all towards a green, natural and sustainable farming model.",
     },
@@ -118,7 +161,7 @@ const ECOSYSTEM = [
       long: "VẬT NUÔI VUI KHỎE cung cấp giải pháp dinh dưỡng tuần hoàn cho chăn nuôi và nuôi trồng thủy sản từ phụ phẩm tôm. Các chế phẩm sinh học giúp vật nuôi ăn khỏe, lớn nhanh, kháng bệnh tốt, đồng thời tối ưu chi phí trong bối cảnh giá vật tư tăng cao và nguồn cung nhập khẩu biến động.",
     },
     en: {
-      name: "Vật Nuôi Vui Khoẻ (Happy Animals)",
+      name: "VAT NUOI VUI KHOE (Happy Animals)",
       cat: "Livestock and Aquaculture",
       long: "VAT NUOI VUI KHOE (HAPPY ANIMALS) introduces circular nutrition solutions for livestock and aquaculture, derived from shrimp by-products. Its bio-solutions help animals eat well, grow fast and resist diseases, while optimizing costs for farmers, especially in the context of rising input prices and disrupted import supply chains.",
     },
@@ -135,7 +178,7 @@ const ECOSYSTEM = [
       long: "TÔM4PET giới thiệu các giải pháp dinh dưỡng và chăm sóc thú cưng. Ngoài việc mang đến những bữa ăn đậm hương vị tôm, các giải pháp còn hỗ trợ phòng ngừa bệnh mãn tính (thận, đường ruột, cholesterol...) và nâng cao sức khỏe toàn diện cho thú cưng.",
     },
     en: {
-      name: "Tôm4Pet",
+      name: "TOM4PET",
       cat: "Pet Nutrition and Care",
       long: "TOM4PET introduces pet nutrition and care solutions. Beyond delivering enjoyable shrimp-based palatability, its solutions help prevent chronic conditions (kidney, gut, cholesterol, etc.) and support overall health for our companions.",
     },
@@ -152,7 +195,7 @@ const ECOSYSTEM = [
       long: "TÔM YUMMY giới thiệu nhóm nguyên liệu thực phẩm mang hương vị tôm tự nhiên & thơm ngon, cùng nhóm nguyên liệu chức năng hỗ trợ bổ sung dinh dưỡng. Giải pháp hướng tới đáp ứng nhu cầu thực phẩm sạch, an toàn, và bền vững hơn.",
     },
     en: {
-      name: "Tôm Yummy",
+      name: "TOM YUMMY",
       cat: "Food Ingredients",
       long: "TOM YUMMY introduces Food Ingredient lines that deliver natural & delicious shrimp flavour, together with Functional Ingredient lines that support nutritional enrichment. The solutions are designed to meet the growing demand for cleaner, safer, and more sustainable food.",
     },
@@ -164,12 +207,12 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/bio_shared.mp4`, en: `${MEDIA_BASE}/bio_shared.mp4` },
     poster: { vi: `${MEDIA_BASE}/bio_shared.jpg`, en: `${MEDIA_BASE}/bio_shared.jpg` },
     vi: {
-      name: "BioInShell",
+      name: "BIOINSHELL",
       cat: "Công nghiệp",
       long: "BIOINSHELL là mảng kinh doanh sáng tạo tập trung phát triển các giải pháp bio-polymer từ tôm ứng dụng trong nhiều ngành như nhựa sinh học, vật liệu sinh học, và xử lý nước. Những vật liệu này được biết đến với tính tương thích sinh học, phân hủy sinh học, khả năng kháng khuẩn và tạo màng, hướng tới thay thế các hóa chất và polymer có nguồn gốc hóa thạch.",
     },
     en: {
-      name: "BioInShell",
+      name: "BIOINSHELL",
       cat: "Industry",
       long: "BIOINSHELL is an innovative business line specializing in shrimp-based bio-polymers, serving various industries such as bioplastics, biomaterials, water treatment. These materials are known for their biocompatibility, biodegradability, anti-microbial activity and film-forming properties, and are designed to replace fossil-based polymers and chemicals.",
     },
@@ -182,12 +225,12 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_retriv.mp4`, en: `${MEDIA_BASE}/en_retriv.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_retriv.jpg`, en: `${MEDIA_BASE}/en_retriv.jpg` },
     vi: {
-      name: "RetriV™",
+      name: "RETRIV™",
       cat: "Giải pháp thu hồi dưỡng chất",
       long: "RETRIV™ là giải pháp công nghệ tiên phong, biến “dòng nước thải” của các nhà máy chế biến thực phẩm thành “dòng tài nguyên” bằng cách thu hồi dinh dưỡng, giảm ô nhiễm và tạo ra các sản phẩm giá trị gia tăng theo hướng kinh tế tuần hoàn. Giải pháp cung cấp trọn bộ từ hoạt chất đến hệ thiết bị vận hành.",
     },
     en: {
-      name: "RetriV™",
+      name: "RETRIV™",
       cat: "Nutrient Recovery Solutions",
       long: "RETRIV™ is a pioneering technology solution that transforms \"wastewater streams\" from food-processing plants into \"resource streams\" by recovering nutrients, reducing pollution and generating value-added products within a circular economy model. The solution offers a complete package, from treatment bio-agents to modular equipment.",
     },
@@ -291,10 +334,6 @@ function IconSprite() {
         <symbol id="eco2-i-recycle" viewBox="0 0 24 24">
           <path d="M10.5 3.3 13 7.6l-1.7 1-1.6-2.8-1.8 3.1-1.7-1L8.8 3a1 1 0 0 1 1.7.3ZM4.2 15.9 6 12.7l1.7 1-1 1.8h3.6v2H6.7l1 1.8-1.7 1-1.8-3.1a1 1 0 0 1 0-1.3Zm15.6-1.1-1.8 3.1-1.7-1 1-1.8h-3.5v-2h3.5l-1-1.8 1.7-1 1.8 3.1a1 1 0 0 1 0 1.4Z" />
         </symbol>
-        <symbol id="eco2-i-shrimp" viewBox="0 0 463 463">
-          <path fill="currentColor" d="M371.5,16h-244c-4.687,0-8.5-3.813-8.5-8.5c0-4.143-3.358-7.5-7.5-7.5S104,3.357,104,7.5c0,12.958,10.542,23.5,23.5,23.5 h244c42.182,0,76.5,34.317,76.5,76.5c0,37.646-27.341,69.005-63.204,75.319C403.573,161.704,415,133.913,415,103.5v-16 c0-12.958-10.542-23.5-23.5-23.5h-216c-52.84,0-97.635,20.386-129.543,58.954C16.321,158.776,0,208.689,0,263.5 C0,373.505,89.495,463,199.5,463h96c2.599,0,5.013-1.346,6.38-3.557c1.367-2.212,1.491-4.973,0.328-7.298l-14.494-28.987 l14.749-36.873c1.122-2.804,0.452-6.006-1.698-8.126c-2.151-2.121-5.363-2.744-8.15-1.582l-94.57,39.404 C145.503,415.2,103,372.223,103,319.5c0-52.052,41.429-94.605,93.044-96.431l33.986,40.783c1.271,1.524,1.97,3.457,1.97,5.441 V311.5c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-42.207c0-5.487-1.935-10.83-5.447-15.045L215.513,223h20.474l34.043,40.852 c1.271,1.524,1.97,3.457,1.97,5.441V311.5c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-42.207c0-5.487-1.935-10.83-5.447-15.045 L255.513,223h20.474l34.043,40.852c1.271,1.524,1.97,3.457,1.97,5.441V311.5c0,4.143,3.358,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-42.207 c0-5.487-1.935-10.83-5.447-15.045L295.513,223c26.905-0.003,51.759-8.947,71.754-24.011c0.078,0.002,0.155,0.012,0.233,0.012h4 c50.453,0,91.5-41.047,91.5-91.5S421.953,16,371.5,16z M400,87.5v16c0,57.621-46.878,104.5-104.5,104.5h-96 c-0.01,0-0.021,0-0.031,0c-0.007,0-0.015,0-0.022,0c-5.587,0.003-11.078,0.422-16.447,1.222V79h208.5 C396.187,79,400,82.813,400,87.5z M168,79.163v133.375c-12.171,3.59-23.481,9.203-33.541,16.453l-78.303-94.788 c0.452-0.562,0.899-1.131,1.358-1.686C84.964,99.337,123.047,80.993,168,79.163z M97.682,364.918l-37.231,19.711 c-27.797-31.867-44.835-73.342-45.421-118.713l76.55,25.516C89.245,300.403,88,309.809,88,319.5 C88,335.667,91.466,351.038,97.682,364.918z M272.792,426.854L283.365,448H207v-19.5l74.907-31.211l-9.37,23.426 C271.741,422.704,271.834,424.938,272.792,426.854z M192,430.751v17.099c-46.859-1.885-89.267-21.339-120.824-51.927l33.545-17.759 C123.167,407.854,155.161,428.291,192,430.751z M96.339,277.207l-80.991-26.997c2.027-39.193,13.03-75.024,31.701-103.48 l75.852,91.821C111.515,249.333,102.397,262.485,96.339,277.207z"/>
-          <path fill="currentColor" d="M303.5,143c12.958,0,23.5-10.542,23.5-23.5S316.458,96,303.5,96S280,106.542,280,119.5S290.542,143,303.5,143z M303.5,111 c4.687,0,8.5,3.813,8.5,8.5s-3.813,8.5-8.5,8.5s-8.5-3.813-8.5-8.5S298.813,111,303.5,111z"/>
-        </symbol>
       </defs>
     </svg>
   )
@@ -313,29 +352,14 @@ type SocialTreeNodeData = {
 function SocialTreeNode({
   node,
   level = 0,
-  mobileIndex,
 }: {
   node: SocialTreeNodeData
   level?: number
-  mobileIndex?: number
 }) {
   const isRoot = level === 0
   const isGroup = level === 1
   const hasChildren = Boolean(node.children?.length)
   const isLeaf = !hasChildren
-
-  // Deterministic mobile side based on node ID (no mutable state)
-  const mobileSideMap: Record<string, "left" | "right"> = {
-    "vnf": "left",
-    "youtube": "right",
-    "facebook": "left",
-    "tiktok": "right",
-    "linkedin": "left",
-    "ca-mau": "right",
-    "email": "left",
-    "hau-giang": "right",
-  }
-  const mobileSide = !isGroup ? mobileSideMap[node.id] : undefined
 
   const content: ReactNode = (
     <>
@@ -357,7 +381,6 @@ function SocialTreeNode({
           style={{ borderColor: node.color, color: node.color }}
           data-id={node.id}
           data-group={isGroup ? node.id : undefined}
-          data-mobile-side={mobileSide}
         >
           {content}
         </a>
@@ -366,7 +389,6 @@ function SocialTreeNode({
           className={`social-tree-card ${isGroup ? "social-tree-card--group" : ""} ${isLeaf ? "social-tree-card--leaf" : ""}`}
           style={{ borderColor: node.color, color: node.color }}
           data-group={isGroup ? node.id : undefined}
-          data-mobile-side={mobileSide}
         >
           {content}
         </div>
@@ -397,13 +419,19 @@ function SocialTreeNode({
 /* ── Page ────────────────────────────────────────────────────────────────── */
 function EcosystemVnfPage() {
   const [lang, setLang] = useState<Lang>("vi")
+  const [subLang, setSubLang] = useState<SubLang>("org")
   const [appIndex, setAppIndex] = useState(0)
+  const [showAppScrollHint, setShowAppScrollHint] = useState(false)
   const [activeSection, setActiveSection] = useState<"home" | "ecosystem">("home")
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [isHiding, setIsHiding] = useState(false)
   const ecoTitleRef = useRef<HTMLHeadingElement>(null)
   const appInfoRef = useRef<HTMLDivElement>(null)
   const appListRef = useRef<HTMLDivElement>(null)
+  const heroVideoRef = useRef<HTMLVideoElement>(null)
+  const heroSubtabsRef = useRef<HTMLDivElement>(null)
+  const heroSkipFirstAutoPlayRef = useRef(true)
+  const heroFirstAnimSkipRef = useRef(true)
   const t = T[lang]
   const active = ECOSYSTEM[appIndex]
   const ecoTitleFull = `${t.ecoTitlePrefix}\n${t.ecoTitleRest}`
@@ -413,10 +441,10 @@ function EcosystemVnfPage() {
   //   ... previous auto-scroll code removed ...
   // }, [])
 
-  // socialTree — thứ tự children được xen kẽ để mobileIndexRef (DFS) ra đúng cột:
-  // DFS visit: root(L=0) → YouTube(R=1) → Facebook(L=2) → TikTok(R=3) → LinkedIn(L=4) → CàMau(R=5) → Email(L=6) → HậuGiang(R=7)
-  // → Phone cột trái:  Website · Facebook · LinkedIn · Email
-  // → Phone cột phải:  YouTube · TikTok   · Cà Mau   · Hậu Giang
+  // socialTree — DOM order là DFS visit: root → YouTube → Facebook → TikTok → LinkedIn → CàMau → Email → HậuGiang
+  // Phone 2-col grid (placement điều khiển qua CSS [data-id] selector):
+  //   → Cột trái:  Website · Facebook · LinkedIn · Cà Mau
+  //   → Cột phải:  Email    · YouTube   · TikTok    · Hậu Giang
   // Desktop/Tablet (flat grid 4 cột, group bị ẩn): Website · LinkedIn · Facebook · Email / YouTube · TikTok · Cà Mau · Hậu Giang
   const socialTree: SocialTreeNodeData = {
     id: "vnf",
@@ -468,7 +496,7 @@ function EcosystemVnfPage() {
         color: "#0e7490",
         logo: `${LOGO_BASE}/vnf.png`,
         children: [
-          { id: "ca-mau",    name: t.socialCaMau,    color: "#0e7490", href: "https://www.facebook.com/profile.php?id=100063618936458", logo: `${LOGO_BASE}/ca-mau.png` },
+          { id: "ca-mau", name: t.socialCaMau, color: "#0e7490", href: "https://www.facebook.com/profile.php?id=100063618936458", logo: `${LOGO_BASE}/ca-mau.png` },
         ],
       },
       {
@@ -501,6 +529,53 @@ function EcosystemVnfPage() {
   }, [appIndex])
 
   useEffect(() => {
+    const el = appListRef.current
+    if (!el) return
+
+    const updateScrollHint = () => {
+      setShowAppScrollHint(el.scrollWidth > el.clientWidth + 1)
+    }
+
+    updateScrollHint()
+    const resizeObserver = new ResizeObserver(updateScrollHint)
+    resizeObserver.observe(el)
+    return () => resizeObserver.disconnect()
+  }, [lang])
+
+  // Auto-play the hero video whenever the user switches subtitle or page language
+  // (skipped on the very first mount so the video doesn't auto-play on page load).
+  useEffect(() => {
+    if (heroSkipFirstAutoPlayRef.current) {
+      heroSkipFirstAutoPlayRef.current = false
+      return
+    }
+    const v = heroVideoRef.current
+    if (!v) return
+    const p = v.play()
+    if (p && typeof p.catch === "function") p.catch(() => { /* autoplay blocked, ignore */ })
+  }, [lang, subLang])
+
+  // Re-run the same fade-in animation on both the video and the subtitle tab list
+  // whenever lang/subLang changes, so they animate in sync.
+  useEffect(() => {
+    if (heroFirstAnimSkipRef.current) {
+      heroFirstAnimSkipRef.current = false
+      return
+    }
+    const targets = [
+      heroVideoRef.current?.parentElement, // .hero-video
+      heroSubtabsRef.current,              // .hero-subtabs
+    ].filter(Boolean) as HTMLElement[]
+    targets.forEach(t => {
+      t.classList.remove("hero-fade-in")
+      // Cancel any in-flight animation to guarantee a fresh re-trigger
+      t.getAnimations().forEach(a => a.cancel())
+      void t.offsetWidth // force reflow so the animation re-triggers
+      t.classList.add("hero-fade-in")
+    })
+  }, [lang, subLang])
+
+  useEffect(() => {
     const spy = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -520,7 +595,7 @@ function EcosystemVnfPage() {
     // Show/hide back to top button based on scroll position
     const handleScroll = () => {
       const shouldShow = window.scrollY > 400
-      
+
       if (!shouldShow && showBackToTop) {
         // Scrolled back to top - trigger hide animation first
         setIsHiding(true)
@@ -583,12 +658,13 @@ function EcosystemVnfPage() {
           <div>
             <div className="brand-id">{t.brandId}</div>
             <h1>
-              {t.heroTitlePrefix}
-              <span className="accent">{t.heroTitleAccent}</span>
-              {t.heroTitleSuffix}
+              <span className="hero-title-prefix">{t.heroTitlePrefix}</span>
+              <span className="accent">{t.heroTitleAccent}{t.heroTitleSuffix}</span>
             </h1>
             <p className="lead">
               {t.heroLead1}
+              <br /><br />
+              {t.heroLead1b}
               <br /><br />
               {t.heroLead2}
             </p>
@@ -597,16 +673,34 @@ function EcosystemVnfPage() {
               <a href="mailto:sales@vnfoods.vn" className="btn btn-ghost">{t.ctaContact}</a>
             </div>
           </div>
-          <div className="hero-video reveal">
-            <video
-              key={`hero-${lang}`}
-              controls
-              preload="metadata"
-              playsInline
-              poster={HERO_POSTER[lang]}
-              src={HERO_VIDEO[lang]}
-              onLoadedMetadata={lockRatio}
-            />
+          <div className="hero-media">
+            <div className="hero-video reveal">
+              <video
+                key={`hero-${lang}-${subLang}`}
+                ref={heroVideoRef}
+                controls
+                preload="metadata"
+                playsInline
+                poster={HERO_POSTER[lang]}
+                src={HERO_VIDEOS[lang][subLang]}
+                onLoadedMetadata={lockRatio}
+              />
+            </div>
+            <div ref={heroSubtabsRef} className="hero-subtabs" role="tablist" aria-label={lang === "vi" ? "Ngôn ngữ phụ đề" : "Subtitle language"}>
+              {SUB_LANGS.map(s => (
+                <button
+                  key={s.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={subLang === s.id}
+                  aria-label={s.label[lang]}
+                  className={`hero-subtab ${subLang === s.id ? "active" : ""}`}
+                  onClick={() => setSubLang(s.id)}
+                >
+                  {s.label[lang]}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -617,12 +711,6 @@ function EcosystemVnfPage() {
           <div className="social-bar-head reveal">{t.socialHead}</div>
         </div>
         <div className="social-tree-wrap reveal">
-          {/* Decorative center timeline spine — mobile only (hidden on tablet/desktop) */}
-          <span className="mobile-spine" aria-hidden="true">
-            <span className="mobile-spine-line" />
-            <span className="mobile-spine-arrow" />
-            <span className="mobile-spine-dot" />
-          </span>
           <SocialTreeNode node={socialTree} />
         </div>
       </div>
@@ -630,7 +718,7 @@ function EcosystemVnfPage() {
       {/* ============ ECOSYSTEM (team spotlight) ============ */}
       <section id="ecosystem">
         <div className="wrap">
-          <div className="section-head reveal">
+          <div className={`section-head section-head--${lang} reveal`}>
             <div className="eyebrow">{t.ecoEyebrow}</div>
             <h2 ref={ecoTitleRef}>
               {ecoTitleFull.split("\n").map((line, i, arr) => (
@@ -648,6 +736,7 @@ function EcosystemVnfPage() {
                 </div>
               ))}
             </div>
+            {showAppScrollHint && <div className="app-list-hint">{t.swipeMore}</div>}
             <div className="app-panel reveal" data-app-index={appIndex}>
               <div ref={appInfoRef} className="app-fade-in app-content">
                 <div className="app-head">
@@ -693,10 +782,6 @@ function EcosystemVnfPage() {
                     </a>
                   )}
                 </div>
-                <div className="app-nav-arrows">
-                  <div className="arrow-btn arrow-btn-prev" onClick={() => showApp(appIndex - 1)}><svg><use href="#eco2-i-arrow-l" /></svg></div>
-                  <div className="arrow-btn arrow-btn-next" onClick={() => showApp(appIndex + 1)}><svg><use href="#eco2-i-arrow-r" /></svg></div>
-                </div>
               </div>
             </div>
           </div>
@@ -705,16 +790,15 @@ function EcosystemVnfPage() {
 
       {/* ============ FOLLOW CTA ============ */}
       <section className="follow-cta follow-cta-glow">
-        <svg className="follow-shrimp follow-shrimp-1" aria-hidden="true"><use href="#eco2-i-shrimp" /></svg>
-        <svg className="follow-shrimp follow-shrimp-2" aria-hidden="true"><use href="#eco2-i-shrimp" /></svg>
-        <svg className="follow-shrimp follow-shrimp-3" aria-hidden="true"><use href="#eco2-i-shrimp" /></svg>
         <div className="wrap">
           <div className="follow-cta-inner reveal">
             <div className="eyebrow">{t.followEyebrow}</div>
             <p>
-              {t.followText.split('\n').map((line, i, arr) => (
-                <span key={i}>{line}{i < arr.length - 1 ? <br /> : null}</span>
-              ))}
+              {t.followText.split(/(\[br-m\]|\[br-d\])/).map((part, i) => {
+                if (part === "[br-m]") return <br key={i} className="mobile-br" />
+                if (part === "[br-d]") return <br key={i} className="desktop-br" />
+                return part
+              })}
             </p>
           </div>
         </div>
@@ -722,7 +806,6 @@ function EcosystemVnfPage() {
 
       {/* ============ FOOTER ============ */}
       <footer>
-        <div className="foot-pattern" aria-hidden="true" />
         <div className="wrap">
           <div className="foot-top">
             <div className="foot-brand">
@@ -756,13 +839,13 @@ function EcosystemVnfPage() {
 
       {/* ============ BACK TO TOP BUTTON (Desktop only) ============ */}
       {showBackToTop && (
-        <button 
+        <button
           className={`back-to-top ${isHiding ? 'hiding' : 'show'}`}
           onClick={scrollToTop}
           aria-label="Back to top"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 19V5M5 12l7-7 7 7"/>
+            <path d="M12 19V5M5 12l7-7 7 7" />
           </svg>
         </button>
       )}
@@ -832,6 +915,7 @@ html{
 
 /* Eyebrow in ecosystem section - larger size */
 .vnf-eco2-page #ecosystem .eyebrow{
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size:15px; letter-spacing:.15em; padding-bottom:8px; margin-bottom:16px; border-bottom-width:3px;
 }
 @media(min-width:720px){ 
@@ -853,9 +937,12 @@ html{
 .vnf-eco2-page h1, .vnf-eco2-page h2, .vnf-eco2-page h3{color:var(--eco2-primary); font-weight:700; line-height:1.18;}
 .vnf-eco2-page h4, .vnf-eco2-page h5{color:var(--eco2-primary); font-weight:800; line-height:1.3;}
 .vnf-eco2-page .section-head{max-width:760px; margin:0 auto 44px; text-align:center;}
-.vnf-eco2-page .section-head h2{font-size:clamp(26px,5.5vw,42px); font-weight:700; text-wrap:balance;}
+.vnf-eco2-page .section-head h2{font-size:clamp(18px,4.5vw,42px); font-weight:700; text-wrap:balance;}
+.vnf-eco2-page #ecosystem .section-head h2{font-size:clamp(12px,4.2vw,40px);}
+.vnf-eco2-page #ecosystem .section-head h2 span{display:block; white-space:nowrap;}
 .vnf-eco2-page .section-head p{margin-top:18px; font-size:17px; line-height:1.7; color:var(--eco2-text-soft); text-wrap:pretty;}
 @media(min-width:720px){
+  .vnf-eco2-page .section-head--vi{max-width:900px;}
   .vnf-eco2-page .section-head{margin:0 auto 60px;}
   .vnf-eco2-page .section-head p{font-size:18px;}
 }
@@ -945,16 +1032,50 @@ html{
 .vnf-eco2-page .hero-grid{
   position:relative; z-index:2; display:flex; flex-direction:column; gap:36px;
 }
-.vnf-eco2-page .hero h1{color:var(--eco2-white); font-size:clamp(26px,6vw,44px); font-weight:600; letter-spacing:-.01em; text-wrap:balance;}
-.vnf-eco2-page .hero h1 .accent{color:var(--eco2-white); font-weight:800; border-bottom:3px solid rgba(255,255,255,.6);}
-.vnf-eco2-page .hero p.lead{color:rgba(255,255,255,.92); font-size:17px; margin:20px 0 30px; max-width:540px; line-height:1.75; text-wrap:pretty;}
+.vnf-eco2-page .hero h1{color:var(--eco2-white); font-size:clamp(26px,5vw,38px); font-weight:600; letter-spacing:-.01em; text-wrap:balance;}
+.vnf-eco2-page .hero h1 .hero-title-prefix{white-space:nowrap;}
+.vnf-eco2-page .hero h1 .accent{color:var(--eco2-white); font-weight:800; border-bottom:3px solid rgba(255,255,255,.6); display:block; width:fit-content; margin-top:.35em;}
+.vnf-eco2-page .hero p.lead{color:rgba(255,255,255,.92); font-size:17px; margin:20px 0 30px; max-width:540px; line-height:1.75; text-wrap:pretty; white-space:pre-line;}
 .vnf-eco2-page .hero-ctas{display:flex; flex-direction:column; gap:14px;}
+.vnf-eco2-page .hero-media{display:flex; flex-direction:column; gap:14px; width:100%;}
 .vnf-eco2-page .hero-video{
   position:relative; border-radius:8px; overflow:hidden; width:100%;
   background:var(--eco2-primary-dark);
   border:1px solid rgba(255,255,255,.15);
   display:flex; align-items:center; justify-content:center;
   box-shadow:0 20px 50px rgba(0,0,0,.22);
+}
+.vnf-eco2-page .hero-subtabs{
+  display:flex; flex-wrap:nowrap; gap:8px; justify-content:center;
+}
+.vnf-eco2-page .hero-subtab{
+  position:relative; z-index:2;
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:7px 16px;
+  background:transparent;
+  border:1.5px solid rgba(255,255,255,.55);
+  border-radius:999px; cursor:pointer;
+  color:var(--eco2-white);
+  font-size:13.5px; font-weight:600; letter-spacing:.02em; line-height:1.2;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+  flex:0 0 auto;
+}
+.vnf-eco2-page .hero-subtab:hover{
+  background:rgba(255,255,255,.15);
+  border-color:rgba(255,255,255,.9);
+}
+.vnf-eco2-page .hero-subtab.active{
+  z-index:3;
+  background:var(--eco2-white);
+  color:var(--eco2-primary); /* looks like a "cutout" of the hero blue */
+  border-color:var(--eco2-white);
+}
+@media(max-width:639px){
+  .vnf-eco2-page .hero-subtabs{
+    display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:8px; justify-content:center;
+  }
+  .vnf-eco2-page .hero-subtab{width:100%; padding-left:8px; padding-right:8px;}
 }
 .vnf-eco2-page .play-btn{
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
@@ -1071,17 +1192,14 @@ html{
 .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo img{width:20px; height:20px;}
 .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-name{font-size:11px;}
 
-/* Decorative mobile timeline spine — hidden on tablet/desktop */
-.vnf-eco2-page .mobile-spine{display:none;}
-
-/* ── Phone (≤639px): 2-column timeline grid ── */
+/* ── Phone (≤639px): 2-column flat grid, logo above text, no decorative lines ── */
 @media(max-width:639px){
   .vnf-eco2-page .social-bar{padding:24px 0 28px;}
   .vnf-eco2-page .social-bar-head{font-size:18px; margin-bottom:18px;}
 
   .vnf-eco2-page .social-tree-wrap{
     position:relative; display:grid; grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(4,auto);
-    column-gap:32px; row-gap:16px; width:100%; max-width:480px; margin:0 auto; padding:10px 14px 16px;
+    column-gap:14px; row-gap:14px; width:100%; max-width:480px; margin:0 auto; padding:10px 14px 16px;
     min-width:0;
   }
   .vnf-eco2-page .social-tree-node{display:contents;}
@@ -1092,10 +1210,10 @@ html{
   .vnf-eco2-page .social-tree-branch{display:none;}
   .vnf-eco2-page .social-tree-card,
   .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card{
-    width:100% !important; height:62px !important; min-height:62px !important; padding:6px 10px !important; border:1.5px solid !important; border-radius:4px !important;
-    background:var(--eco2-white) !important; box-shadow:0 1px 3px rgba(23,73,127,.04) !important; gap:8px !important; margin:0 !important;
-    display:flex !important; flex-direction:row !important; align-items:center !important; justify-content:flex-start !important; text-align:left !important;
-    overflow:visible !important;
+    width:100% !important; height:130px !important; min-height:130px !important; padding:14px 10px !important; border:1.5px solid !important; border-radius:12px !important;
+    background:var(--eco2-white) !important; box-shadow:0 1px 3px rgba(23,73,127,.06) !important; gap:10px !important; margin:0 !important;
+    display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; text-align:center !important;
+    overflow:hidden !important;
   }
   /* Tắt hover và animation trên phone */
   .vnf-eco2-page a.social-tree-card:hover,
@@ -1103,59 +1221,29 @@ html{
   .vnf-eco2-page a.social-tree-card:active {
     animation: none !important;
     transform: none !important;
-    box-shadow: 0 1px 3px rgba(23,73,127,.04) !important;
+    box-shadow: 0 1px 3px rgba(23,73,127,.06) !important;
     z-index: 1 !important;
   }
   .vnf-eco2-page .social-tree-card .social-tree-logo,
-  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo{display:flex !important; width:30px !important; height:30px !important; flex-shrink:0 !important;}
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo{display:flex !important; width:56px !important; height:56px !important; flex-shrink:0 !important;}
   .vnf-eco2-page .social-tree-card .social-tree-logo img,
   .vnf-eco2-page .social-tree-card .social-tree-logo svg,
   .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo img,
   .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-logo svg{width:100% !important; height:100% !important;}
   .vnf-eco2-page .social-tree-card .social-tree-name,
-  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-name{font-size:14px !important; font-weight:700 !important; line-height:1.25 !important; overflow:hidden !important; text-overflow:ellipsis !important; display:-webkit-box !important; -webkit-line-clamp:2 !important; -webkit-box-orient:vertical !important; text-align:center !important;}
+  .vnf-eco2-page .social-tree-child > .social-tree-node > .social-tree-children > .social-tree-child-list .social-tree-card .social-tree-name{font-size:13px !important; font-weight:700 !important; line-height:1.25 !important; overflow:hidden !important; text-overflow:ellipsis !important; display:-webkit-box !important; -webkit-line-clamp:2 !important; -webkit-box-orient:vertical !important; text-align:center !important;}
   .vnf-eco2-page .social-tree-card--group{display:none !important;}
 
-  /* central dashed spine */
-  .vnf-eco2-page .mobile-spine{
-    display:block; position:absolute; left:50%; top:0; bottom:0; width:2px;
-    transform:translateX(-50%); z-index:0; pointer-events:none;
-  }
-  .vnf-eco2-page .mobile-spine-line{
-    position:absolute; top:10px; bottom:10px; left:0; right:0; border-left:2px dashed var(--eco2-primary); opacity:.55;
-  }
-  /* top dot (bold, no outline) */
-  .vnf-eco2-page .mobile-spine-arrow{
-    position:absolute; top:0; left:50%; transform:translateX(-50%);
-    width:10px; height:10px; border-radius:50%;
-    background:var(--eco2-primary); opacity:1;
-  }
-  /* bottom dot (bold, no outline) */
-  .vnf-eco2-page .mobile-spine-dot{
-    position:absolute; bottom:0; left:50%; transform:translateX(-50%);
-    width:10px; height:10px; border-radius:50%;
-    background:var(--eco2-primary); opacity:1;
-  }
-
-  /* dotted connectors from each card to the center spine */
-  .vnf-eco2-page .social-tree-card[data-mobile-side="left"]::after{
-    content:''; position:absolute; top:50%; right:-23px; width:23px; height:0;
-    border-top:2px dotted var(--eco2-primary); opacity:.65; transform:translateY(-50%); z-index:0;
-  }
-  .vnf-eco2-page .social-tree-card[data-mobile-side="right"]::before{
-    content:''; position:absolute; top:50%; left:-23px; width:23px; height:0;
-    border-top:2px dotted var(--eco2-primary); opacity:.65; transform:translateY(-50%); z-index:0;
-  }
-
-  /* Phone: col-left = Website(row1) · Facebook(row2) · LinkedIn(row3) · Email(row4)
-            col-right = YouTube(row1) · TikTok(row2)  · Cà Mau(row3)  · Hậu Giang(row4) */
+  /* Phone 2-col grid (logo above text, like desktop):
+     col-left  = Website(R1) · Facebook(R2) · LinkedIn(R3) · Cà Mau(R4)
+     col-right = Email(R1)   · YouTube(R2)  · TikTok(R3)   · Hậu Giang(R4) */
   .vnf-eco2-page [data-id="vnf"]       { grid-column:1; grid-row:1; }
-  .vnf-eco2-page [data-id="youtube"]   { grid-column:2; grid-row:1; }
+  .vnf-eco2-page [data-id="email"]     { grid-column:2; grid-row:1; }
   .vnf-eco2-page [data-id="facebook"]  { grid-column:1; grid-row:2; }
-  .vnf-eco2-page [data-id="tiktok"]    { grid-column:2; grid-row:2; }
+  .vnf-eco2-page [data-id="youtube"]   { grid-column:2; grid-row:2; }
   .vnf-eco2-page [data-id="linkedin"]  { grid-column:1; grid-row:3; }
-  .vnf-eco2-page [data-id="ca-mau"]    { grid-column:2; grid-row:3; }
-  .vnf-eco2-page [data-id="email"]     { grid-column:1; grid-row:4; }
+  .vnf-eco2-page [data-id="tiktok"]    { grid-column:2; grid-row:3; }
+  .vnf-eco2-page [data-id="ca-mau"]    { grid-column:1; grid-row:4; }
   .vnf-eco2-page [data-id="hau-giang"] { grid-column:2; grid-row:4; }
 }
 
@@ -1188,12 +1276,12 @@ html{
   .vnf-eco2-page .social-tree-card--group{display:none !important;}
 
   /* Desktop/Tablet row layout (DOM order: Website,YouTube,Facebook,TikTok,LinkedIn,CàMau,Email,HậuGiang)
-     Hàng 1: Website(col1) · LinkedIn(col2) · Facebook(col3) · Email(col4)
+     Hàng 1: Website(col1) · Email(col2) · LinkedIn(col3) · Facebook(col4)
      Hàng 2: YouTube(col1) · TikTok(col2)   · Cà Mau(col3)  · Hậu Giang(col4) */
   .vnf-eco2-page [data-id="vnf"]       { grid-column:1; grid-row:1; }
-  .vnf-eco2-page [data-id="linkedin"]  { grid-column:2; grid-row:1; }
-  .vnf-eco2-page [data-id="facebook"]  { grid-column:3; grid-row:1; }
-  .vnf-eco2-page [data-id="email"]     { grid-column:4; grid-row:1; }
+  .vnf-eco2-page [data-id="email"]     { grid-column:2; grid-row:1; }
+  .vnf-eco2-page [data-id="linkedin"]  { grid-column:3; grid-row:1; }
+  .vnf-eco2-page [data-id="facebook"]  { grid-column:4; grid-row:1; }
   .vnf-eco2-page [data-id="youtube"]   { grid-column:1; grid-row:2; }
   .vnf-eco2-page [data-id="tiktok"]    { grid-column:2; grid-row:2; }
   .vnf-eco2-page [data-id="ca-mau"]    { grid-column:3; grid-row:2; }
@@ -1239,6 +1327,13 @@ html{
 /* ===== ECOSYSTEM (team spotlight) — mobile-first stacked ===== */
 .vnf-eco2-page #ecosystem{padding:68px 0; background:var(--eco2-primary-light);}
 .vnf-eco2-page .app-layout{display:flex; flex-direction:column; gap:18px;}
+.vnf-eco2-page .app-list-hint{
+  align-self:flex-start; color:#6b7280; font-size:16px; font-style:italic; font-weight:400; text-align:left;
+  border:1.5px solid #9ca3af; border-radius:999px; padding:6px 18px;
+}
+@media(max-width:639px){
+  .vnf-eco2-page #ecosystem .wrap{padding-left:8px; padding-right:8px;}
+}
 
 /* ── Single app-list for all devices (manual scroll only) ── */
 .vnf-eco2-page .app-list{
@@ -1268,6 +1363,12 @@ html{
 }
 .vnf-eco2-page .app-fade-in{animation:eco2-app-fade-in .45s cubic-bezier(.2,.8,.2,1) both;}
 @keyframes eco2-app-fade-in{ from{opacity:.5; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+/* Hero re-animation when user switches subtitle or page language.
+   Mirrors the .reveal/in reveal (fade + slide up 24px) so the sub bar visibly animates
+   in lockstep with the video. */
+.vnf-eco2-page .hero-fade-in{animation:eco2-hero-fade-in .5s cubic-bezier(.2,.8,.2,1) both;}
+@keyframes eco2-hero-fade-in{ from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);} }
 @keyframes eco2-item-pop{ 0%{transform:scale(1);} 45%{transform:scale(1.04);} 100%{transform:scale(1);} }
 .vnf-eco2-page .app-head{display:flex; align-items:center; gap:14px; margin-bottom:16px;}
 /* Category acts as the primary section header inside each panel — bigger & bolder than the product name */
@@ -1275,6 +1376,17 @@ html{
   color:var(--eco2-white); opacity:1; font-weight:800; font-size:clamp(16px,2.8vw,20px);
   letter-spacing:.05em; text-transform:uppercase; line-height:1.25;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+@media(max-width:639px){
+  .vnf-eco2-page .app-panel{padding-left:16px; padding-right:16px;}
+  .vnf-eco2-page .app-head{gap:10px;}
+  .vnf-eco2-page .app-panel .cat{font-size:12px; letter-spacing:.02em; line-height:1.2; white-space:nowrap;}
+}
+@media(min-width:640px) and (max-width:959px){
+  .vnf-eco2-page .app-panel .cat{font-size:15px; letter-spacing:.03em;}
+}
+@media(min-width:960px){
+  .vnf-eco2-page .app-panel .cat{font-size:16px; letter-spacing:.03em; white-space:nowrap;}
 }
 .vnf-eco2-page .app-panel h3{
   color:rgba(255,255,255,.82); font-weight:600; font-size:clamp(18px,3vw,23px); margin:0 0 18px; font-style:normal; text-wrap:balance;
@@ -1331,7 +1443,9 @@ html{
   
   /* Tablet/Desktop: tabs on top, content below in 2x2 grid */
   .vnf-eco2-page .app-list{
-    flex-direction:row; overflow-x:auto; padding:2px 2px 10px; justify-content:center;
+    flex-direction:row; overflow-x:auto; padding:2px 2px 10px;
+    justify-content:flex-start; /* Fallback for browsers that don't support safe center */
+    justify-content:safe center;
   }
   .vnf-eco2-page .app-panel{
     display:grid; 
@@ -1375,6 +1489,9 @@ html{
     justify-content:flex-start;
   }
 }
+@media(min-width:640px) and (max-width:1120px){
+  .vnf-eco2-page .app-list{justify-content:flex-start;}
+}
 @media(min-width:900px){
   .vnf-eco2-page #ecosystem{padding:124px 0;}
   .vnf-eco2-page .app-panel{padding:44px; gap:32px 40px; min-height:480px;}
@@ -1382,7 +1499,7 @@ html{
 
 /* ===== FOLLOW CTA (between Ecosystem and Footer) ===== */
 .vnf-eco2-page .follow-cta{
-  background:linear-gradient(180deg, var(--eco2-primary-dark) 0%, #0f3456 100%);
+  background:transparent;  /* actual bg lives on .follow-cta-glow below */
   padding:72px 0; text-align:center; border:none;
 }
 .vnf-eco2-page .follow-cta-inner{max-width:720px; margin:0 auto;}
@@ -1391,24 +1508,22 @@ html{
   font-size:clamp(18px,3vw,24px); letter-spacing:.18em; padding-bottom:0; margin-bottom:20px;
 }
 .vnf-eco2-page .follow-cta-inner p{color:rgba(255,255,255,.92); font-size:clamp(17px,3.2vw,21px); line-height:1.7; font-weight:400; margin-top:10px; text-wrap:pretty;}
+.vnf-eco2-page .desktop-br{display:none;}
+.vnf-eco2-page .mobile-br{display:inline;}
+@media(min-width:960px){
+  .vnf-eco2-page .desktop-br{display:inline;}
+  .vnf-eco2-page .mobile-br{display:none;}
+}
 @media(min-width:640px){
   .vnf-eco2-page .follow-cta{padding:92px 0;}
   .vnf-eco2-page .follow-cta .eyebrow{font-size:clamp(22px,3.5vw,28px);}
 }
 
-/* ===== FOOTER (mobile-first stacked, corporate — gradient blue + dot-map texture) ===== */
+/* ===== FOOTER (mobile-first stacked, corporate — uses BG_FOOTER_URL as background image) ===== */
 .vnf-eco2-page footer{
-  background:linear-gradient(180deg, #0f3456 0%, var(--eco2-primary) 100%);
+  background:#0f3456 url("https://minio-tuan.ls01.vnfoods.vn/eco-media/bg-footer.jpg") center/cover no-repeat;
   padding:48px 0 28px; color:rgba(255,255,255,.72); position:relative; overflow:hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-}
-/* decorative low-opacity dotted texture — purely visual, never above text, never blocks interaction */
-.vnf-eco2-page .foot-pattern{
-  position:absolute; inset:0; z-index:0; pointer-events:none;
-  background-image:radial-gradient(circle, rgba(255,255,255,.16) 1.4px, transparent 1.4px);
-  background-size:22px 22px;
-  -webkit-mask-image:radial-gradient(ellipse 85% 80% at 50% 40%, rgba(0,0,0,.9), transparent 75%);
-  mask-image:radial-gradient(ellipse 85% 80% at 50% 40%, rgba(0,0,0,.9), transparent 75%);
 }
 .vnf-eco2-page footer .wrap{position:relative; z-index:1;}
 .vnf-eco2-page .foot-top{display:flex; flex-direction:column; align-items:flex-start; text-align:left; gap:32px; padding-bottom:28px;}
@@ -1484,64 +1599,23 @@ html{
   }
 }
 
-/* ===== FOLLOW CTA — enhanced background (isolated, doesn't touch .follow-cta) ===== */
+/* ===== FOLLOW CTA — hero image (BG_URL) + blue overlay (mirrors .hero treatment) ===== */
 .vnf-eco2-page .follow-cta-glow{
   position:relative;
   overflow:hidden;
-  background:linear-gradient(180deg, var(--eco2-primary-dark) 0%, #0f3456 100%);
+  background:#0f3456;  /* fallback color while image loads */
 }
 .vnf-eco2-page .follow-cta-glow::before{
   content:'';
   position:absolute; inset:0; z-index:0; pointer-events:none;
-  background-image:radial-gradient(circle, rgba(255,255,255,.16) 1.4px, transparent 1.4px);
-  background-size:22px 22px;
-  -webkit-mask-image:radial-gradient(ellipse 85% 80% at 50% 40%, rgba(0,0,0,.9), transparent 75%);
-  mask-image:radial-gradient(ellipse 85% 80% at 50% 40%, rgba(0,0,0,.9), transparent 75%);
+  background:url('${BG_URL}') center/cover no-repeat;
+  opacity:.75;
 }
-.vnf-eco2-page .follow-cta-glow .wrap{position:relative; z-index:1;}
-
-/* ===== FOLLOW CTA — multi-blob background + bouncing shrimp ===== */
-.vnf-eco2-page .follow-cta-glow{
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(180deg, var(--eco2-primary-dark) 0%, #0f3456 100%);
+.vnf-eco2-page .follow-cta-glow::after{
+  content:'';
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(135deg, rgba(30,92,166,.78), rgba(23,73,127,.85));
 }
 .vnf-eco2-page .follow-cta-glow .wrap{position:relative; z-index:3;}
 
-/* three bouncing shrimp, alternating left/right sides, bigger size */
-.vnf-eco2-page .follow-shrimp{
-  position:absolute; z-index:2; pointer-events:none;
-  color:rgba(255,255,255,.20);
-}
-.vnf-eco2-page .follow-shrimp-1{ width:110px; height:110px; top:10%; left:6%; transform:rotate(-14deg); animation:eco2-shrimp-bounce-a 4.2s ease-in-out infinite; }
-.vnf-eco2-page .follow-shrimp-2{ width:130px; height:130px; bottom:8%; right:7%; color:rgba(255,255,255,.16); transform:rotate(18deg) scaleX(-1); animation:eco2-shrimp-bounce-b 3.6s ease-in-out infinite; }
-.vnf-eco2-page .follow-shrimp-3{ width:80px; height:80px; top:52%; left:80%; color:rgba(255,255,255,.13); transform:rotate(-22deg); animation:eco2-shrimp-bounce-c 5s ease-in-out infinite; }
-
-/* Phone: ẩn con tôm thứ 3 */
-@media(max-width:639px){
-  .vnf-eco2-page .follow-shrimp-3{ display:none; }
-}
-
-/* Tablet: đẩy con tôm thứ 3 vào center */
-@media(min-width:640px) and (max-width:959px){
-  .vnf-eco2-page .follow-shrimp-3{ 
-    top:50%; left:50%; transform:rotate(-22deg) translateX(-50%) translateY(-50%);
-  }
-}
-
-@keyframes eco2-shrimp-bounce-a{
-  0%,100%{ transform:rotate(-14deg) translateY(0); }
-  50%{ transform:rotate(-14deg) translateY(-18px); }
-}
-@keyframes eco2-shrimp-bounce-b{
-  0%,100%{ transform:rotate(18deg) scaleX(-1) translateY(0); }
-  50%{ transform:rotate(18deg) scaleX(-1) translateY(-14px); }
-}
-@keyframes eco2-shrimp-bounce-c{
-  0%,100%{ transform:rotate(-22deg) translateY(0); }
-  50%{ transform:rotate(-22deg) translateY(-20px); }
-}
-@media (prefers-reduced-motion: reduce){
-  .vnf-eco2-page .follow-shrimp-1, .vnf-eco2-page .follow-shrimp-2, .vnf-eco2-page .follow-shrimp-3{ animation:none; }
-}
 `

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LinktreeRouteImport } from './routes/linktree'
+import { Route as EcosystemVnfRecoveredRouteImport } from './routes/ecosystem-vnf-recovered'
 import { Route as EcosystemVnfRouteImport } from './routes/ecosystem-vnf'
 import { Route as EcosystemRouteImport } from './routes/ecosystem'
 import { Route as IndexRouteImport } from './routes/index'
@@ -17,6 +18,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const LinktreeRoute = LinktreeRouteImport.update({
   id: '/linktree',
   path: '/linktree',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcosystemVnfRecoveredRoute = EcosystemVnfRecoveredRouteImport.update({
+  id: '/ecosystem-vnf-recovered',
+  path: '/ecosystem-vnf-recovered',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EcosystemVnfRoute = EcosystemVnfRouteImport.update({
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ecosystem': typeof EcosystemRoute
   '/ecosystem-vnf': typeof EcosystemVnfRoute
+  '/ecosystem-vnf-recovered': typeof EcosystemVnfRecoveredRoute
   '/linktree': typeof LinktreeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ecosystem': typeof EcosystemRoute
   '/ecosystem-vnf': typeof EcosystemVnfRoute
+  '/ecosystem-vnf-recovered': typeof EcosystemVnfRecoveredRoute
   '/linktree': typeof LinktreeRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,38 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/ecosystem': typeof EcosystemRoute
   '/ecosystem-vnf': typeof EcosystemVnfRoute
+  '/ecosystem-vnf-recovered': typeof EcosystemVnfRecoveredRoute
   '/linktree': typeof LinktreeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ecosystem' | '/ecosystem-vnf' | '/linktree'
+  fullPaths:
+    | '/'
+    | '/ecosystem'
+    | '/ecosystem-vnf'
+    | '/ecosystem-vnf-recovered'
+    | '/linktree'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ecosystem' | '/ecosystem-vnf' | '/linktree'
-  id: '__root__' | '/' | '/ecosystem' | '/ecosystem-vnf' | '/linktree'
+  to:
+    | '/'
+    | '/ecosystem'
+    | '/ecosystem-vnf'
+    | '/ecosystem-vnf-recovered'
+    | '/linktree'
+  id:
+    | '__root__'
+    | '/'
+    | '/ecosystem'
+    | '/ecosystem-vnf'
+    | '/ecosystem-vnf-recovered'
+    | '/linktree'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   EcosystemRoute: typeof EcosystemRoute
   EcosystemVnfRoute: typeof EcosystemVnfRoute
+  EcosystemVnfRecoveredRoute: typeof EcosystemVnfRecoveredRoute
   LinktreeRoute: typeof LinktreeRoute
 }
 
@@ -76,6 +102,13 @@ declare module '@tanstack/react-router' {
       path: '/linktree'
       fullPath: '/linktree'
       preLoaderRoute: typeof LinktreeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ecosystem-vnf-recovered': {
+      id: '/ecosystem-vnf-recovered'
+      path: '/ecosystem-vnf-recovered'
+      fullPath: '/ecosystem-vnf-recovered'
+      preLoaderRoute: typeof EcosystemVnfRecoveredRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ecosystem-vnf': {
@@ -106,6 +139,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   EcosystemRoute: EcosystemRoute,
   EcosystemVnfRoute: EcosystemVnfRoute,
+  EcosystemVnfRecoveredRoute: EcosystemVnfRecoveredRoute,
   LinktreeRoute: LinktreeRoute,
 }
 export const routeTree = rootRouteImport
