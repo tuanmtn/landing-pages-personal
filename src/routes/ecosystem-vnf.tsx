@@ -99,7 +99,7 @@ const T = {
     heroTitleAccent: "VNF Ecosystem",
     heroTitleSuffix: "!",
     heroLead1:
-      "Vietnam Food (VNF) is a pioneer in valorizing shrimp-byproducts into valuable bioactive ingredients.",
+      "Vietnam Food (VNF) is a pioneer in valorizing shrimp-by products into valuable bioactive ingredients.",
     heroLead1b:
       "By applying proprietary biotechnological zero-waste production model, we maximize nutrient recovery & minimize environmental impacts.",
     heroLead2: "From these ingredients, we develop various applications that together form the VNF Ecosystem.",
