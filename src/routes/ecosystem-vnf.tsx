@@ -60,10 +60,10 @@ const T = {
     heroTitleAccent: "Hệ sinh thái VNF",
     heroTitleSuffix: "",
     heroLead1:
-      "Vietnam Food (VNF) tiên phong chuyển hóa\nphụ phẩm tôm thành các nguyên liệu hoạt tính sinh học có giá trị.",
+      "Vietnam Food (VNF) tiên phong chuyển hóa phụ phẩm tôm thành các nguyên liệu hoạt tính sinh học có giá trị.",
     heroLead1b:
-      "Với mô hình sản xuất độc quyền ứng dụng công nghệ sinh học theo định hướng sản xuất không chất thải (zero-waste), chúng tôi tối ưu hóa việc thu hồi dinh dưỡng và giảm thiểu\ncác tác động môi trường.",
-    heroLead2: "Từ các nguyên liệu này, chúng tôi phát triển nhiều\nứng dụng khác nhau tạo nên Hệ sinh thái VNF.",
+      "Với mô hình sản xuất độc quyền ứng dụng công nghệ sinh học theo định hướng sản xuất không chất thải (zero-waste), chúng tôi tối ưu hóa việc thu hồi dinh dưỡng và giảm thiểu các tác động môi trường.",
+    heroLead2: "Từ các nguyên liệu này, chúng tôi phát triển nhiều ứng dụng khác nhau tạo nên Hệ sinh thái VNF.",
     ctaExplore: "Khám phá hệ sinh thái",
     ctaContact: "Liên hệ hợp tác",
     socialHead: "Kết nối & theo dõi VNF tại đây",
@@ -80,6 +80,7 @@ const T = {
     swipeMore: "Lướt để xem thêm >>>",
     fbLink: "Xem Facebook",
     liLink: "Xem LinkedIn",
+    webLink: "Xem website",
     followEyebrow: "KẾT NỐI CÙNG VNF",
     followText:
       "Theo dõi các kênh của Hệ sinh thái VNF [br-m]để không bỏ lỡ những câu chuyện, [br-d]giải pháp, [br-m]và sáng kiến mới nhất của chúng tôi.",
@@ -98,9 +99,9 @@ const T = {
     heroTitleAccent: "VNF Ecosystem",
     heroTitleSuffix: "!",
     heroLead1:
-      "Vietnam Food (VNF) is a pioneer in valorizing\nshrimp-byproducts into valuable bioactive ingredients.",
+      "Vietnam Food (VNF) is a pioneer in valorizing shrimp-byproducts into valuable bioactive ingredients.",
     heroLead1b:
-      "By applying proprietary biotechnological\nzero-waste production model, we maximize\nnutrient recovery & minimize environmental impacts.",
+      "By applying proprietary biotechnological zero-waste production model, we maximize nutrient recovery & minimize environmental impacts.",
     heroLead2: "From these ingredients, we develop various applications that together form the VNF Ecosystem.",
     ctaExplore: "Explore the Ecosystem",
     ctaContact: "Get in touch",
@@ -118,6 +119,7 @@ const T = {
     swipeMore: "Swipe for more >>>",
     fbLink: "Visit Facebook",
     liLink: "Visit LinkedIn",
+    webLink: "Visit Website",
     followEyebrow: "STAY CONNECTED",
     followText:
       "Follow the VNF Ecosystem channels [br-m]to keep up with our latest stories, [br-d]solutions, [br-m]and initiatives.",
@@ -139,13 +141,11 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_ho.mp4`, en: `${MEDIA_BASE}/en_ho.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_ho.jpg`, en: `${MEDIA_BASE}/en_ho.jpg` },
     vi: {
-      name: "Vươn Xanh Việt Nam",
-      cat: "Nông nghiệp bền vững",
+      name: "Vươn Xanh Việt Nam (Trồng trọt)",
       long: "VƯƠN XANH VIỆT NAM giới thiệu giải pháp nông nghiệp từ phụ phẩm tôm. Các chế phẩm sinh học giúp tái tạo đất, tăng năng suất cây trồng, bảo quản sau thu hoạch...hướng đến mô hình canh tác xanh, tự nhiên, và bền vững.",
     },
     en: {
-      name: "VUON XANH VIETNAM (EcoBlossom)",
-      cat: "Sustainable Agriculture",
+      name: "Vuon Xanh Viet Nam (Horticulture)",
       long: "VUON XANH VIETNAM (ECOBLOSSOM) introduces agricultural solutions derived from shrimp by-products. Its bio-solutions help regenerate soils, increase crop yields and support post-harvest preservation, all towards a green, natural and sustainable farming model.",
     },
   },
@@ -156,13 +156,11 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_an.mp4`, en: `${MEDIA_BASE}/en_an.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_an.jpg`, en: `${MEDIA_BASE}/en_an.jpg` },
     vi: {
-      name: "Vật Nuôi Vui Khoẻ",
-      cat: "Chăn nuôi và nuôi trồng thuỷ sản",
+      name: "Vật Nuôi Vui Khoẻ (Chăn nuôi)",
       long: "VẬT NUÔI VUI KHỎE cung cấp giải pháp dinh dưỡng tuần hoàn cho chăn nuôi và nuôi trồng thủy sản từ phụ phẩm tôm. Các chế phẩm sinh học giúp vật nuôi ăn khỏe, lớn nhanh, kháng bệnh tốt, đồng thời tối ưu chi phí trong bối cảnh giá vật tư tăng cao và nguồn cung nhập khẩu biến động.",
     },
     en: {
-      name: "VAT NUOI VUI KHOE (Happy Animals)",
-      cat: "Livestock and Aquaculture",
+      name: "Vat Nuoi Vui Khoe (Animal Husbandry)",
       long: "VAT NUOI VUI KHOE (HAPPY ANIMALS) introduces circular nutrition solutions for livestock and aquaculture, derived from shrimp by-products. Its bio-solutions help animals eat well, grow fast and resist diseases, while optimizing costs for farmers, especially in the context of rising input prices and disrupted import supply chains.",
     },
   },
@@ -173,13 +171,11 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_pet.mp4`, en: `${MEDIA_BASE}/en_pet.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_pet.jpg`, en: `${MEDIA_BASE}/en_pet.jpg` },
     vi: {
-      name: "Tôm4Pet",
-      cat: "Dinh dưỡng và chăm sóc thú cưng",
+      name: "Tôm4Pet (Dinh dưỡng thú cưng)",
       long: "TÔM4PET giới thiệu các giải pháp dinh dưỡng và chăm sóc thú cưng. Ngoài việc mang đến những bữa ăn đậm hương vị tôm, các giải pháp còn hỗ trợ phòng ngừa bệnh mãn tính (thận, đường ruột, cholesterol...) và nâng cao sức khỏe toàn diện cho thú cưng.",
     },
     en: {
-      name: "TOM4PET",
-      cat: "Pet Nutrition and Care",
+      name: "Tom4Pet (Pet nutrition)",
       long: "TOM4PET introduces pet nutrition and care solutions. Beyond delivering enjoyable shrimp-based palatability, its solutions help prevent chronic conditions (kidney, gut, cholesterol, etc.) and support overall health for our companions.",
     },
   },
@@ -190,13 +186,11 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_fi.mp4`, en: `${MEDIA_BASE}/en_fi.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_fi.jpg`, en: `${MEDIA_BASE}/en_fi.jpg` },
     vi: {
-      name: "Tôm Yummy",
-      cat: "Nguyên liệu thực phẩm",
+      name: "Tôm Yummy (Nguyên liệu thực phẩm)",
       long: "TÔM YUMMY giới thiệu nhóm nguyên liệu thực phẩm mang hương vị tôm tự nhiên & thơm ngon, cùng nhóm nguyên liệu chức năng hỗ trợ bổ sung dinh dưỡng. Giải pháp hướng tới đáp ứng nhu cầu thực phẩm sạch, an toàn, và bền vững hơn.",
     },
     en: {
-      name: "TOM YUMMY",
-      cat: "Food Ingredients",
+      name: "Tom Yummy (Food ingredients)",
       long: "TOM YUMMY introduces Food Ingredient lines that deliver natural & delicious shrimp flavour, together with Functional Ingredient lines that support nutritional enrichment. The solutions are designed to meet the growing demand for cleaner, safer, and more sustainable food.",
     },
   },
@@ -207,13 +201,11 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/bio_shared.mp4`, en: `${MEDIA_BASE}/bio_shared.mp4` },
     poster: { vi: `${MEDIA_BASE}/bio_shared.jpg`, en: `${MEDIA_BASE}/bio_shared.jpg` },
     vi: {
-      name: "BIOINSHELL",
-      cat: "Công nghiệp",
+      name: "BioInShell (Công nghiệp sạch)",
       long: "BIOINSHELL là mảng kinh doanh sáng tạo tập trung phát triển các giải pháp bio-polymer từ tôm ứng dụng trong nhiều ngành như nhựa sinh học, vật liệu sinh học, và xử lý nước. Những vật liệu này được biết đến với tính tương thích sinh học, phân hủy sinh học, khả năng kháng khuẩn và tạo màng, hướng tới thay thế các hóa chất và polymer có nguồn gốc hóa thạch.",
     },
     en: {
-      name: "BIOINSHELL",
-      cat: "Industry",
+      name: "BioInShell (Sustainable industries)",
       long: "BIOINSHELL is an innovative business line specializing in shrimp-based bio-polymers, serving various industries such as bioplastics, biomaterials, water treatment. These materials are known for their biocompatibility, biodegradability, anti-microbial activity and film-forming properties, and are designed to replace fossil-based polymers and chemicals.",
     },
   },
@@ -221,17 +213,16 @@ const ECOSYSTEM = [
     icon: "i-recycle",
     fb: "https://www.facebook.com/retrivvnf",
     linkedin: "https://www.linkedin.com/company/retriv/posts/?feedView=all",
+    website: "https://www.retriv.vn",
     logo: { vi: `${LOGO_BASE}/retriv.png`, en: `${LOGO_BASE}/retriv.png` },
     video: { vi: `${MEDIA_BASE}/vi_retriv.mp4`, en: `${MEDIA_BASE}/en_retriv.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_retriv.jpg`, en: `${MEDIA_BASE}/en_retriv.jpg` },
     vi: {
-      name: "RETRIV™",
-      cat: "Giải pháp thu hồi dưỡng chất",
+      name: "RetriV (Thu hồi dinh dưỡng)",
       long: "RETRIV™ là giải pháp công nghệ tiên phong, biến “dòng nước thải” của các nhà máy chế biến thực phẩm thành “dòng tài nguyên” bằng cách thu hồi dinh dưỡng, giảm ô nhiễm và tạo ra các sản phẩm giá trị gia tăng theo hướng kinh tế tuần hoàn. Giải pháp cung cấp trọn bộ từ hoạt chất đến hệ thiết bị vận hành.",
     },
     en: {
-      name: "RETRIV™",
-      cat: "Nutrient Recovery Solutions",
+      name: "RetriV (Nutrient recovery)",
       long: "RETRIV™ is a pioneering technology solution that transforms \"wastewater streams\" from food-processing plants into \"resource streams\" by recovering nutrients, reducing pollution and generating value-added products within a circular economy model. The solution offers a complete package, from treatment bio-agents to modular equipment.",
     },
   },
@@ -255,6 +246,9 @@ function IconSprite() {
         </symbol>
         <symbol id="eco2-i-linkedin-btn" viewBox="0 0 16 16">
           <path fill="currentColor" d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78v5.727zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"></path>
+        </symbol>
+        <symbol id="eco2-i-globe-btn" viewBox="0 0 16 16">
+          <path fill="currentColor" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm6.93 7.2h-2.5a12.7 12.7 0 0 0-.92-4.32A6.4 6.4 0 0 1 14.93 7.2ZM8 3.24c.69.92 1.52 2.56 1.65 5.56H6.35C6.48 5.8 7.31 4.16 8 3.24ZM2.51 7.2a6.4 6.4 0 0 1 3.42-4.32A12.7 12.7 0 0 0 5.01 7.2H2.51Zm0 1.6h2.5a12.7 12.7 0 0 0 .92 4.32A6.4 6.4 0 0 1 2.51 8.8ZM8 12.76c-.69-.92-1.52-2.56-1.65-5.56h3.3c-.13 3-1.02 4.64-1.65 5.56Zm1.83-.24a12.7 12.7 0 0 0 .92-4.32h2.5a6.4 6.4 0 0 1-3.42 4.32Z"></path>
         </symbol>
         <symbol id="eco2-i-youtube" viewBox="0 0 461.001 461.001">
           <path style={{ fill: "#F61C0D" }} d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728 c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137 C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607 c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z" />
@@ -661,13 +655,22 @@ function EcosystemVnfPage() {
               <span className="hero-title-prefix">{t.heroTitlePrefix}</span>
               <span className="accent">{t.heroTitleAccent}{t.heroTitleSuffix}</span>
             </h1>
-            <p className="lead">
-              {t.heroLead1}
-              <br /><br />
-              {t.heroLead1b}
-              <br /><br />
-              {t.heroLead2}
-            </p>
+            <div className="lead">
+              <p>{t.heroLead1}</p>
+              <p>
+                {(() => {
+                  const s = t.heroLead1b
+                  const i = s.indexOf("(zero-waste)")
+                  if (i >= 0) {
+                    const before = s.slice(0, i)
+                    const after = s.slice(i + "(zero-waste)".length)
+                    return <>{before}<span className="nowrap">(zero-waste)</span>{after}</>
+                  }
+                  return s
+                })()}
+              </p>
+              <p>{t.heroLead2}</p>
+            </div>
             <div className="hero-ctas">
               <a href="#ecosystem" className="btn btn-ghost">{t.ctaExplore}</a>
               <a href="mailto:sales@vnfoods.vn" className="btn btn-ghost">{t.ctaContact}</a>
@@ -741,9 +744,17 @@ function EcosystemVnfPage() {
               <div ref={appInfoRef} className="app-fade-in app-content">
                 <div className="app-head">
                   <img className="app-logo" src={active.logo[lang]} alt="" />
-                  <div className="cat">{active[lang].cat}</div>
                 </div>
-                <h3>{active[lang].name}</h3>
+                <h3>
+                  {(() => {
+                    const n = active[lang].name
+                    const m = n.match(/^(.*?)\s*(\([^)]+\))\s*$/)
+                    if (m) {
+                      return <>{m[1]}<br /><span className="app-name-cat">{m[2]}</span></>
+                    }
+                    return n
+                  })()}
+                </h3>
                 <div className="app-desc-card"><p>{active[lang].long}</p></div>
               </div>
               <div className="app-video">
@@ -779,6 +790,18 @@ function EcosystemVnfPage() {
                     >
                       <svg style={{ width: 16, height: 16, fill: "currentColor" }}><use href="#eco2-i-linkedin-btn" /></svg>
                       {t.liLink}
+                    </a>
+                  )}
+                  {"website" in active && active.website && (
+                    <a
+                      className="btn btn-outline-navy"
+                      href={active.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ borderColor: "rgba(255,255,255,.5)", color: "var(--eco2-white)" }}
+                    >
+                      <svg style={{ width: 16, height: 16, fill: "currentColor" }}><use href="#eco2-i-globe-btn" /></svg>
+                      {t.webLink}
                     </a>
                   )}
                 </div>
@@ -1035,7 +1058,10 @@ html{
 .vnf-eco2-page .hero h1{color:var(--eco2-white); font-size:clamp(26px,5vw,38px); font-weight:600; letter-spacing:-.01em; text-wrap:balance;}
 .vnf-eco2-page .hero h1 .hero-title-prefix{white-space:nowrap;}
 .vnf-eco2-page .hero h1 .accent{color:var(--eco2-white); font-weight:800; border-bottom:3px solid rgba(255,255,255,.6); display:block; width:fit-content; margin-top:.35em;}
-.vnf-eco2-page .hero p.lead{color:rgba(255,255,255,.92); font-size:17px; margin:20px 0 30px; max-width:540px; line-height:1.75; text-wrap:pretty; white-space:pre-line;}
+.vnf-eco2-page .hero .lead{color:rgba(255,255,255,.92); font-size:17px; margin:20px 0 30px; max-width:540px; line-height:1.75; text-wrap:pretty;}
+.vnf-eco2-page .hero .lead p{margin:0 0 14px;}
+.vnf-eco2-page .hero .lead p:last-child{margin-bottom:0;}
+.vnf-eco2-page .hero .lead .nowrap{white-space:nowrap;}
 .vnf-eco2-page .hero-ctas{display:flex; flex-direction:column; gap:14px;}
 .vnf-eco2-page .hero-media{display:flex; flex-direction:column; gap:14px; width:100%;}
 .vnf-eco2-page .hero-video{
@@ -1096,12 +1122,16 @@ html{
 @media(min-width:480px){ .vnf-eco2-page .hero-ctas{flex-direction:row; flex-wrap:wrap;} }
 @media(min-width:640px){
   .vnf-eco2-page .hero{padding:84px 0 68px;}
-  .vnf-eco2-page .hero p.lead{font-size:18.5px;}
+  .vnf-eco2-page .hero .lead{font-size:18.5px;}
   .vnf-eco2-page .play-btn{width:76px; height:76px;}
   .vnf-eco2-page .play-btn svg{width:24px; height:24px; margin-left:4px;}
 }
+@media(min-width:640px) and (max-width:959.98px){
+  .vnf-eco2-page .hero .lead{max-width:100%; font-size:15.5px;}
+}
 @media(min-width:960px){
   .vnf-eco2-page .hero{padding:100px 0 84px;}
+  .vnf-eco2-page .hero .lead{max-width:540px;}
   .vnf-eco2-page .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;}
 }
 
@@ -1391,6 +1421,9 @@ html{
 .vnf-eco2-page .app-panel h3{
   color:rgba(255,255,255,.82); font-weight:600; font-size:clamp(18px,3vw,23px); margin:0 0 18px; font-style:normal; text-wrap:balance;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+.vnf-eco2-page .app-panel h3 .app-name-cat{
+  display:inline-block; font-size:0.6em; font-weight:500; color:rgba(255,255,255,.55); margin-top:4px;
 }
 .vnf-eco2-page .app-desc-card{
   background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); border-radius:8px;
