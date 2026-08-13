@@ -141,11 +141,15 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_ho.mp4`, en: `${MEDIA_BASE}/en_ho.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_ho.jpg`, en: `${MEDIA_BASE}/en_ho.jpg` },
     vi: {
-      name: "Vươn Xanh Việt Nam (Trồng trọt)",
+      name: "Vươn Xanh Việt Nam",
+      cat: "Nông nghiệp bền vững",
+      tabCat: "Trồng trọt",
       long: "VƯƠN XANH VIỆT NAM giới thiệu giải pháp nông nghiệp từ phụ phẩm tôm. Các chế phẩm sinh học giúp tái tạo đất, tăng năng suất cây trồng, bảo quản sau thu hoạch...hướng đến mô hình canh tác xanh, tự nhiên, và bền vững.",
     },
     en: {
-      name: "Vuon Xanh Viet Nam (Horticulture)",
+      name: "VUON XANH VIETNAM (EcoBlossom)",
+      cat: "Sustainable Agriculture",
+      tabCat: "Horticulture",
       long: "VUON XANH VIETNAM (ECOBLOSSOM) introduces agricultural solutions derived from shrimp by-products. Its bio-solutions help regenerate soils, increase crop yields and support post-harvest preservation, all towards a green, natural and sustainable farming model.",
     },
   },
@@ -156,11 +160,15 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_an.mp4`, en: `${MEDIA_BASE}/en_an.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_an.jpg`, en: `${MEDIA_BASE}/en_an.jpg` },
     vi: {
-      name: "Vật Nuôi Vui Khoẻ (Chăn nuôi)",
+      name: "Vật Nuôi Vui Khoẻ",
+      cat: "Chăn nuôi và nuôi trồng thuỷ sản",
+      tabCat: "Chăn nuôi",
       long: "VẬT NUÔI VUI KHỎE cung cấp giải pháp dinh dưỡng tuần hoàn cho chăn nuôi và nuôi trồng thủy sản từ phụ phẩm tôm. Các chế phẩm sinh học giúp vật nuôi ăn khỏe, lớn nhanh, kháng bệnh tốt, đồng thời tối ưu chi phí trong bối cảnh giá vật tư tăng cao và nguồn cung nhập khẩu biến động.",
     },
     en: {
-      name: "Vat Nuoi Vui Khoe (Animal Husbandry)",
+      name: "VAT NUOI VUI KHOE (Happy Animals)",
+      cat: "Livestock and Aquaculture",
+      tabCat: "Animal Husbandry",
       long: "VAT NUOI VUI KHOE (HAPPY ANIMALS) introduces circular nutrition solutions for livestock and aquaculture, derived from shrimp by-products. Its bio-solutions help animals eat well, grow fast and resist diseases, while optimizing costs for farmers, especially in the context of rising input prices and disrupted import supply chains.",
     },
   },
@@ -171,11 +179,15 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_pet.mp4`, en: `${MEDIA_BASE}/en_pet.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_pet.jpg`, en: `${MEDIA_BASE}/en_pet.jpg` },
     vi: {
-      name: "Tôm4Pet (Dinh dưỡng thú cưng)",
+      name: "Tôm4Pet",
+      cat: "Dinh dưỡng và chăm sóc thú cưng",
+      tabCat: "Dinh dưỡng thú cưng",
       long: "TÔM4PET giới thiệu các giải pháp dinh dưỡng và chăm sóc thú cưng. Ngoài việc mang đến những bữa ăn đậm hương vị tôm, các giải pháp còn hỗ trợ phòng ngừa bệnh mãn tính (thận, đường ruột, cholesterol...) và nâng cao sức khỏe toàn diện cho thú cưng.",
     },
     en: {
-      name: "Tom4Pet (Pet nutrition)",
+      name: "TOM4PET",
+      cat: "Pet Nutrition and Care",
+      tabCat: "Pet nutrition",
       long: "TOM4PET introduces pet nutrition and care solutions. Beyond delivering enjoyable shrimp-based palatability, its solutions help prevent chronic conditions (kidney, gut, cholesterol, etc.) and support overall health for our companions.",
     },
   },
@@ -186,11 +198,15 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_fi.mp4`, en: `${MEDIA_BASE}/en_fi.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_fi.jpg`, en: `${MEDIA_BASE}/en_fi.jpg` },
     vi: {
-      name: "Tôm Yummy (Nguyên liệu thực phẩm)",
+      name: "Tôm Yummy",
+      cat: "Nguyên liệu thực phẩm",
+      tabCat: "Nguyên liệu thực phẩm",
       long: "TÔM YUMMY giới thiệu nhóm nguyên liệu thực phẩm mang hương vị tôm tự nhiên & thơm ngon, cùng nhóm nguyên liệu chức năng hỗ trợ bổ sung dinh dưỡng. Giải pháp hướng tới đáp ứng nhu cầu thực phẩm sạch, an toàn, và bền vững hơn.",
     },
     en: {
-      name: "Tom Yummy (Food ingredients)",
+      name: "TOM YUMMY",
+      cat: "Food Ingredients",
+      tabCat: "Food ingredients",
       long: "TOM YUMMY introduces Food Ingredient lines that deliver natural & delicious shrimp flavour, together with Functional Ingredient lines that support nutritional enrichment. The solutions are designed to meet the growing demand for cleaner, safer, and more sustainable food.",
     },
   },
@@ -201,11 +217,15 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/bio_shared.mp4`, en: `${MEDIA_BASE}/bio_shared.mp4` },
     poster: { vi: `${MEDIA_BASE}/bio_shared.jpg`, en: `${MEDIA_BASE}/bio_shared.jpg` },
     vi: {
-      name: "BioInShell (Công nghiệp sạch)",
+      name: "BIOINSHELL",
+      cat: "Công nghiệp",
+      tabCat: "Công nghiệp sạch",
       long: "BIOINSHELL là mảng kinh doanh sáng tạo tập trung phát triển các giải pháp bio-polymer từ tôm ứng dụng trong nhiều ngành như nhựa sinh học, vật liệu sinh học, và xử lý nước. Những vật liệu này được biết đến với tính tương thích sinh học, phân hủy sinh học, khả năng kháng khuẩn và tạo màng, hướng tới thay thế các hóa chất và polymer có nguồn gốc hóa thạch.",
     },
     en: {
-      name: "BioInShell (Sustainable industries)",
+      name: "BIOINSHELL",
+      cat: "Industry",
+      tabCat: "Sustainable industries",
       long: "BIOINSHELL is an innovative business line specializing in shrimp-based bio-polymers, serving various industries such as bioplastics, biomaterials, water treatment. These materials are known for their biocompatibility, biodegradability, anti-microbial activity and film-forming properties, and are designed to replace fossil-based polymers and chemicals.",
     },
   },
@@ -218,11 +238,15 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_retriv.mp4`, en: `${MEDIA_BASE}/en_retriv.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_retriv.jpg`, en: `${MEDIA_BASE}/en_retriv.jpg` },
     vi: {
-      name: "RetriV (Thu hồi dinh dưỡng)",
+      name: "RETRIV™",
+      cat: "Giải pháp thu hồi dưỡng chất",
+      tabCat: "Thu hồi dinh dưỡng",
       long: "RETRIV™ là giải pháp công nghệ tiên phong, biến “dòng nước thải” của các nhà máy chế biến thực phẩm thành “dòng tài nguyên” bằng cách thu hồi dinh dưỡng, giảm ô nhiễm và tạo ra các sản phẩm giá trị gia tăng theo hướng kinh tế tuần hoàn. Giải pháp cung cấp trọn bộ từ hoạt chất đến hệ thiết bị vận hành.",
     },
     en: {
-      name: "RetriV (Nutrient recovery)",
+      name: "RETRIV™",
+      cat: "Nutrient Recovery Solutions",
+      tabCat: "Nutrient recovery",
       long: "RETRIV™ is a pioneering technology solution that transforms \"wastewater streams\" from food-processing plants into \"resource streams\" by recovering nutrients, reducing pollution and generating value-added products within a circular economy model. The solution offers a complete package, from treatment bio-agents to modular equipment.",
     },
   },
@@ -735,7 +759,10 @@ function EcosystemVnfPage() {
               {ECOSYSTEM.map((e, i) => (
                 <div key={e.fb} className={`app-item ${i === appIndex ? "active" : ""}`} onClick={() => showApp(i)}>
                   <div className="mini"><img src={e.logo[lang]} alt="" /></div>
-                  <span>{e[lang].name}</span>
+                  <div className="app-item-text">
+                    <span className="app-item-name">{e[lang].name}</span>
+                    <span className="app-item-cat">({e[lang].tabCat})</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -744,17 +771,9 @@ function EcosystemVnfPage() {
               <div ref={appInfoRef} className="app-fade-in app-content">
                 <div className="app-head">
                   <img className="app-logo" src={active.logo[lang]} alt="" />
+                  <div className="cat">{active[lang].cat}</div>
                 </div>
-                <h3>
-                  {(() => {
-                    const n = active[lang].name
-                    const m = n.match(/^(.*?)\s*(\([^)]+\))\s*$/)
-                    if (m) {
-                      return <>{m[1]}<br /><span className="app-name-cat">{m[2]}</span></>
-                    }
-                    return n
-                  })()}
-                </h3>
+                <h3>{active[lang].name}</h3>
                 <div className="app-desc-card"><p>{active[lang].long}</p></div>
               </div>
               <div className="app-video">
@@ -1384,8 +1403,11 @@ html{
 .vnf-eco2-page .app-item.active .mini{background:rgba(255,255,255,.16);}
 .vnf-eco2-page .app-item .mini svg{width:17px; height:17px; fill:var(--eco2-primary);}
 .vnf-eco2-page .app-item.active .mini svg{fill:var(--eco2-white);}
-.vnf-eco2-page .app-item span{font-size:14.5px; font-weight:700; color:var(--eco2-primary); white-space:nowrap;}
-.vnf-eco2-page .app-item.active span{color:var(--eco2-white);}
+.vnf-eco2-page .app-item-text{display:flex; flex-direction:column; gap:2px; line-height:1.2;}
+.vnf-eco2-page .app-item-name{font-size:14.5px; font-weight:700; color:var(--eco2-primary); white-space:nowrap;}
+.vnf-eco2-page .app-item-cat{font-size:14.5px; font-weight:700; color:var(--eco2-primary); white-space:nowrap;}
+.vnf-eco2-page .app-item.active .app-item-name{color:var(--eco2-white);}
+.vnf-eco2-page .app-item.active .app-item-cat{color:var(--eco2-white);}
 .vnf-eco2-page .app-panel{
   background:var(--eco2-primary); border-radius:var(--eco2-radius-card); padding:28px 24px; color:var(--eco2-white);
   position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; gap:24px;
@@ -1421,9 +1443,6 @@ html{
 .vnf-eco2-page .app-panel h3{
   color:rgba(255,255,255,.82); font-weight:600; font-size:clamp(18px,3vw,23px); margin:0 0 18px; font-style:normal; text-wrap:balance;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-}
-.vnf-eco2-page .app-panel h3 .app-name-cat{
-  display:inline-block; font-size:0.6em; font-weight:500; color:rgba(255,255,255,.55); margin-top:4px;
 }
 .vnf-eco2-page .app-desc-card{
   background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.15); border-radius:8px;
@@ -1471,7 +1490,7 @@ html{
 .vnf-eco2-page .arrow-btn svg{width:17px; height:17px; fill:var(--eco2-white);}
 @media(min-width:640px){
   .vnf-eco2-page #ecosystem{padding:96px 0;}
-  .vnf-eco2-page .app-item span{white-space:normal;}
+  .vnf-eco2-page .app-item-name{white-space:normal;}
   .vnf-eco2-page .app-panel{padding:38px;}
   
   /* Tablet/Desktop: tabs on top, content below in 2x2 grid */
