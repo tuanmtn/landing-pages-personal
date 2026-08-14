@@ -147,7 +147,7 @@ const ECOSYSTEM = [
       long: "VƯƠN XANH VIỆT NAM giới thiệu giải pháp nông nghiệp từ phụ phẩm tôm. Các chế phẩm sinh học giúp tái tạo đất, tăng năng suất cây trồng, bảo quản sau thu hoạch...hướng đến mô hình canh tác xanh, tự nhiên, và bền vững.",
     },
     en: {
-      name: "Vuon Xanh Viet Nam (EcoBlossom)",
+      name: "Vuon Xanh Viet Nam",
       cat: "Sustainable Agriculture",
       tabCat: "Horticulture",
       long: "VUON XANH VIETNAM (ECOBLOSSOM) introduces agricultural solutions derived from shrimp by-products. Its bio-solutions help regenerate soils, increase crop yields and support post-harvest preservation, all towards a green, natural and sustainable farming model.",
@@ -166,7 +166,7 @@ const ECOSYSTEM = [
       long: "VẬT NUÔI VUI KHỎE cung cấp giải pháp dinh dưỡng tuần hoàn cho chăn nuôi và nuôi trồng thủy sản từ phụ phẩm tôm. Các chế phẩm sinh học giúp vật nuôi ăn khỏe, lớn nhanh, kháng bệnh tốt, đồng thời tối ưu chi phí trong bối cảnh giá vật tư tăng cao và nguồn cung nhập khẩu biến động.",
     },
     en: {
-      name: "Vat Nuoi Vui Khoe (Happy Animals)",
+      name: "Vat Nuoi Vui Khoe",
       cat: "Livestock and Aquaculture",
       tabCat: "Animal Husbandry",
       long: "VAT NUOI VUI KHOE (HAPPY ANIMALS) introduces circular nutrition solutions for livestock and aquaculture, derived from shrimp by-products. Its bio-solutions help animals eat well, grow fast and resist diseases, while optimizing costs for farmers, especially in the context of rising input prices and disrupted import supply chains.",
