@@ -150,7 +150,7 @@ const ECOSYSTEM = [
       name: "Vuon Xanh Viet Nam",
       cat: "Sustainable Agriculture",
       tabCat: "Horticulture",
-      long: "VUON XANH VIETNAM (ECOBLOSSOM) introduces agricultural solutions derived from shrimp by-products. Its bio-solutions help regenerate soils, increase crop yields and support post-harvest preservation, all towards a green, natural and sustainable farming model.",
+      long: "VUON XANH VIETNAM introduces agricultural solutions derived from shrimp by-products. Its bio-solutions help regenerate soils, increase crop yields and support post-harvest preservation, all towards a green, natural and sustainable farming model.",
     },
   },
   {
@@ -168,8 +168,8 @@ const ECOSYSTEM = [
     en: {
       name: "Vat Nuoi Vui Khoe",
       cat: "Livestock and Aquaculture",
-      tabCat: "Animal Husbandry",
-      long: "VAT NUOI VUI KHOE (HAPPY ANIMALS) introduces circular nutrition solutions for livestock and aquaculture, derived from shrimp by-products. Its bio-solutions help animals eat well, grow fast and resist diseases, while optimizing costs for farmers, especially in the context of rising input prices and disrupted import supply chains.",
+      tabCat: "Animal husbandry",
+      long: "VAT NUOI VUI KHOE introduces circular nutrition solutions for livestock and aquaculture, derived from shrimp by-products. Its bio-solutions help animals eat well, grow fast and resist diseases, while optimizing costs for farmers, especially in the context of rising input prices and disrupted import supply chains.",
     },
   },
   {
