@@ -147,7 +147,7 @@ const ECOSYSTEM = [
       long: "VƯƠN XANH VIỆT NAM giới thiệu giải pháp nông nghiệp từ phụ phẩm tôm. Các chế phẩm sinh học giúp tái tạo đất, tăng năng suất cây trồng, bảo quản sau thu hoạch...hướng đến mô hình canh tác xanh, tự nhiên, và bền vững.",
     },
     en: {
-      name: "VUON XANH VIETNAM (EcoBlossom)",
+      name: "Vuon Xanh Viet Nam (EcoBlossom)",
       cat: "Sustainable Agriculture",
       tabCat: "Horticulture",
       long: "VUON XANH VIETNAM (ECOBLOSSOM) introduces agricultural solutions derived from shrimp by-products. Its bio-solutions help regenerate soils, increase crop yields and support post-harvest preservation, all towards a green, natural and sustainable farming model.",
@@ -166,7 +166,7 @@ const ECOSYSTEM = [
       long: "VẬT NUÔI VUI KHỎE cung cấp giải pháp dinh dưỡng tuần hoàn cho chăn nuôi và nuôi trồng thủy sản từ phụ phẩm tôm. Các chế phẩm sinh học giúp vật nuôi ăn khỏe, lớn nhanh, kháng bệnh tốt, đồng thời tối ưu chi phí trong bối cảnh giá vật tư tăng cao và nguồn cung nhập khẩu biến động.",
     },
     en: {
-      name: "VAT NUOI VUI KHOE (Happy Animals)",
+      name: "Vat Nuoi Vui Khoe (Happy Animals)",
       cat: "Livestock and Aquaculture",
       tabCat: "Animal Husbandry",
       long: "VAT NUOI VUI KHOE (HAPPY ANIMALS) introduces circular nutrition solutions for livestock and aquaculture, derived from shrimp by-products. Its bio-solutions help animals eat well, grow fast and resist diseases, while optimizing costs for farmers, especially in the context of rising input prices and disrupted import supply chains.",
@@ -185,7 +185,7 @@ const ECOSYSTEM = [
       long: "TÔM4PET giới thiệu các giải pháp dinh dưỡng và chăm sóc thú cưng. Ngoài việc mang đến những bữa ăn đậm hương vị tôm, các giải pháp còn hỗ trợ phòng ngừa bệnh mãn tính (thận, đường ruột, cholesterol...) và nâng cao sức khỏe toàn diện cho thú cưng.",
     },
     en: {
-      name: "TOM4PET",
+      name: "Tom4Pet",
       cat: "Pet Nutrition and Care",
       tabCat: "Pet nutrition",
       long: "TOM4PET introduces pet nutrition and care solutions. Beyond delivering enjoyable shrimp-based palatability, its solutions help prevent chronic conditions (kidney, gut, cholesterol, etc.) and support overall health for our companions.",
@@ -204,7 +204,7 @@ const ECOSYSTEM = [
       long: "TÔM YUMMY giới thiệu nhóm nguyên liệu thực phẩm mang hương vị tôm tự nhiên & thơm ngon, cùng nhóm nguyên liệu chức năng hỗ trợ bổ sung dinh dưỡng. Giải pháp hướng tới đáp ứng nhu cầu thực phẩm sạch, an toàn, và bền vững hơn.",
     },
     en: {
-      name: "TOM YUMMY",
+      name: "Tom Yummy",
       cat: "Food Ingredients",
       tabCat: "Food ingredients",
       long: "TOM YUMMY introduces Food Ingredient lines that deliver natural & delicious shrimp flavour, together with Functional Ingredient lines that support nutritional enrichment. The solutions are designed to meet the growing demand for cleaner, safer, and more sustainable food.",
@@ -217,13 +217,13 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/bio_shared.mp4`, en: `${MEDIA_BASE}/bio_shared.mp4` },
     poster: { vi: `${MEDIA_BASE}/bio_shared.jpg`, en: `${MEDIA_BASE}/bio_shared.jpg` },
     vi: {
-      name: "BIOINSHELL",
+      name: "BioInShell",
       cat: "Công nghiệp",
       tabCat: "Công nghiệp sạch",
       long: "BIOINSHELL là mảng kinh doanh sáng tạo tập trung phát triển các giải pháp bio-polymer từ tôm ứng dụng trong nhiều ngành như nhựa sinh học, vật liệu sinh học, và xử lý nước. Những vật liệu này được biết đến với tính tương thích sinh học, phân hủy sinh học, khả năng kháng khuẩn và tạo màng, hướng tới thay thế các hóa chất và polymer có nguồn gốc hóa thạch.",
     },
     en: {
-      name: "BIOINSHELL",
+      name: "BioInShell",
       cat: "Industry",
       tabCat: "Sustainable industries",
       long: "BIOINSHELL is an innovative business line specializing in shrimp-based bio-polymers, serving various industries such as bioplastics, biomaterials, water treatment. These materials are known for their biocompatibility, biodegradability, anti-microbial activity and film-forming properties, and are designed to replace fossil-based polymers and chemicals.",
@@ -238,13 +238,13 @@ const ECOSYSTEM = [
     video: { vi: `${MEDIA_BASE}/vi_retriv.mp4`, en: `${MEDIA_BASE}/en_retriv.mp4` },
     poster: { vi: `${MEDIA_BASE}/vi_retriv.jpg`, en: `${MEDIA_BASE}/en_retriv.jpg` },
     vi: {
-      name: "RETRIV™",
+      name: "Retriv™",
       cat: "Giải pháp thu hồi dưỡng chất",
       tabCat: "Thu hồi dinh dưỡng",
       long: "RETRIV™ là giải pháp công nghệ tiên phong, biến “dòng nước thải” của các nhà máy chế biến thực phẩm thành “dòng tài nguyên” bằng cách thu hồi dinh dưỡng, giảm ô nhiễm và tạo ra các sản phẩm giá trị gia tăng theo hướng kinh tế tuần hoàn. Giải pháp cung cấp trọn bộ từ hoạt chất đến hệ thiết bị vận hành.",
     },
     en: {
-      name: "RETRIV™",
+      name: "Retriv™",
       cat: "Nutrient Recovery Solutions",
       tabCat: "Nutrient recovery",
       long: "RETRIV™ is a pioneering technology solution that transforms \"wastewater streams\" from food-processing plants into \"resource streams\" by recovering nutrients, reducing pollution and generating value-added products within a circular economy model. The solution offers a complete package, from treatment bio-agents to modular equipment.",
@@ -448,7 +448,6 @@ function EcosystemVnfPage() {
   const appListRef = useRef<HTMLDivElement>(null)
   const heroVideoRef = useRef<HTMLVideoElement>(null)
   const heroSubtabsRef = useRef<HTMLDivElement>(null)
-  const heroSkipFirstAutoPlayRef = useRef(true)
   const heroFirstAnimSkipRef = useRef(true)
   const t = T[lang]
   const active = ECOSYSTEM[appIndex]
@@ -559,19 +558,6 @@ function EcosystemVnfPage() {
     resizeObserver.observe(el)
     return () => resizeObserver.disconnect()
   }, [lang])
-
-  // Auto-play the hero video whenever the user switches subtitle or page language
-  // (skipped on the very first mount so the video doesn't auto-play on page load).
-  useEffect(() => {
-    if (heroSkipFirstAutoPlayRef.current) {
-      heroSkipFirstAutoPlayRef.current = false
-      return
-    }
-    const v = heroVideoRef.current
-    if (!v) return
-    const p = v.play()
-    if (p && typeof p.catch === "function") p.catch(() => { /* autoplay blocked, ignore */ })
-  }, [lang, subLang])
 
   // Re-run the same fade-in animation on both the video and the subtitle tab list
   // whenever lang/subLang changes, so they animate in sync.
