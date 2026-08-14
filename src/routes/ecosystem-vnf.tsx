@@ -1141,6 +1141,9 @@ html{
   .vnf-eco2-page .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;}
 }
 
+/* EN title: keep on one line on tablet/small desktop by letting the h1 grow to its content width */
+.vnf-eco2-page .hero h1.hero-title--en{width:max-content; max-width:none;}
+
 /* ===== Reveal animation (scroll-triggered) ===== */
 .vnf-eco2-page .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
 .vnf-eco2-page .reveal.in{opacity:1; transform:translateY(0);}
