@@ -661,7 +661,7 @@ function EcosystemVnfPage() {
         <div className="wrap hero-grid">
           <div>
             <div className="brand-id">{t.brandId}</div>
-            <h1>
+            <h1 className={`hero-title hero-title--${lang}`}>
               <span className="hero-title-prefix">{t.heroTitlePrefix}</span>
               <span className="accent">{t.heroTitleAccent}{t.heroTitleSuffix}</span>
             </h1>
@@ -1063,6 +1063,7 @@ html{
 .vnf-eco2-page .hero h1{color:var(--eco2-white); font-size:clamp(26px,5vw,38px); font-weight:600; letter-spacing:-.01em; text-wrap:balance;}
 .vnf-eco2-page .hero h1 .hero-title-prefix{white-space:nowrap;}
 .vnf-eco2-page .hero h1 .accent{color:var(--eco2-white); font-weight:800; border-bottom:3px solid rgba(255,255,255,.6); display:block; width:fit-content; margin-top:.35em;}
+.vnf-eco2-page .hero h1.hero-title--en .accent{display:inline; margin-top:0;}
 .vnf-eco2-page .hero .lead{color:rgba(255,255,255,.92); font-size:17px; margin:20px 0 30px; max-width:540px; line-height:1.75; text-wrap:pretty;}
 .vnf-eco2-page .hero .lead p{margin:0 0 14px;}
 .vnf-eco2-page .hero .lead p:last-child{margin-bottom:0;}
