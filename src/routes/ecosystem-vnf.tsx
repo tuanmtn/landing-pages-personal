@@ -931,13 +931,22 @@ html{
 
 /* container: fluid on mobile, capped + padded on larger screens */
 .vnf-eco2-page .wrap{width:100%; max-width:var(--eco2-maxw); margin:0 auto; padding:0 var(--eco2-gutter);}
-@media(min-width:720px){ .vnf-eco2-page{ --eco2-gutter:18px; } }
-@media(min-width:960px){ .vnf-eco2-page{ --eco2-gutter:16px; } }
-@media(min-width:1200px){ .vnf-eco2-page{ --eco2-gutter:1px; } }
+/* Nhiều breakpoint gutter để xử lý các kích thước desktop/tablet khác nhau */
+@media(min-width:720px){ .vnf-eco2-page{ --eco2-gutter:24px; } }
+@media(min-width:960px){ .vnf-eco2-page{ --eco2-gutter:56px; } }
+@media(min-width:1200px){ .vnf-eco2-page{ --eco2-gutter:40px; } }
+@media(min-width:1440px){ .vnf-eco2-page{ --eco2-gutter:100px; } }
 
-/* Tablet/laptop: thêm padding trái/phải, giảm nhẹ tiêu đề để không bị xuống dòng */
+/* Laptop/tablet ngang (960-1199): giảm tiêu đề, tăng gap cột để tránh sát mép/video */
 @media(min-width:960px) and (max-width:1199px){
-  .vnf-eco2-page .hero h1{ font-size: clamp(26px, 4vw, 34px); }
+  .vnf-eco2-page .hero h1{ font-size: clamp(22px, 3.2vw, 30px); }
+  .vnf-eco2-page .hero-grid{ gap: 52px; }
+}
+
+/* Màn hình lớn hơn 1200px nhưng vẫn có thể bị DevTools chiếm chỗ */
+@media(min-width:1200px) and (max-width:1439px){
+  .vnf-eco2-page .hero h1{ font-size: clamp(24px, 3vw, 34px); }
+  .vnf-eco2-page .hero-grid{ gap: 44px; }
 }
 
 /* ===== Typography hierarchy: Heading -> Subheading -> Body -> Caption ===== */
