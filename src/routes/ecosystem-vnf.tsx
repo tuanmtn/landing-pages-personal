@@ -931,7 +931,8 @@ html{
 
 /* container: fluid on mobile, capped + padded on larger screens */
 .vnf-eco2-page .wrap{width:100%; max-width:var(--eco2-maxw); margin:0 auto; padding:0 var(--eco2-gutter);}
-@media(min-width:720px){ .vnf-eco2-page{ --eco2-gutter:28px; } }
+@media(min-width:720px){ .vnf-eco2-page{ --eco2-gutter:22px; } }
+@media(min-width:960px){ .vnf-eco2-page{ --eco2-gutter:16px; } }
 
 /* ===== Typography hierarchy: Heading -> Subheading -> Body -> Caption ===== */
 .vnf-eco2-page .eyebrow{
