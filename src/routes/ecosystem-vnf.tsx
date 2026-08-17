@@ -934,18 +934,18 @@ html{
 /* Nhiều breakpoint gutter để xử lý các kích thước desktop/tablet khác nhau */
 @media(min-width:720px){ .vnf-eco2-page{ --eco2-gutter:24px; } }
 @media(min-width:960px){ .vnf-eco2-page{ --eco2-gutter:56px; } }
-@media(min-width:1200px){ .vnf-eco2-page{ --eco2-gutter:40px; } }
-@media(min-width:1440px){ .vnf-eco2-page{ --eco2-gutter:100px; } }
+@media(min-width:1200px){ .vnf-eco2-page{ --eco2-gutter:56px; } }
+@media(min-width:1557px){ .vnf-eco2-page{ --eco2-gutter:8px; } }
 
 /* Laptop/tablet ngang (960-1199): giảm tiêu đề, tăng gap cột để tránh sát mép/video */
 @media(min-width:960px) and (max-width:1199px){
-  .vnf-eco2-page .hero h1{ font-size: clamp(22px, 3.2vw, 30px); }
+  .vnf-eco2-page .hero h1{ font-size: clamp(20px, 2.8vw, 28px); }
   .vnf-eco2-page .hero-grid{ gap: 52px; }
 }
 
 /* Màn hình lớn hơn 1200px nhưng vẫn có thể bị DevTools chiếm chỗ */
 @media(min-width:1200px) and (max-width:1439px){
-  .vnf-eco2-page .hero h1{ font-size: clamp(24px, 3vw, 34px); }
+  .vnf-eco2-page .hero h1{ font-size: clamp(22px, 2.6vw, 32px); }
   .vnf-eco2-page .hero-grid{ gap: 44px; }
 }
 
@@ -1076,10 +1076,15 @@ html{
 .vnf-eco2-page .hero-grid{
   position:relative; z-index:2; display:flex; flex-direction:column; gap:36px;
 }
-.vnf-eco2-page .hero h1{color:var(--eco2-white); font-size:clamp(26px,5vw,38px); font-weight:600; letter-spacing:-.01em; text-wrap:balance;}
+.vnf-eco2-page .hero h1{color:var(--eco2-white); font-size:clamp(20px,5vw,38px); font-weight:600; letter-spacing:-.01em; text-wrap:balance;}
 .vnf-eco2-page .hero h1 .hero-title-prefix{white-space:nowrap;}
 .vnf-eco2-page .hero h1 .accent{color:var(--eco2-white); font-weight:800; border-bottom:3px solid rgba(255,255,255,.6); display:block; width:fit-content; margin-top:.35em;}
 .vnf-eco2-page .hero h1.hero-title--en .accent{display:inline; margin-top:0;}
+@media(max-width:639px){
+  .vnf-eco2-page .hero h1{font-size:clamp(21px,5.4vw,28px); letter-spacing:-.02em;}
+  .vnf-eco2-page .hero h1.hero-title--en{font-size:clamp(20px,5vw,26px);}
+  .vnf-eco2-page .hero h1 .hero-title-prefix{white-space:normal;}
+}
 .vnf-eco2-page .hero .lead{color:rgba(255,255,255,.92); font-size:17px; margin:20px 0 30px; max-width:540px; line-height:1.75; text-wrap:pretty;}
 .vnf-eco2-page .hero .lead p{margin:0 0 14px;}
 .vnf-eco2-page .hero .lead p:last-child{margin-bottom:0;}
