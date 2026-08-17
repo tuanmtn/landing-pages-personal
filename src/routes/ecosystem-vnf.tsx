@@ -901,7 +901,7 @@ const ECO2_CSS = `
   --eco2-text:#333333;           /* neutral ink for body copy (legibility only) */
   --eco2-text-soft:#5B6674;      /* secondary/caption ink */
   --eco2-font: Calibri, Carlito, "Segoe UI", Tahoma, sans-serif; /* Calibri everywhere per brand guide; Carlito is the metric-compatible, Vietnamese-safe fallback on non-Windows systems */
-  --eco2-maxw: 1180px;
+  --eco2-maxw: 1320px;
   --eco2-gutter: 18px;
   --eco2-shadow-sm: 0 4px 16px rgba(23,73,127,.08);
   --eco2-shadow-md: 0 10px 30px rgba(23,73,127,.12);
@@ -931,8 +931,14 @@ html{
 
 /* container: fluid on mobile, capped + padded on larger screens */
 .vnf-eco2-page .wrap{width:100%; max-width:var(--eco2-maxw); margin:0 auto; padding:0 var(--eco2-gutter);}
-@media(min-width:720px){ .vnf-eco2-page{ --eco2-gutter:22px; } }
+@media(min-width:720px){ .vnf-eco2-page{ --eco2-gutter:18px; } }
 @media(min-width:960px){ .vnf-eco2-page{ --eco2-gutter:16px; } }
+@media(min-width:1200px){ .vnf-eco2-page{ --eco2-gutter:1px; } }
+
+/* Tablet/laptop: thêm padding trái/phải, giảm nhẹ tiêu đề để không bị xuống dòng */
+@media(min-width:960px) and (max-width:1199px){
+  .vnf-eco2-page .hero h1{ font-size: clamp(26px, 4vw, 34px); }
+}
 
 /* ===== Typography hierarchy: Heading -> Subheading -> Body -> Caption ===== */
 .vnf-eco2-page .eyebrow{
@@ -1139,7 +1145,7 @@ html{
 @media(min-width:960px){
   .vnf-eco2-page .hero{padding:100px 0 84px;}
   .vnf-eco2-page .hero .lead{max-width:540px;}
-  .vnf-eco2-page .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center;}
+  .vnf-eco2-page .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:36px; align-items:center;}
 }
 
 /* EN title: keep on one line on tablet/small desktop by letting the h1 grow to its content width */
